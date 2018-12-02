@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 const { Pool } = require("pg");
-const PORT = process.env.PORT;
 
 // require my ENV file to set envrionment variables
 require("dotenv").config();
+
+const PORT = process.env.PORT;
 
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -31,6 +32,7 @@ pool.connect(err => {
 
 // set view engine to ejs
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 // importing routes
 var mainRoute = require("./routes/index.js");

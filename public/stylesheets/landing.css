@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.weddingTag {
+    font-family: 'Kaushan Script', cursive;
+    color: whitesmoke;
+}
+
+#backgroundCollage {
+    background-image: url("../images/love-collage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 95vw;
+    padding-bottom: 1000px;
+}
+
+.container-fluid {
+    padding-top: 15%;
+}
+
+h3 {
+    color: whitesmoke;
+}
