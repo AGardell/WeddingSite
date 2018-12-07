@@ -36,8 +36,10 @@ app.use(express.static(__dirname + "/public"));
 
 // importing routes
 var mainRoute = require("./routes/index.js");
+var rsvpRoute = require("./routes/rsvp.js");
 
 app.use(mainRoute);
+app.use(rsvpRoute);
 
 app.listen(PORT, () => {
   console.log("Website started on port 5500!");

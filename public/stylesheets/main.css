@@ -1,3 +1,215 @@
-#weddingTag {
-    font-family: 'Kaushan Script', cursive;
+html,
+body {
+  background-color: #13283a;
+}
+
+.weddingTag {
+  font-family: "Great Vibes", cursive;
+  font-size: 35px;
+}
+
+.navLogo {
+  color: lightgrey;
+  font-family: "Great Vibes", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10vh;
+}
+
+.navLogo-2 {
+  color: lightgrey;
+  font-family: "Great Vibes", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 auto;
+}
+
+.navHeader {
+  display: flex;
+  flex-direction: column;
+  background: lightgrey;
+}
+
+.nav-burger {
+  position: absolute;
+  right: 15px;
+  top: 21px;
+  width: 20px;
+  height: 16.5px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-burger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 20px;
+  background: #13283a;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+.nav-burger span:nth-child(1) {
+  top: 0px;
+}
+
+.nav-burger span:nth-child(2) {
+  top: 8px;
+}
+
+.nav-burger span:nth-child(3) {
+  top: 16px;
+}
+
+.nav-burger.open-links span:nth-child(1) {
+  top: 8px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.nav-burger.open-links span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.nav-burger.open-links span:nth-child(3) {
+  top: 8px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.nav-brand {
+  color: #13283a;
+  font-family: "Amatic SC", cursive;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: none;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.nav-links li a {
+  color: #13283a;
+  font-family: "Amatic SC", cursive;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 40px;
+  text-decoration: none;
+}
+
+#ampersand {
+  font-family: "Great Vibes", cursive;
+  font-size: 200%;
+  padding-left: 30px;
+  padding-right: 15px;
+}
+
+#rsvpPage {
+  color: lightgrey;
+  font-family: "Great Vibes", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20vh;
+}
+
+#rsvpPage > h2 {
+  font-size: 3.5vw;
+}
+
+#rsvpPage > div {
+  width: 100%;
+}
+
+#rsvpPage > div > form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#rsvpPage #form-group {
+  padding: 15px 0;
+}
+
+.form-group input[type="text"] {
+  width: 5vw;
+}
+
+.open-links {
+  display: flex;
+  background-color: lightgrey; 
+}
+
+@media screen and (min-width: 768px) {
+  .navHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: lightgrey;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    list-style: none;
+    padding-right: 10px;
+    margin-bottom: 0;
+  }
+
+  .nav-links li a {
+    color: #13283a;
+    font-family: "Amatic SC", cursive;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 40px;
+    text-decoration: none;
+  }
+
+  .nav-brand {
+    color: #13283a;
+    font-family: "Amatic SC", cursive;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 40px;
+    text-decoration: none;
+  }
+
+  .nav-burger {
+    display: none;
+  }
 }
