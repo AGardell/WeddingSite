@@ -113,7 +113,7 @@ body {
 .nav-links {
   display: none;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   flex-direction: column;
   width: 100%;
   list-style: none;
@@ -138,7 +138,8 @@ body {
 
 #rsvpPage {
   color: lightgrey;
-  font-family: "Great Vibes", cursive;
+  width: 100%;
+  font-family: "Amatic SC", cursive;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -147,7 +148,21 @@ body {
 }
 
 #rsvpPage > h2 {
-  font-size: 3.5vw;
+  display: flex;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+#add-person {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: lightgrey; 
+}
+
+#add-person > i {
+  font-size: 20px;
+  color: lightgrey;
 }
 
 #rsvpPage > div {
@@ -156,16 +171,23 @@ body {
 
 #rsvpPage > div > form {
   width: 100%;
+  text-align: center;
+}
+
+#rsvpPage .form-group {
+  padding-left: 230px;
   display: flex;
-  justify-content: center;
 }
 
-#rsvpPage #form-group {
-  padding: 15px 0;
+.form-group input[type='text'] {
+  width: 200px;
+  margin: 0 25px;
+  font-size: 25px;
 }
 
-.form-group input[type="text"] {
-  width: 5vw;
+#rsvpPage > div > form >.submit-button {
+  font-size: 30px;
+  margin-top: 15px;
 }
 
 .open-links {
