@@ -1,5 +1,3 @@
-// import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.js'
-
 let hamburger = document.getElementById("hamburger");
 let links = document.getElementById("links");
 let addPerson = document.getElementById("add-person");
@@ -37,7 +35,7 @@ function createFirstNameElement(num) {
 
 function createSpanBarElement() {
     let spanBar = document.createElement('span');
-    spanBar.appendChild(document.createTextNode('|'));
+    spanBar.appendChild(document.createTextNode('/'));
     return spanBar;
 }
 

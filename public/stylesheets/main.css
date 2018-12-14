@@ -151,6 +151,7 @@ body {
   display: flex;
   font-size: 50px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 #add-person {
@@ -175,8 +176,10 @@ body {
 }
 
 #rsvpPage .form-group {
-  padding-left: 230px;
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;  
 }
 
 .form-group input[type='text'] {
@@ -234,4 +237,63 @@ body {
   .nav-burger {
     display: none;
   }
+}
+
+@media screen and (min-width: 870px) {
+  #rsvpPage {
+    color: lightgrey;
+    width: 100%;
+    font-family: "Amatic SC", cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20vh;
+  }
+  
+  #rsvpPage > h2 {
+    display: flex;
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-align: center;    
+  }
+  
+  #add-person {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: lightgrey; 
+  }
+  
+  #add-person > i {
+    font-size: 20px;
+    color: lightgrey;
+  }
+  
+  #rsvpPage > div {
+    width: 100%;
+  }
+  
+  #rsvpPage > div > form {
+    width: 100%;
+    text-align: center;
+  }
+  
+  #rsvpPage .form-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .form-group input[type='text'] {
+    width: 200px;
+    margin: 0 25px;
+    font-size: 25px;
+  }
+  
+  #rsvpPage > div > form >.submit-button {
+    font-size: 30px;
+    margin-top: 15px;
+  }  
 }
