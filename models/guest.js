@@ -7,15 +7,23 @@ module.exports = function (sequelize, type) {
         },
         firstname: {
             type: type.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                notEmpty: true                
+            }
         },
         lastname: {
             type: type.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                notEmpty: true                
+            }
         },
         email: {
             type: type.STRING,
-            isEmail: true
+            validate: {
+                isEmail: true                
+            }
         }
     });
 };

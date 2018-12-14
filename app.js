@@ -1,13 +1,17 @@
 const express = require("express");
+const bodyParser = require('body-parser');
 const app = express();
 
 // require my ENV file to set envrionment variables
 require("dotenv").config();
+// required for body-parser
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 const PORT = process.env.PORT;
 
 // require js file that bootstraps sequelize and tests the connection to the DB.
-const {bootstrapDB, Guest} = require("./sequelize.js");
+const bootstrapDB = require("./sequelize.js").bootstrapDB;
 
 // execute promise and if resolved, proceeed to launch web application. If rejected, return the error and end.
 bootstrapDB

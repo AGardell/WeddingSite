@@ -1,9 +1,13 @@
+// import Swal from '../../node_modules/sweetalert2/dist/sweetalert2.js'
+
 let hamburger = document.getElementById("hamburger");
 let links = document.getElementById("links");
 let addPerson = document.getElementById("add-person");
 let guestList = document.getElementById("guest-list");
+let form = document.getElementById('guest-list');
 var guestCount = 1;
-
+// add JS to click button in order to append additional text fields for additional guests.
+// -------------------------------------------------------
 hamburger.addEventListener("click", () => {
     links.classList.toggle("open-links");
     hamburger.classList.toggle("open-links");
@@ -64,3 +68,59 @@ function createButtonElement() {
     buttonEl.appendChild(document.createTextNode('\u00A0\u00A0Click me to add additional guests!'));
     return buttonEl;
 }
+
+// JS to compile proper JSON object before sending.
+// -------------------------------------------------------
+
+function sendData(data) {
+    let guestList = {};
+    let xhr = new XMLHttpRequest();
+
+    for(var i = 0; i < guestCount; i++){
+        let firstname = document.getElementsByName('firstname' + i)[0].value;
+        let lastname = document.getElementsByName('lastname' + i)[0].value;
+        let email = document.getElementsByName('email' + i)[0].value;
+        let guestNum = 'guest' + i;
+
+        guestList[guestNum] = {
+            'firstname': firstname,
+            'lastname': lastname,
+            'email': email
+        };
+    };
+
+    xhr.onload = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            if (xhr.responseText === '1') {
+                Swal({
+                    titleText: 'Thank you!',
+                    text: 'Look forward to seeing you Oct 27th!',
+                    type: 'success'
+                });
+            }
+            else {
+                Swal({
+                    titleText: 'Error',
+                    text: 'Uh oh! Looks like something went wrong!',
+                    type: 'error'
+                })                
+            }
+        }
+        else {
+            Swal({
+                titleText: 'Error',
+                text: 'Uh oh! Looks like something went wrong!',
+                type: 'error'
+            })
+        }
+    };
+
+    xhr.open('POST', '/rsvp', true);
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');   
+    xhr.send(JSON.stringify(guestList));
+};
+
+form.addEventListener('submit', () => {
+    event.preventDefault();
+    sendData(form);
+});
