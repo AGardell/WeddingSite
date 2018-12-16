@@ -2,8 +2,9 @@ let hamburger = document.getElementById("hamburger");
 let links = document.getElementById("links");
 let addPerson = document.getElementById("add-person");
 let guestList = document.getElementById("guest-list");
-let form = document.getElementById('guest-list');
+let deleteBtn = document.getElementsByClassName('far fa-times-circle delete-button')[0];
 var guestCount = 1;
+
 // add JS to click button in order to append additional text fields for additional guests.
 // -------------------------------------------------------
 hamburger.addEventListener("click", () => {
@@ -12,7 +13,7 @@ hamburger.addEventListener("click", () => {
 });
 
 addPerson.addEventListener("click", () => {
-    console.log("Add person clicked!");
+    // console.log("Add person clicked!");
     let divEl = document.createElement('div');
     divEl.classList.add('form-group');
     divEl.appendChild(createFirstNameElement(guestCount));
@@ -20,7 +21,7 @@ addPerson.addEventListener("click", () => {
     divEl.appendChild(createLastNameElement(guestCount));
     divEl.appendChild(createSpanBarElement());
     divEl.appendChild(createEmailElement(guestCount));
-    divEl.appendChild(createButtonElement());
+    // divEl.appendChild(createButtonElement());
     guestList.insertBefore(divEl, document.querySelector('#guest-list > .submit-button'));
     guestCount += 1;
 });
@@ -35,7 +36,8 @@ function createFirstNameElement(num) {
 
 function createSpanBarElement() {
     let spanBar = document.createElement('span');
-    spanBar.appendChild(document.createTextNode('/'));
+    spanBar.appendChild(document.createTextNode('|'));
+    spanBar.classList.add('box-break')
     return spanBar;
 }
 
@@ -52,18 +54,16 @@ function createEmailElement(num) {
     emailEl.type = 'text';
     emailEl.placeholder = 'Email';
     emailEl.name = 'email' + num;
+    // emailEl.style = 'margin-bottom: 40px;';
     return emailEl;
 }
 
 function createButtonElement() {
     let buttonEl = document.createElement('button');
-    let iconEl = document.createElement('i');
-    iconEl.classList.add('fa');
-    iconEl.classList.add('fa-user-circle');
-    buttonEl.id = 'add-person';
-    buttonEl.style = 'visibility: hidden;';
-    buttonEl.appendChild(iconEl);
-    buttonEl.appendChild(document.createTextNode('\u00A0\u00A0Click me to add additional guests!'));
+    buttonEl.classList.add('submit-button');
+    buttonEl.type = 'submit';
+    buttonEl.appendChild(document.createTextNode('SEND RSVP'));
+    // buttonEl.appendChild(document.createTextNode('\u00A0\u00A0Click me to add additional guests!'));
     return buttonEl;
 }
 
@@ -93,13 +93,19 @@ function sendData(data) {
                 Swal({
                     titleText: 'Thank you!',
                     text: 'Look forward to seeing you Oct 27th!',
-                    type: 'success'
+                    type: 'success',
+                    confirmButtonText: 'See you there!',
+                    allowOutsideClick: false
+                }).then((isConfirm) => {
+                    if (isConfirm){
+                        clearRsvpForm();
+                    }
                 });
             }
             else {
                 Swal({
                     titleText: 'Error',
-                    text: 'Uh oh! Looks like something went wrong!',
+                    text: 'Uh oh! Looks like something went wrong! Please double check the all names and emails and try submitting again!',
                     type: 'error'
                 })                
             }
@@ -118,7 +124,31 @@ function sendData(data) {
     xhr.send(JSON.stringify(guestList));
 };
 
-form.addEventListener('submit', () => {
+function clearRsvpForm(){
+    guestCount = 0;
+    let divEl = document.createElement('div');
+    divEl.classList.add('form-group');
+    divEl.appendChild(createFirstNameElement(guestCount));
+    divEl.appendChild(createSpanBarElement());
+    divEl.appendChild(createLastNameElement(guestCount));
+    divEl.appendChild(createSpanBarElement());
+    divEl.appendChild(createEmailElement(guestCount));
+    guestCount += 1;    
+
+    guestList.innerHTML = '';
+    guestList.appendChild(divEl);
+    guestList.appendChild(createButtonElement());
+};
+
+guestList.addEventListener('submit', () => {
     event.preventDefault();
-    sendData(form);
+    sendData(guestList);
+});
+
+deleteBtn.addEventListener('click', () => {
+    if (guestCount > 1) { 
+        let removeEl = document.querySelector('.form-group:last-of-type');
+        removeEl.parentElement.removeChild(removeEl);
+        guestCount -= 1;
+    }
 });

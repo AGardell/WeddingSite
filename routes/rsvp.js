@@ -26,7 +26,6 @@ router.post("/rsvp", (req, res) => {
       res.send('1');
     })
     .catch(err => {
-      console.log('ERROR!!!');
       res.send(err);
     });
 });
