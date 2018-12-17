@@ -9,14 +9,16 @@ module.exports = function (sequelize, type) {
             type: type.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true                
+                notEmpty: true,
+                isAlphaNumeric: true               
             }
         },
         lastname: {
             type: type.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true                
+                notEmpty: true,
+                isAlphaNumeric: true               
             }
         },
         email: {

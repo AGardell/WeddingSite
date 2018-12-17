@@ -220,6 +220,7 @@ body {
   cursor: pointer;
 }
 
+/* #region Start of media queries below: */
 @media screen and (min-width: 768px) {
   .navHeader {
     display: flex;
@@ -341,3 +342,4 @@ body {
     cursor: pointer;
   }
 }
+/* #endregion Start of media queries below: */
