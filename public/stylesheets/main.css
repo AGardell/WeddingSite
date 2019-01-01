@@ -1,6 +1,12 @@
 html,
 body {
   background-color: #13283a;
+  overflow: visible;
+}
+
+body.noscroll {
+  overflow: hidden;
+  padding-right: 15px;
 }
 
 .weddingTag {

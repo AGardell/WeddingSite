@@ -22,9 +22,11 @@ hamburger.addEventListener("click", () => {
         if (imageFrame.style.display == 'none' || imageFrame.style.display == '') {
             imageFrame.style.display = 'flex';
             imageFrameContent.src = this.src;
+            document.body.classList.toggle('noscroll');
         }
         else {
             imageFrame.style.display = 'none';
+            document.body.classList.toggle('noscroll');
         }
     });
 });
@@ -33,6 +35,7 @@ if (imageFrameContent != null) {
     imageFrameContent.addEventListener('click', () => {
         if (imageFrame.style.display != 'none') {
             imageFrame.style.display = 'none';
+            document.body.classList.toggle('noscroll');
         }
     });
 };
