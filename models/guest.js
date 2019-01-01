@@ -10,7 +10,7 @@ module.exports = function (sequelize, type) {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                isAlphaNumeric: true               
+                isAlphanumeric: true               
             }
         },
         lastname: {
@@ -18,7 +18,7 @@ module.exports = function (sequelize, type) {
             allowNull: false,
             validate: {
                 notEmpty: true,
-                isAlphaNumeric: true               
+                isAlphanumeric: true               
             }
         },
         email: {

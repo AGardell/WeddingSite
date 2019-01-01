@@ -3,6 +3,10 @@ let links = document.getElementById("links");
 let addPerson = document.getElementById("add-person");
 let guestList = document.getElementById("guest-list");
 let deleteBtn = document.getElementsByClassName('far fa-times-circle delete-button')[0];
+let images = document.querySelectorAll('.images, .grid-thumbnail-image');
+let imageFrame = document.getElementById('imageFrame');
+let imageFrameContent = document.getElementById('frameContent');
+
 var guestCount = 1;
 
 // add JS to click button in order to append additional text fields for additional guests.
@@ -12,19 +16,42 @@ hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("open-links");
 });
 
-addPerson.addEventListener("click", () => {
-    // console.log("Add person clicked!");
-    let divEl = document.createElement('div');
-    divEl.classList.add('form-group');
-    divEl.appendChild(createFirstNameElement(guestCount));
-    divEl.appendChild(createSpanBarElement());
-    divEl.appendChild(createLastNameElement(guestCount));
-    divEl.appendChild(createSpanBarElement());
-    divEl.appendChild(createEmailElement(guestCount));
-    // divEl.appendChild(createButtonElement());
-    guestList.insertBefore(divEl, document.querySelector('#guest-list > .submit-button'));
-    guestCount += 1;
+[...images].forEach(img => {
+    img.addEventListener('click', function() {
+        console.log(imageFrame.style.display);
+        if (imageFrame.style.display == 'none' || imageFrame.style.display == '') {
+            imageFrame.style.display = 'flex';
+            imageFrameContent.src = this.src;
+        }
+        else {
+            imageFrame.style.display = 'none';
+        }
+    });
 });
+
+if (imageFrameContent != null) {
+    imageFrameContent.addEventListener('click', () => {
+        if (imageFrame.style.display != 'none') {
+            imageFrame.style.display = 'none';
+        }
+    });
+};
+
+if (addPerson != null) {
+    addPerson.addEventListener("click", () => {
+        // console.log("Add person clicked!");
+        let divEl = document.createElement('div');
+        divEl.classList.add('form-group');
+        divEl.appendChild(createFirstNameElement(guestCount));
+        divEl.appendChild(createSpanBarElement());
+        divEl.appendChild(createLastNameElement(guestCount));
+        divEl.appendChild(createSpanBarElement());
+        divEl.appendChild(createEmailElement(guestCount));
+        // divEl.appendChild(createButtonElement());
+        guestList.insertBefore(divEl, document.querySelector('#guest-list > .submit-button'));
+        guestCount += 1;
+    });
+};
 
 function createFirstNameElement(num) {
     let firstNameEl = document.createElement('input');
@@ -103,11 +130,12 @@ function sendData(data) {
                 });
             }
             else {
+                console.log(xhr.responseText); 
                 Swal({
                     titleText: 'Error',
                     text: 'Uh oh! Looks like something went wrong! Please double check the all names and emails and try submitting again!',
                     type: 'error'
-                })                
+                })               
             }
         }
         else {
@@ -116,6 +144,7 @@ function sendData(data) {
                 text: 'Uh oh! Looks like something went wrong!',
                 type: 'error'
             })
+            console.log(xhr.responseText);
         }
     };
 
@@ -140,15 +169,19 @@ function clearRsvpForm(){
     guestList.appendChild(createButtonElement());
 };
 
-guestList.addEventListener('submit', () => {
-    event.preventDefault();
-    sendData(guestList);
-});
+if (guestList != null) {
+    guestList.addEventListener('submit', () => {
+        event.preventDefault();
+        sendData(guestList);
+    });
+};
 
-deleteBtn.addEventListener('click', () => {
-    if (guestCount > 1) { 
-        let removeEl = document.querySelector('.form-group:last-of-type');
-        removeEl.parentElement.removeChild(removeEl);
-        guestCount -= 1;
-    }
-});
+if (deleteBtn != null) {
+    deleteBtn.addEventListener('click', () => {
+        if (guestCount > 1) { 
+            let removeEl = document.querySelector('.form-group:last-of-type');
+            removeEl.parentElement.removeChild(removeEl);
+            guestCount -= 1;
+        }
+    });
+};

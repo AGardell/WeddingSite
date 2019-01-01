@@ -9,4 +9,8 @@ router.get("/home", (req, res) => {
     res.render("index");
 });
 
+router.get('/ourstory', (req, res) => {
+    res.render('story');
+});
+
 module.exports = router;

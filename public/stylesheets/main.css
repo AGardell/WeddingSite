@@ -8,24 +8,6 @@ body {
   font-size: 35px;
 }
 
-.navLogo {
-  color: lightgrey;
-  font-family: "Great Vibes", cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10vh;
-}
-
-.navLogo-2 {
-  color: lightgrey;
-  font-family: "Great Vibes", cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 auto;
-}
-
 .navHeader {
   display: flex;
   flex-direction: column;
@@ -129,11 +111,83 @@ body {
   text-decoration: none;
 }
 
+.navLogo {
+  color: lightgrey;
+  font-family: "Great Vibes", cursive;
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.navLogo h1:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+}
+
 #ampersand {
   font-family: "Great Vibes", cursive;
   font-size: 200%;
-  padding-left: 30px;
-  padding-right: 15px;
+  padding-top: .15em;
+  padding-right: .15em;
+}
+
+.info-bio {
+  color: lightgray;
+  margin: 0 auto;
+  width: 90%;
+  margin-top: 30px;
+}
+
+.images {
+  height: 288px;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+}
+
+.images:hover {
+  transition: 0.5s;
+  opacity: 0.7;
+}
+
+#imageFrame {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.imageFrame-content {
+  margin: auto;
+  display: block;
+  width: 100%;
+}
+
+/* Add Animation - Zoom in the Modal */
+.imageFrame-content { 
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.info-bio img[src='/images/kissing.jpg'] {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.info-bio img[src='/images/weddingRing.jpg'] {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 #rsvpPage {
@@ -220,8 +274,33 @@ body {
   cursor: pointer;
 }
 
+#bio-header {
+  font-size: 3em;
+  margin-top: 2%;
+}
+
+.image-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 18%);
+  margin-top: 40px;
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+.grid-thumbnail-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.grid-thumbnail-image:hover {
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
 /* #region Start of media queries below: */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .navHeader {
     display: flex;
     flex-direction: row;
@@ -260,6 +339,40 @@ body {
   .nav-burger {
     display: none;
   }
+
+  .navLogo {
+    color: lightgrey;
+    font-family: "Great Vibes", cursive;
+    text-align: center;
+    padding-top: 10vh;
+    display: block;
+  }
+
+  .navLogo h1:nth-child(3) {
+    display: block;
+  } 
+
+  #ampersand {
+    font-family: "Great Vibes", cursive;
+    font-size: 200%;
+    padding-left: 30px;
+    padding-right: 15px;
+  } 
+
+  .imageFrame-content {
+    margin: auto;
+    display: block;
+    width: 50%;
+    max-width: 700px;
+  }  
+
+  .image-grid {
+    display: inline-grid;
+    grid-template-columns: repeat(6, 13%);
+    margin-top: 40px;
+    grid-gap: 10px;
+    justify-content: center;
+  }  
 }
 
 @media screen and (min-width: 870px) {
