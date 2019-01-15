@@ -6,8 +6,14 @@ let deleteBtn = document.getElementsByClassName('far fa-times-circle delete-butt
 let images = document.querySelectorAll('.images, .grid-thumbnail-image');
 let imageFrame = document.getElementById('imageFrame');
 let imageFrameContent = document.getElementById('frameContent');
+let navDropdown = document.getElementById('nav-dropdown');
+let landingEnter = document.getElementById('enter-website');
 
 var guestCount = 1;
+
+navDropdown.addEventListener('click', function() {
+    this.classList.toggle('pseudo-hover');
+});
 
 // add JS to click button in order to append additional text fields for additional guests.
 // -------------------------------------------------------

@@ -1,0 +1,34 @@
+<% include partials/header %>
+
+    <div id='location-body'>
+        <div class='info-bio-location'>
+            <input type="text" id="start" placeholder="Start..">
+            <input type="text" id="end" placeholder="End..">
+            <button id="MapBtn" type="submit">Test Maps</button>
+            <div class='favorite-spots'>
+                Check out our favorite spots!
+                <ol type='A'>
+                    <li>
+                        <a href='http://www.luckyslastchance.com'>Lucky's Last Chance</a> - <span class='favorite-spot-addr'>4421 Main St, Philadelphia, PA 19127</span>
+                    </li>
+                    <li>
+                        <a href='https://www.philadelphiazoo.org/'>Philadelphia Zoo</a> - <span class='favorite-spot-addr'>3400 W Girard Ave, Philadelphia, PA 19104</span>
+                    </li>
+                    <li>
+                        Third thing to check out
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id='map'></div>
+        <!--<div id='right-panel'></div>-->
+    </div>
+    <!--<div id='geolocation' class='weddingTag' style='color: white;'></div>-->
+
+    <script src='/javascript/location.js'></script>
+    <!-- Below is for Google Maps API with my key-->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkowKgrWxL_8B6wyHtmY-JExvNlG41X5Y&callback=initMap">
+    </script> 
+<% include partials/footer %>

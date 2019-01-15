@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
 
-// require my ENV file to set envrionment variables
+// require my ENV file to set environment variables
 require("dotenv").config();
 // required for body-parser
 app.use(bodyParser.urlencoded({extended:true}));

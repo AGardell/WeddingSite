@@ -108,13 +108,16 @@ body.noscroll {
   margin: 0 auto;
 }
 
-.nav-links li a {
+.nav-links li a, .nav-links li button {
   color: #13283a;
   font-family: "Amatic SC", cursive;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 40px;
   text-decoration: none;
+  border: none;
+  background: none;
+  outline: none;
 }
 
 .navLogo {
@@ -151,7 +154,7 @@ body.noscroll {
 
 .images:hover {
   transition: 0.5s;
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 #imageFrame {
@@ -305,8 +308,54 @@ body.noscroll {
   transition: 0.5s;
 }
 
+#nav-dropdown {
+  transition: all 0.5s ease;
+}
+
+#nav-dropdown.pseudo-hover > ul {
+  display: block;
+  max-height: 500px;
+}
+
+#nav-dropdown > ul {
+    transition: all 0.5s ease;
+    background: lightgrey;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    max-height: 0px;
+    overflow: hidden;
+}
+
+#nav-dropdown > button > i {
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+#nav-dropdown > button {
+  display: flex;
+  align-items: baseline;
+}
+
+#map {
+  height: 500px;
+  width: 300px;
+  margin-top: 40px;
+}
+
+.info-bio-location {
+  color: lightgray;
+  margin-top: 40px;
+}
+
+#location-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 /* #region Start of media queries below: */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 622px) {
   .navHeader {
     display: flex;
     flex-direction: row;
@@ -324,14 +373,22 @@ body.noscroll {
     margin-bottom: 0;
   }
 
-  .nav-links li a {
+  .nav-links li a, .nav-links li button {
     color: #13283a;
     font-family: "Amatic SC", cursive;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 40px;
     text-decoration: none;
+    border: none;
+    background: none;
+    outline: none;    
+    cursor: pointer;
   }
+
+  .nav-links li a:hover, .nav-links li button:hover {
+    font-weight: 700;
+  }  
 
   .nav-brand {
     color: #13283a;
@@ -378,6 +435,19 @@ body.noscroll {
     margin-top: 40px;
     grid-gap: 10px;
     justify-content: center;
+  }  
+
+  #nav-dropdown {
+    transition: 0.5s;
+  }
+  
+  #nav-dropdown > ul {
+    transition: all 0.5s ease;
+    background: lightgrey;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    padding: 0;
   }  
 }
 

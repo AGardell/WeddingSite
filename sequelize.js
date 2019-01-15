@@ -1,9 +1,6 @@
 const Sequelize = require("sequelize");
 const GuestModel = require("./models/guest.js");
 
-// require my ENV file to set envrionment variables
-require("dotenv").config();
-
 // define credentials to connect to DB
 const sequelize = new Sequelize(
     process.env.DB,
