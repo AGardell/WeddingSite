@@ -17,7 +17,7 @@ router.post("/rsvp", (req, res) => {
       email: req.body[key].email
     });
   }
-
+  
   Guest.bulkCreate(myGuests, 
     {
       validate:true

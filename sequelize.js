@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const GuestModel = require("./models/guest.js");
+const LocationModel  = require("./models/locations.js");
 
 // define credentials to connect to DB
 const sequelize = new Sequelize(
@@ -21,6 +22,9 @@ const sequelize = new Sequelize(
 
 // Guest model
 const Guest = GuestModel(sequelize, Sequelize);
+
+// Location model
+const Location = LocationModel(sequelize, Sequelize);
 
 // create a new connection via sequelize
 let bootstrapDB = new Promise(function(resolve, reject) {
@@ -46,5 +50,6 @@ let bootstrapDB = new Promise(function(resolve, reject) {
 
 module.exports = {
     bootstrapDB,
-    Guest   
+    Guest,
+    Location
 }

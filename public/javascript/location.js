@@ -9,7 +9,7 @@ function initMap() {
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var directionsService = new google.maps.DirectionsService();
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 7,
+    zoom: 10,
     center: { lat: 39.95, lng: -75.16 }
   });
 
@@ -49,33 +49,36 @@ var addresses = document.getElementsByClassName('favorite-spot-addr');
   });
 });
 
-
-var markers = [
-  {
-    position: {
-      lat: 40.026539,
-      lng: -75.225380
-    },
-    title: 'Lucky\'s Last Chance',
-    label: 'A'
-  },
-  {
-    position: {
-      lat: 39.9748,
-      lng: -75.1950
-    },
-    title: 'Philadelphia Zoo',
-    label: 'B'
-  }
-];
-
 function createMarkers(map) {
-  markers.forEach((marker) => {
-    var customMarker = new google.maps.Marker({
-      position: marker.position,
-      map: map,
-      title: marker.title,
-      label: marker.label
+  var labelLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  locationData.forEach((location) => {
+    geocodeAddress(location.address).then((result) => {
+      console.log(result);
+      var customMarker = new google.maps.Marker({
+        position: result,
+        map: map,
+        title: location.name,
+        label: labelLetters[(location.id - 1) % labelLetters.length]
+      });      
+    });
+  });
+}
+
+function geocodeAddress(address) {
+  var geocoder = new google.maps.Geocoder()
+  return new Promise((resolve, reject) => {
+    geocoder.geocode({
+      'address': address
+    }, (results, status) => {
+      if (status === 'OK') {
+        resolve({ 
+          'lat': results[0].geometry.location.lat(),
+          'lng': results[0].geometry.location.lng()
+         });
+      }
+      else {
+        reject('Something went wrong with the geocode: ' + status);
+      }
     });
   });
 }

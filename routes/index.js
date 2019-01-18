@@ -1,4 +1,5 @@
 const express = require("express");
+const Location = require('../sequelize.js').Location;
 var router = express.Router();
 
 router.get("/", (req, res) => {
@@ -14,7 +15,11 @@ router.get('/ourstory', (req, res) => {
 });
 
 router.get('/location', (req, res) => {
-    res.render('location');
+    Location.findAll({raw: true}).then(location => {
+        res.render('location', {
+            locations: location
+        });
+    })
 });
 
 module.exports = router;
