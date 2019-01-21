@@ -108,7 +108,8 @@ body.noscroll {
   margin: 0 auto;
 }
 
-.nav-links li a, .nav-links li button {
+.nav-links li a,
+.nav-links li button {
   color: #13283a;
   font-family: "Amatic SC", cursive;
   padding-left: 10px;
@@ -135,8 +136,8 @@ body.noscroll {
 #ampersand {
   font-family: "Great Vibes", cursive;
   font-size: 200%;
-  padding-top: .15em;
-  padding-right: .15em;
+  padding-top: 0.15em;
+  padding-right: 0.15em;
 }
 
 .info-bio {
@@ -166,8 +167,8 @@ body.noscroll {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 .imageFrame-content {
@@ -177,23 +178,27 @@ body.noscroll {
 }
 
 /* Add Animation - Zoom in the Modal */
-.imageFrame-content { 
+.imageFrame-content {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
 
 @keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
-.info-bio img[src='/images/kissing.jpg'] {
+.info-bio img[src="/images/kissing.jpg"] {
   float: right;
   margin-left: 10px;
   margin-bottom: 10px;
 }
 
-.info-bio img[src='/images/weddingRing.jpg'] {
+.info-bio img[src="/images/weddingRing.jpg"] {
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -221,7 +226,7 @@ body.noscroll {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: lightgrey; 
+  color: lightgrey;
   font-size: 25px;
   margin-bottom: 7px;
 }
@@ -244,16 +249,16 @@ body.noscroll {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
 }
 
-.form-group input[type='text'] {
+.form-group input[type="text"] {
   width: 200px;
   margin: 0 25px;
   font-size: 25px;
 }
 
-#rsvpPage > div > form >.submit-button {
+#rsvpPage > div > form > .submit-button {
   font-size: 30px;
   margin-top: 15px;
 }
@@ -262,15 +267,15 @@ body.noscroll {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
-  transform: rotate(45deg);  
+  transform: rotate(45deg);
 }
 
 .open-links {
   display: flex;
-  background-color: lightgrey; 
+  background-color: lightgrey;
 }
 
-.form-group input[name*='email'] {
+.form-group input[name*="email"] {
   margin-bottom: 40px;
 }
 
@@ -315,16 +320,18 @@ body.noscroll {
 #nav-dropdown.pseudo-hover > ul {
   display: block;
   max-height: 500px;
+  z-index: 1;
 }
 
 #nav-dropdown > ul {
-    transition: all 0.5s ease;
-    background: lightgrey;
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    max-height: 0px;
-    overflow: hidden;
+  transition: all 0.5s ease;
+  background: lightgrey;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  max-height: 0px;
+  overflow: hidden;
+  z-index: 1;
 }
 
 #nav-dropdown > button > i {
@@ -339,19 +346,35 @@ body.noscroll {
 
 #map {
   height: 500px;
-  width: 300px;
-  margin-top: 40px;
+  width: 90%;
+  margin: 40px auto 20px auto;
 }
 
 .info-bio-location {
   color: lightgray;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 40px auto 0 auto;
+}
+
+.info-bio-location > #end {
+  margin: 10px 0 10px 0;
 }
 
 #location-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
+}
+
+.favorite-spots {
+  margin-top: 10px;
+}
+
+.favorite-spot-addr {
+  cursor: pointer;
 }
 
 /* #region Start of media queries below: */
@@ -373,7 +396,8 @@ body.noscroll {
     margin-bottom: 0;
   }
 
-  .nav-links li a, .nav-links li button {
+  .nav-links li a,
+  .nav-links li button {
     color: #13283a;
     font-family: "Amatic SC", cursive;
     padding-left: 10px;
@@ -382,13 +406,14 @@ body.noscroll {
     text-decoration: none;
     border: none;
     background: none;
-    outline: none;    
+    outline: none;
     cursor: pointer;
   }
 
-  .nav-links li a:hover, .nav-links li button:hover {
+  .nav-links li a:hover,
+  .nav-links li button:hover {
     font-weight: 700;
-  }  
+  }
 
   .nav-brand {
     color: #13283a;
@@ -413,21 +438,21 @@ body.noscroll {
 
   .navLogo h1:nth-child(3) {
     display: block;
-  } 
+  }
 
   #ampersand {
     font-family: "Great Vibes", cursive;
     font-size: 200%;
     padding-left: 30px;
     padding-right: 15px;
-  } 
+  }
 
   .imageFrame-content {
     margin: auto;
     display: block;
     width: 50%;
     max-width: 700px;
-  }  
+  }
 
   .image-grid {
     display: inline-grid;
@@ -435,12 +460,12 @@ body.noscroll {
     margin-top: 40px;
     grid-gap: 10px;
     justify-content: center;
-  }  
+  }
 
   #nav-dropdown {
     transition: 0.5s;
   }
-  
+
   #nav-dropdown > ul {
     transition: all 0.5s ease;
     background: lightgrey;
@@ -448,7 +473,7 @@ body.noscroll {
     position: absolute;
     text-align: center;
     padding: 0;
-  }  
+  } 
 }
 
 @media screen and (min-width: 870px) {
@@ -462,54 +487,54 @@ body.noscroll {
     align-items: center;
     padding-top: 20vh;
   }
-  
+
   #rsvpPage > h2 {
     display: flex;
     font-size: 50px;
     margin-bottom: 10px;
-    text-align: center;    
+    text-align: center;
   }
-  
+
   #add-person {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: lightgrey; 
+    color: lightgrey;
     font-size: 25px;
     margin-bottom: 7px;
   }
-  
+
   #add-person > i {
     font-size: 25px;
     color: lightgrey;
   }
-  
+
   #rsvpPage > div {
     width: 100%;
   }
-  
+
   #rsvpPage > div > form {
     width: 100%;
     text-align: center;
   }
-  
+
   #rsvpPage .form-group {
     display: flex;
     justify-content: center;
     flex-direction: row;
     align-items: center;
   }
-  
-  .form-group input[type='text'] {
+
+  .form-group input[type="text"] {
     width: 200px;
     margin: 0 25px;
     font-size: 25px;
   }
-  
-  #rsvpPage > div > form >.submit-button {
+
+  #rsvpPage > div > form > .submit-button {
     font-size: 30px;
     margin-top: 15px;
-  }  
+  }
 
   .box-break {
     -webkit-transform: none;
@@ -518,7 +543,7 @@ body.noscroll {
     transform: none;
   }
 
-  .form-group input[name*='email'] {
+  .form-group input[name*="email"] {
     margin-bottom: 0px;
   }
 
@@ -530,5 +555,25 @@ body.noscroll {
     margin-bottom: 5px;
     cursor: pointer;
   }
+
+  #location-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  #map {
+    height: 500px;
+    width: 500px;
+    margin: 40px 0 0 0 ;
+  }
+
+  .info-bio-location {
+    color: lightgray;
+    margin: 40px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+  }  
 }
 /* #endregion Start of media queries below: */

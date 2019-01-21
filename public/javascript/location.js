@@ -52,7 +52,8 @@ var addresses = document.getElementsByClassName('favorite-spot-addr');
 function createMarkers(map) {
   var labelLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   locationData.forEach((location) => {
-    geocodeAddress(location.address).then((result) => {
+    geocodeAddress(location.address)
+    .then((result) => {
       console.log(result);
       var customMarker = new google.maps.Marker({
         position: result,
@@ -60,6 +61,9 @@ function createMarkers(map) {
         title: location.name,
         label: labelLetters[(location.id - 1) % labelLetters.length]
       });      
+    })
+    .catch((error) => {
+      alert('Something went wrong... ' + error);
     });
   });
 }
