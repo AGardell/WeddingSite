@@ -1,10 +1,3 @@
-// navigator.geolocation.getCurrentPosition((pos) => {
-//   var myLocation = document.getElementById('geolocation');
-//   myLocation.innerHTML = 'You geolocation is: ' + pos.coords.latitude + ' and ' + pos.coords.longitude;
-// }, (err) => {
-//   window.alert('Unable to obtain coordinates. ' + err.message);
-// })
-
 function initMap() {
   var directionsDisplay = new google.maps.DirectionsRenderer();
   var directionsService = new google.maps.DirectionsService();
@@ -51,16 +44,22 @@ var addresses = document.getElementsByClassName('favorite-spot-addr');
 
 function createMarkers(map) {
   var labelLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let infoWindow = new google.maps.InfoWindow(); 
   locationData.forEach((location) => {
     geocodeAddress(location.address)
     .then((result) => {
-      console.log(result);
       var customMarker = new google.maps.Marker({
         position: result,
         map: map,
         title: location.name,
         label: labelLetters[(location.id - 1) % labelLetters.length]
-      });      
+      }); 
+
+      customMarker.addListener('click', () => {
+        infoWindow.close();
+        infoWindow.setContent(location.blurb);
+        infoWindow.open(map, customMarker);
+      });
     })
     .catch((error) => {
       alert('Something went wrong... ' + error);
@@ -86,3 +85,5 @@ function geocodeAddress(address) {
     });
   });
 }
+
+let infoWindowTemplate = '<div id="info-window-content"><h1 id="firstHeading" class="firstHeading">Lucky&#39;s Last Chance</h1><div id="bodyContent"><p>Amazing burgers, had our first date there!!</p><img src="/images/kissing.jpg"></img></div></div>'

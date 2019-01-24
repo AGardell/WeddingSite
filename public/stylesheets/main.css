@@ -377,6 +377,16 @@ body.noscroll {
   cursor: pointer;
 }
 
+#bodyContent {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#bodyContent img {
+  max-height: 200px;
+  margin-right: 10px;
+}
+
 /* #region Start of media queries below: */
 @media screen and (min-width: 622px) {
   .navHeader {

@@ -13,6 +13,9 @@ module.exports = function (sequelize, type) {
         },
         website: {
             type: type.STRING,
+        },
+        blurb: {
+            type: type.TEXT,
         }
     }, {
         timestamps: false
