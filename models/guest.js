@@ -1,31 +1,41 @@
-module.exports = function (sequelize, type) {
-    return sequelize.define('guest', {
-        id: {
-            type: type.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        firstname: {
-            type: type.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true,
-                isAlphanumeric: true               
-            }
-        },
-        lastname: {
-            type: type.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true,
-                isAlphanumeric: true               
-            }
-        },
-        email: {
-            type: type.STRING,
-            validate: {
-                isEmail: true                
-            }
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  const guest = sequelize.define(
+    "guest",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      firstname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+          isAlphanumeric: true
         }
-    });
+      },
+      lastname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+          isAlphanumeric: true
+        }
+      },
+      email: {
+        type: DataTypes.STRING,
+        validate: {
+          isEmail: true
+        }
+      }
+    },
+    {}
+  );
+  guest.associate = function(models) {
+    // associations can be defined here
+  }
+  
+  return guest;
 };

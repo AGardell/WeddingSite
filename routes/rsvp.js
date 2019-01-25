@@ -1,5 +1,5 @@
 const express = require("express");
-const Guest = require("../sequelize.js").Guest;
+const Guest = require("../models").guest;
 
 var router = express.Router();
 
@@ -17,7 +17,7 @@ router.post("/rsvp", (req, res) => {
       email: req.body[key].email
     });
   }
-  
+
   Guest.bulkCreate(myGuests, 
     {
       validate:true

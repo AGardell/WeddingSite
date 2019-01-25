@@ -1,5 +1,5 @@
 const express = require("express");
-const Location = require('../sequelize.js').Location;
+const location = require("../models").location;
 var router = express.Router();
 
 router.get("/", (req, res) => {
@@ -15,7 +15,7 @@ router.get('/ourstory', (req, res) => {
 });
 
 router.get('/location', (req, res) => {
-    Location.findAll({raw: true}).then(location => {
+    location.findAll({raw: true}).then(location => {
         res.render('location', {
             locations: location
         });
