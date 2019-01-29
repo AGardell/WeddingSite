@@ -183,6 +183,10 @@ body.noscroll {
   animation-duration: 0.6s;
 }
 
+#info-window-blurb {
+  max-width: 200px;
+}
+
 @keyframes zoom {
   from {
     transform: scale(0);
@@ -380,6 +384,7 @@ body.noscroll {
 #bodyContent {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 #bodyContent img {

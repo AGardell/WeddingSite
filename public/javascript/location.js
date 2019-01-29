@@ -43,7 +43,7 @@ var addresses = document.getElementsByClassName('favorite-spot-addr');
 });
 
 function createMarkers(map) {
-  var labelLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let labelLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let infoWindow = new google.maps.InfoWindow(); 
   locationData.forEach((location) => {
     geocodeAddress(location.address)
@@ -57,9 +57,9 @@ function createMarkers(map) {
 
       customMarker.addListener('click', () => {
         infoWindow.close();
-        infoWindow.setContent(location.blurb);
+        infoWindow.setContent(`<div id="info-window-content"><h1 id="firstHeading" class="firstHeading">${ location.name }</h1><div id="bodyContent"><p id="info-window-blurb">${ location.blurb }</p><img src=${ location.image }></img></div></div>`);
         infoWindow.open(map, customMarker);
-      });
+      });     
     })
     .catch((error) => {
       alert('Something went wrong... ' + error);
@@ -85,5 +85,3 @@ function geocodeAddress(address) {
     });
   });
 }
-
-let infoWindowTemplate = '<div id="info-window-content"><h1 id="firstHeading" class="firstHeading">Lucky&#39;s Last Chance</h1><div id="bodyContent"><p>Amazing burgers, had our first date there!!</p><img src="/images/kissing.jpg"></img></div></div>'
