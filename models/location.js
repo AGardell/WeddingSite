@@ -24,7 +24,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT
       }
     },
-    {}
+    {
+      updatedAt: 'updated_at',
+      createdAt: 'created_at'
+    }
   );
   location.associate = function(models) {
     // associations can be defined here

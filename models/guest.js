@@ -31,7 +31,10 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    {}
+    {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
+    }
   );
   guest.associate = function(models) {
     // associations can be defined here
