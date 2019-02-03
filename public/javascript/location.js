@@ -57,7 +57,7 @@ function createMarkers(map) {
 
       customMarker.addListener('click', () => {
         infoWindow.close();
-        infoWindow.setContent(`<div id="info-window-content"><h1 id="firstHeading" class="firstHeading">${ location.name }</h1><div id="bodyContent"><p id="info-window-blurb">${ location.blurb }</p><img src=${ location.image }></img></div></div>`);
+        infoWindow.setContent(`<div id="info-window-content"><h4 id="firstHeading" class="firstHeading">${ location.name }</h4><div id="bodyContent"><p id="info-window-blurb">${ location.blurb }</p><img src=${ location.image }></img></div></div>`);
         infoWindow.open(map, customMarker);
       });     
     })
