@@ -3,7 +3,8 @@ const location = require("../models").location;
 var router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render("landing");
+    // res.render("landing");
+    res.redirect('/home');
 });
 
 router.get("/home", (req, res) => {
