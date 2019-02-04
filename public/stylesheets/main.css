@@ -125,7 +125,7 @@ body.noscroll {
   color: lightgrey;
   font-family: "Great Vibes", cursive;
   text-align: center;
-  padding-top: 10vh;
+  padding-top: 5vh;
 }
 
 .navLogo h1:nth-child(3) {
@@ -140,11 +140,25 @@ body.noscroll {
   padding-right: 0.15em;
 }
 
+#index-image {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#index-image > img {
+  width: 65%;
+  border: 5px solid lightgray;
+}
+
 .info-bio {
   color: lightgray;
   margin: 0 auto;
   width: 90%;
   margin-top: 30px;
+}
+
+.info-bio p {
+  white-space: pre-line;
 }
 
 .images {
@@ -345,7 +359,7 @@ body.noscroll {
 
 #nav-dropdown > button {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 #map {
@@ -447,7 +461,7 @@ body.noscroll {
     color: lightgrey;
     font-family: "Great Vibes", cursive;
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 5vh;
     display: block;
   }
 
@@ -460,6 +474,16 @@ body.noscroll {
     font-size: 200%;
     padding-left: 30px;
     padding-right: 15px;
+  }
+
+  #index-image {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  
+  #index-image > img {
+    width: 65%;
+    border: 5px solid lightgray;
   }
 
   .imageFrame-content {
@@ -488,7 +512,7 @@ body.noscroll {
     position: absolute;
     text-align: center;
     padding: 0;
-  } 
+  }
 }
 
 @media screen and (min-width: 870px) {
@@ -580,7 +604,7 @@ body.noscroll {
   #map {
     height: 500px;
     width: 500px;
-    margin: 40px 0 0 0 ;
+    margin: 40px 0 0 0;
   }
 
   .info-bio-location {
@@ -589,6 +613,6 @@ body.noscroll {
     display: flex;
     flex-direction: column;
     width: 35%;
-  }  
+  }
 }
 /* #endregion Start of media queries below: */
