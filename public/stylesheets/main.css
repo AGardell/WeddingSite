@@ -222,7 +222,7 @@ body.noscroll {
   margin-bottom: 10px;
 }
 
-#rsvpPage {
+#rsvpPage, #music-page {
   color: lightgrey;
   width: 100%;
   font-family: "Amatic SC", cursive;

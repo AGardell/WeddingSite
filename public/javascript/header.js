@@ -142,7 +142,7 @@ function sendData(data) {
                 console.log(xhr.responseText); 
                 Swal({
                     titleText: 'Error',
-                    text: 'Uh oh! Looks like something went wrong! Please double check the all names and emails and try submitting again!',
+                    text: 'Uh oh! Looks like something went wrong! Please double check the names and emails and try submitting again!',
                     type: 'error'
                 })               
             }

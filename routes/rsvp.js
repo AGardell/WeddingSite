@@ -3,11 +3,11 @@ const Guest = require("../models").guest;
 
 var router = express.Router();
 
-router.get("/rsvp", (req, res) => {
+router.get("/", (req, res) => {
   res.render("rsvp");
 });
 
-router.post("/rsvp", (req, res) => {
+router.post("/", (req, res) => {
   let myGuests = [];
 
   for (var key in req.body) {

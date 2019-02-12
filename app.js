@@ -17,13 +17,21 @@ testDB(db)
     // set view engine to ejs
     app.set("view engine", "ejs");
     app.use(express.static(__dirname + "/public"));
+    
 
     // importing routes
-    var mainRoute = require("./routes/index.js");
-    var rsvpRoute = require("./routes/rsvp.js");
+    let mainRoute = require("./routes/index.js");
+    let rsvpRoute = require("./routes/rsvp.js");
+    let musicRoute = require("./routes/music.js");
 
     app.use(mainRoute);
-    app.use(rsvpRoute);
+    app.use('/rsvp', rsvpRoute);
+    app.use('/music', musicRoute);
+
+    // error handler all routes
+    app.use((err, req, res, next) => {
+      res.send('ERROR: ' + err);
+    });
 
     app.listen(PORT, () => {
       console.log("Website started on port 5500!");
