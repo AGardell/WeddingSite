@@ -1,10 +1,11 @@
+const swal = require('sweetalert2');
+const axios = require('axios');
+
 let hamburger = document.getElementById("hamburger");
 let links = document.getElementById("links");
 let addPerson = document.getElementById("add-person");
 let guestList = document.getElementById("guest-list");
-let deleteBtn = document.getElementsByClassName(
-  "far fa-times-circle delete-button"
-)[0];
+let deleteBtn = document.getElementsByClassName("far fa-times-circle delete-button")[0];
 let images = document.querySelectorAll(".images, .grid-thumbnail-image");
 let imageFrame = document.getElementById("imageFrame");
 let imageFrameContent = document.getElementById("frameContent");
@@ -125,7 +126,7 @@ function sendData(data) {
     };
   }
 
-  // AJAX Request using Axio
+  // AJAX Request using axios
   axios
     .post("/rsvp", {
       guestList: guestList
@@ -152,6 +153,13 @@ function sendData(data) {
           type: "error"
         });
       }
+    })
+    .catch((err) => {
+        swal({
+            titleText: "Error",
+            text: "Hmmm something went wrong..." + err,
+            type: "error"
+        });
     });
 
   // AJAX request using long form XMLHttpRequest

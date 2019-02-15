@@ -51,7 +51,7 @@ middlewareObj.authorizeAccount = function(req, res, next) {
 middlewareObj.findSongAndArtist = function(req, res, next) {
   let options = {
     host: "api.spotify.com",
-    path: '/v1/search?q=' + req.body.song.replace(" ", "%20") + '&type=track',
+    path: '/v1/search?q=' + req.body.song.replace(/ /g, "%20") + '&type=track',
     headers: {
       Authorization: "Bearer " + res.locals.spotifyAuth
     }
