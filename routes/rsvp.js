@@ -9,12 +9,12 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   let myGuests = [];
-
-  for (var key in req.body) {
+  console.log(req.body.guestList);
+  for (var key in req.body.guestList) {
     myGuests.push({
-      firstname: req.body[key].firstname,
-      lastname: req.body[key].lastname,
-      email: req.body[key].email
+      firstname: req.body.guestList[key].firstname,
+      lastname: req.body.guestList[key].lastname,
+      email: req.body.guestList[key].email
     });
   }
 
