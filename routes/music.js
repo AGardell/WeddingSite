@@ -5,7 +5,7 @@ const searchForSong = require("../middleware").findSongAndArtist;
 let router = express.Router();
 
 router.get("/", (req, res) => {
-  Request.findAll()
+  Request.findAll({ raw: true })
     .then(requests => {
       res.render("music", { requests: requests });
     })
@@ -22,7 +22,14 @@ router.post("/", authorizeAccount, searchForSong, (req, res, next) => {
       artist: req.body.artist
     })
       .then(() => {
-        res.redirect("/music");
+        // res.redirect("/music");
+        Request.findAll({ raw: true})
+        .then(requests => {
+          res.send(requests)
+        })
+        .catch(err => {
+          next(err);
+        });
       })
       .catch(error => {
         next(error);

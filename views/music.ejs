@@ -11,13 +11,12 @@
                 <span class='box-break'>|</span>
                 <input id='artist' type='text' name='artist' placeholder='Artist'>
             </div>
-            <button class='submit-button' type='submit'>REQUEST</button>
+            <button id='song-request-button' class='submit-button' type='submit'>REQUEST</button>
         </form>
     </div>
-    <% console.log(requests) %>
     <% if (requests != 'undefined' && requests.length > 0) { %>
         <% requests.forEach((request) => { %>
-            <div style='color: lightgrey'>
+            <div id='song-list' style='color: lightgrey'>
                 <p>Song: <%=request.song%>, Artist: <%=request.artist%></p>
             </div>
         <% }) %>

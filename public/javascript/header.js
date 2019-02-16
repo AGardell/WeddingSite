@@ -1,11 +1,13 @@
-const swal = require('sweetalert2');
-const axios = require('axios');
+const swal = require("sweetalert2");
+const axios = require("axios");
 
 let hamburger = document.getElementById("hamburger");
 let links = document.getElementById("links");
 let addPerson = document.getElementById("add-person");
 let guestList = document.getElementById("guest-list");
-let deleteBtn = document.getElementsByClassName("far fa-times-circle delete-button")[0];
+let deleteBtn = document.getElementsByClassName(
+  "far fa-times-circle delete-button"
+)[0];
 let images = document.querySelectorAll(".images, .grid-thumbnail-image");
 let imageFrame = document.getElementById("imageFrame");
 let imageFrameContent = document.getElementById("frameContent");
@@ -110,7 +112,7 @@ function createButtonElement() {
 
 // JS to compile proper JSON object before sending.
 // -------------------------------------------------------
-function sendData(data) {
+function sendData() {
   let guestList = {};
 
   for (var i = 0; i < guestCount; i++) {
@@ -126,7 +128,9 @@ function sendData(data) {
     };
   }
 
-  // AJAX Request using axios
+  // ------------------------------------------------
+  // ajax request for guests to rsvp to our wedding.
+  // ------------------------------------------------
   axios
     .post("/rsvp", {
       guestList: guestList
@@ -154,12 +158,12 @@ function sendData(data) {
         });
       }
     })
-    .catch((err) => {
-        swal({
-            titleText: "Error",
-            text: "Hmmm something went wrong..." + err,
-            type: "error"
-        });
+    .catch(err => {
+      swal({
+        titleText: "Error",
+        text: "Hmmm something went wrong..." + err,
+        type: "error"
+      });
     });
 
   // AJAX request using long form XMLHttpRequest
@@ -222,7 +226,7 @@ function clearRsvpForm() {
 if (guestList != null) {
   guestList.addEventListener("submit", () => {
     event.preventDefault();
-    sendData(guestList);
+    sendData();
   });
 }
 
@@ -234,4 +238,42 @@ if (deleteBtn != null) {
       guestCount -= 1;
     }
   });
+}
+
+// ------------------------------------------------
+// ajax request for guests to make song requests.
+// ------------------------------------------------
+let songReqFrm = document.getElementById("song-request-form");
+if (songReqFrm != null) {
+  songReqFrm.addEventListener("submit", () => {
+    event.preventDefault();
+    sendSongData();
+  });
+}
+
+function sendSongData() {
+  let requestedSong = document.getElementById("song-title").value;
+  let requestedArtist = document.getElementById("artist").value;
+  let songList = document.getElementById("song-list");
+
+  axios
+    .post("/music", {
+      song: requestedSong,
+      artist: requestedArtist
+    })
+    .then(response => {
+      songList.innerHTML = "";
+      response.data.forEach(request => {
+        if (songList == null) {
+          songList.innerHTML =
+            "<p>Song: " + request.song + " Artist: " + request.artist + "</p>";
+        } else {
+          songList.innerHTML +=
+            "<p>Song: " + request.song + " Artist: " + request.artist + "</p>";
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
