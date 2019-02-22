@@ -251,27 +251,28 @@ if (songReqFrm != null) {
   });
 }
 
+// post the song request to the DB and then build the list again to catch any changes made by outside users.
 function sendSongData() {
-  let requestedSong = document.getElementById("song-title").value;
-  let requestedArtist = document.getElementById("artist").value;
+  let requestedSong = document.getElementById("song-title");
+  let requestedArtist = document.getElementById("artist");
   let songList = document.getElementById("song-list");
 
   axios
     .post("/music", {
-      song: requestedSong,
-      artist: requestedArtist
+      song: requestedSong.value,
+      artist: requestedArtist.value
     })
     .then(response => {
+      let list = document.createElement('ul');
       songList.innerHTML = "";
+      songList.appendChild(list);
       response.data.forEach(request => {
-        if (songList == null) {
-          songList.innerHTML =
-            "<p>Song: " + request.song + " Artist: " + request.artist + "</p>";
-        } else {
-          songList.innerHTML +=
-            "<p>Song: " + request.song + " Artist: " + request.artist + "</p>";
-        }
+          let listItem = document.createElement('li');
+          listItem.innerHTML = request.song + ' | ' + request.artist;
+          list.appendChild(listItem);
       });
+      requestedSong.value = "";
+      requestedArtist.value = "";
     })
     .catch(err => {
       console.log(err);

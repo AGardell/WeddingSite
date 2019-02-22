@@ -56,7 +56,7 @@ middlewareObj.findSongAndArtist = function(req, res, next) {
       Authorization: "Bearer " + res.locals.spotifyAuth
     }
   };
-  console.log(options.path);
+  // console.log(options.path);
   https.get(options, response => {
     if (response.statusCode !== 200) {
       next(response.statusCode);
