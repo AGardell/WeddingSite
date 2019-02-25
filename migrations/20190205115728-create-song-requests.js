@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('song_requests', {
+    return queryInterface.createTable("song_requests", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -22,9 +22,20 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    })
+    .then(() => {
+       return queryInterface.addConstraint("song_requests", 
+      [
+        "song",
+        "artist"
+      ],
+      {
+        type: "unique",
+        name: "songArtistContraint"
+      })
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('song_requests');
+    return queryInterface.dropTable("song_requests");
   }
 };

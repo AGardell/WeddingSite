@@ -17,22 +17,27 @@ router.get("/", (req, res) => {
 router.post("/", authorizeAccount, searchForSong, (req, res, next) => {
   let foundSong = JSON.parse(res.locals.songFound);
   if (foundSong.tracks.items.length > 0) {
-    Request.create({
-      song: req.body.song,
-      artist: req.body.artist
-    })
+    Request.create(
+      {
+        song: req.body.song,
+        artist: req.body.artist
+      },
+      {
+        validate: true
+      }
+    )
       .then(() => {
         // res.redirect("/music");
-        Request.findAll({ raw: true})
-        .then(requests => {
-          res.send(requests)
-        })
-        .catch(err => {
-          next(err);
-        });
+        Request.findAll({ raw: true })
+          .then(requests => {
+            res.send(requests);
+          })
+          .catch(err => {
+            next(err);
+          });
       })
-      .catch(error => {
-        next(error);
+      .catch(err => {
+        next(err);
       });
   } else {
     next("No matching song found");

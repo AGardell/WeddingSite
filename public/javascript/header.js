@@ -263,6 +263,7 @@ function sendSongData() {
       artist: requestedArtist.value
     })
     .then(response => {
+      console.log(response);
       let list = document.createElement('ul');
       songList.innerHTML = "";
       songList.appendChild(list);
@@ -275,6 +276,12 @@ function sendSongData() {
       requestedArtist.value = "";
     })
     .catch(err => {
-      console.log(err);
+      swal({
+        titleText: "ERROR!",
+        text: err.response.data,
+        type: "error"
+      });
+      // console.log(err.response);
+      // alert(JSON.stringify(err.response));
     });
 }

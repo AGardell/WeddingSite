@@ -7,6 +7,12 @@ module.exports = (sequelize, DataTypes) => {
       artist: DataTypes.STRING
     },
     {
+      indexes: [
+        {
+          unique: true,
+          fields: ["song", "artist"]
+        }
+      ],
       updatedAt: "updated_at",
       createdAt: "created_at"
     }
