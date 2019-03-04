@@ -30,7 +30,8 @@ testDB(db)
 
     // error handler all routes
     app.use((err, req, res, next) => {
-      res.status(404).send("Something went wrong!");
+      console.log(err);
+      res.status(404).send(err);
     });
 
     app.listen(PORT, () => {

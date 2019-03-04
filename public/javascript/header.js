@@ -281,7 +281,5 @@ function sendSongData() {
         text: err.response.data,
         type: "error"
       });
-      // console.log(err.response);
-      // alert(JSON.stringify(err.response));
     });
 }

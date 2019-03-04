@@ -406,6 +406,41 @@ body.noscroll {
   margin-right: 10px;
 }
 
+#music-page > h1 {
+  text-align: center;
+  margin: 10px 10px;
+}
+
+#song-request-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#song-request-form > div {
+  display: inherit;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#song-request-button {
+  margin: auto;
+}
+
+#song-list {
+  color: lightgrey;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#song-list > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 /* #region Start of media queries below: */
 @media screen and (min-width: 622px) {
   .navHeader {

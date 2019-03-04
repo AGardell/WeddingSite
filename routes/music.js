@@ -2,6 +2,7 @@ const express = require("express");
 const Request = require("../models").song_requests;
 const authorizeAccount = require("../middleware").authorizeAccount;
 const searchForSong = require("../middleware").findSongAndArtist;
+const checkIfExisting = require("../middleware").checkIfExisting;
 let router = express.Router();
 
 router.get("/", (req, res) => {
@@ -14,7 +15,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", authorizeAccount, searchForSong, (req, res, next) => {
+router.post("/", authorizeAccount, searchForSong, checkIfExisting, (req, res, next) => {
   let foundSong = JSON.parse(res.locals.songFound);
   if (foundSong.tracks.items.length > 0) {
     Request.create(

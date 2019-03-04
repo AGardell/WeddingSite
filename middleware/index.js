@@ -1,5 +1,9 @@
 const https = require("https");
 const querystring = require("querystring");
+const Request = require("../models").song_requests
+const Sequelize = require("../models").Sequelize;
+const Op = Sequelize.Op;
+
 // require my ENV file to set environment variables
 require("dotenv").config();
 
@@ -84,5 +88,32 @@ middlewareObj.findSongAndArtist = function(req, res, next) {
     });
   });
 };
+
+middlewareObj.checkIfExisting = function (req, res, next) {
+  Request.findAll({
+    where: {
+      song: {
+        [Op.iLike]: req.body.song
+      },
+      artist: {
+        [Op.iLike]: req.body.artist
+      }
+    }
+  }, {
+    raw: true
+  })
+  .then(requests => {
+    if (requests.length !== 0) {
+      let err = "Looks like we already have that song. Please enter something new!";
+      next(err);
+    }
+    else {
+      next();
+    }
+  })
+  .catch(err => {
+    next(err);
+  })
+}
 
 module.exports = middlewareObj;
