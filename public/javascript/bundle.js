@@ -4333,7 +4333,7 @@ function sendData() {
     })
     .then(response => {
       if (response.data === 1) {
-        swal({
+        swal.fire({
           titleText: "Thank you!",
           text: "Look forward to seeing you Oct 27th!",
           type: "success",
@@ -4346,7 +4346,7 @@ function sendData() {
         });
       } else {
         console.log(response);
-        swal({
+        swal.fire({
           titleText: "Error",
           text:
             "Uh oh! Looks like something went wrong! Please double check the names and emails and try submitting again!",
@@ -4355,7 +4355,7 @@ function sendData() {
       }
     })
     .catch(err => {
-      swal({
+      swal.fire({
         titleText: "Error",
         text: "Hmmm something went wrong..." + err,
         type: "error"
@@ -4367,7 +4367,7 @@ function sendData() {
   // xhr.onload = () => {
   //     if (xhr.readyState == 4 && xhr.status == 200) {
   //         if (xhr.responseText === '1') {
-  //             Swal({
+  //             swal.fire({
   //                 titleText: 'Thank you!',
   //                 text: 'Look forward to seeing you Oct 27th!',
   //                 type: 'success',
@@ -4381,7 +4381,7 @@ function sendData() {
   //         }
   //         else {
   //             console.log(xhr.responseText);
-  //             Swal({
+  //             swal.fire({
   //                 titleText: 'Error',
   //                 text: 'Uh oh! Looks like something went wrong! Please double check the names and emails and try submitting again!',
   //                 type: 'error'
@@ -4389,7 +4389,7 @@ function sendData() {
   //         }
   //     }
   //     else {
-  //         Swal({
+  //         swal.fire({
   //             titleText: 'Error',
   //             text: 'Uh oh! Looks like something went wrong!',
   //             type: 'error'
@@ -4472,16 +4472,13 @@ function sendSongData() {
       requestedArtist.value = "";
     })
     .catch(err => {
-      swal({
+      swal.fire({
         titleText: "ERROR!",
         text: err.response.data,
         type: "error"
       });
-      // console.log(err.response);
-      // alert(JSON.stringify(err.response));
     });
 }
-
 },{"axios":1,"sweetalert2":27}],29:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
