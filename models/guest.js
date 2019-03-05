@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           isEmail: true
         }
+      },
+      hotelRequired: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
       }
     },
     {
