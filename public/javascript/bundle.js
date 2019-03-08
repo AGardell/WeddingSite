@@ -4308,9 +4308,8 @@ function createButtonElement() {
 
 // JS to compile proper JSON object before sending.
 // -------------------------------------------------------
-function sendData() {
+function sendData(roomConfirm) {
   let guestList = {};
-
   for (var i = 0; i < guestCount; i++) {
     let firstname = document.getElementsByName("firstname" + i)[0].value;
     let lastname = document.getElementsByName("lastname" + i)[0].value;
@@ -4320,7 +4319,8 @@ function sendData() {
     guestList[guestNum] = {
       firstname: firstname,
       lastname: lastname,
-      email: email
+      email: email,
+      roomConfirm: roomConfirm
     };
   }
 
@@ -4345,7 +4345,7 @@ function sendData() {
           }
         });
       } else {
-        console.log(response);
+        console.log(response.data);
         swal.fire({
           titleText: "Error",
           text:
@@ -4414,7 +4414,14 @@ function clearRsvpForm() {
   divEl.appendChild(createEmailElement(guestCount));
   guestCount += 1;
 
-  guestList.innerHTML = "";
+  while (guestList.hasChildNodes()){
+    guestList.lastChild.remove();
+  }
+  
+  let iconEl = document.createElement("i");
+  iconEl.classList.add("far", "fa-times-circle", "delete-button");
+  addDeleteEvent(iconEl);
+  guestList.appendChild(iconEl);
   guestList.appendChild(divEl);
   guestList.appendChild(createButtonElement());
 }
@@ -4422,18 +4429,36 @@ function clearRsvpForm() {
 if (guestList != null) {
   guestList.addEventListener("submit", () => {
     event.preventDefault();
-    sendData();
+    let roomConfirm = false;
+
+    swal.fire({
+      title: "Will you be requiring a hotel room?",
+      type: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, I will be reserving a room in your block",
+      cancelButtonText: "No, I will find my own accomodations. Thanks!"
+    }).then(result => {
+      console.log(result);
+      if(result.value) {
+        roomConfirm = true;
+        sendData(roomConfirm);
+      }
+      else if (result.dismiss === swal.DismissReason.cancel) {
+        sendData(roomConfirm)
+      }
+    });
   });
 }
 
 if (deleteBtn != null) {
-  deleteBtn.addEventListener("click", () => {
-    if (guestCount > 1) {
-      let removeEl = document.querySelector(".form-group:last-of-type");
-      removeEl.parentElement.removeChild(removeEl);
-      guestCount -= 1;
-    }
-  });
+  addDeleteEvent(deleteBtn);
+  // deleteBtn.addEventListener("click", () => {
+  //   if (guestCount > 1) {
+  //     let removeEl = document.querySelector(".form-group:last-of-type");
+  //     removeEl.parentElement.removeChild(removeEl);
+  //     guestCount -= 1;
+  //   }
+  // });
 }
 
 // ------------------------------------------------
@@ -4459,7 +4484,6 @@ function sendSongData() {
       artist: requestedArtist.value
     })
     .then(response => {
-      console.log(response);
       let list = document.createElement('ul');
       songList.innerHTML = "";
       songList.appendChild(list);
@@ -4478,6 +4502,16 @@ function sendSongData() {
         type: "error"
       });
     });
+}
+
+function addDeleteEvent(button){
+  button.addEventListener("click", () => {
+    if (guestCount > 1) {
+      let removeEl = document.querySelector(".form-group:last-of-type");
+      removeEl.parentElement.removeChild(removeEl);
+      guestCount -= 1;
+    }
+  });
 }
 },{"axios":1,"sweetalert2":27}],29:[function(require,module,exports){
 // shim for using process in browser

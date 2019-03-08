@@ -9,12 +9,13 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   let myGuests = [];
-  console.log(req.body.guestList);
+  // console.log(req.body.guestList);
   for (var key in req.body.guestList) {
     myGuests.push({
       firstname: req.body.guestList[key].firstname,
       lastname: req.body.guestList[key].lastname,
-      email: req.body.guestList[key].email
+      email: req.body.guestList[key].email,
+      hotelRequired: req.body.guestList[key].roomConfirm
     });
   }
 
@@ -26,6 +27,7 @@ router.post("/", (req, res) => {
       res.send('1');
     })
     .catch(err => {
+      console.log(err);
       res.send(err);
     });
 });
