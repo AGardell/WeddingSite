@@ -37,7 +37,7 @@ module.exports.sendRsvpAlert = function(guestList) {
     transporter.sendMail(
         {
         from: "goinggardell@gmail.com",
-        to: ["alexgardell@yahoo.com", "wagnermichelle91@gmail.com"],
+        to: "alexgardell@yahoo.com",
         subject: "You've Received an RSVP!",
         html: `<p>The following persons) have sent their RSVP. Please see below:
                     <br/>
