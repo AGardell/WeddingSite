@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const db = require("./models");
 const app = express();
+const emailer = require("./modules/emailer");
 
 // require my ENV file to set environment variables
 require("dotenv").config();
@@ -30,6 +31,7 @@ testDB(db)
 
     // error handler all routes
     app.use((err, req, res, next) => {
+      emailer.sendError(err);
       console.log(err);
       res.status(404).send(err);
     });

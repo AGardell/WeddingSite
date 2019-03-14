@@ -1,5 +1,6 @@
 const express = require("express");
 const Guest = require("../models").guest;
+const transporter = require("../modules/emailer");
 
 var router = express.Router();
 
@@ -24,6 +25,7 @@ router.post("/", (req, res) => {
       validate:true
     })
     .then(() => {
+      transporter.sendRsvpAlert(myGuests);
       res.send('1');
     })
     .catch(err => {
