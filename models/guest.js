@@ -36,19 +36,23 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     {
-      createdAt: 'created_at',
-      updatedAt: 'updated_at',
+      createdAt: "created_at",
+      updatedAt: "updated_at",
       indexes: [
         {
+          name: "uniqueNameConstraint",
           unique: true,
-          fields: ['firstname', 'lastname']
+          fields: [
+            sequelize.fn("lower", sequelize.col("firstname")),
+            sequelize.fn("lower", sequelize.col("lastname"))
+          ]
         }
       ]
     }
   );
   guest.associate = function(models) {
     // associations can be defined here
-  }
-  
+  };
+
   return guest;
 };

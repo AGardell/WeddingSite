@@ -256,13 +256,6 @@ if (guestList != null) {
 
 if (deleteBtn != null) {
   addDeleteEvent(deleteBtn);
-  // deleteBtn.addEventListener("click", () => {
-  //   if (guestCount > 1) {
-  //     let removeEl = document.querySelector(".form-group:last-of-type");
-  //     removeEl.parentElement.removeChild(removeEl);
-  //     guestCount -= 1;
-  //   }
-  // });
 }
 
 // ------------------------------------------------

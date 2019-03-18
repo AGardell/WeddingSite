@@ -26,10 +26,13 @@ router.post("/", (req, res) => {
     })
     .then(() => {
       transporter.sendRsvpAlert(myGuests);
+      console.log('Guest saved to database.');
       res.send('1');
     })
     .catch(err => {
-      console.log(err);
+      // TODO: Look into if error proprerly being sent via email.
+      transporter.sendError(err);
+      console.log('ERROR: ' + err);
       res.send(err);
     });
 });
