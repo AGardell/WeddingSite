@@ -1,23 +1,24 @@
 html,
 body {
-  background-color: #13283a;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   overflow: visible;
 }
 
 body.noscroll {
-  overflow: hidden;
-  padding-right: 15px;
 }
 
 .weddingTag {
   font-family: "Great Vibes", cursive;
-  font-size: 35px;
+  font-size: 3em;
+  text-shadow: 2px 3px 2px black, 4px 1px 2px black;
 }
 
 .navHeader {
   display: flex;
   flex-direction: column;
-  background: lightgrey;
 }
 
 .nav-burger {
@@ -90,17 +91,19 @@ body.noscroll {
 }
 
 .nav-brand {
-  color: #13283a;
-  font-family: "Amatic SC", cursive;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 40px;
+  color: ghostwhite;
+  font-family: 'Amaranth', sans-serif;
+  font-size: 25px;
   text-decoration: none;
+  text-shadow: 3px 2px 2px black;
+  position: absolute;
+  top: 5px;
+  right: 20px;
 }
 
 .nav-links {
   display: none;
-  justify-content: center;
+  justify-content: space-around;
   text-align: left;
   flex-direction: column;
   width: 100%;
@@ -109,23 +112,34 @@ body.noscroll {
 }
 
 .nav-links li a,
-.nav-links li button {
-  color: #13283a;
-  font-family: "Amatic SC", cursive;
+.nav-links li button,
+.nav-links .nav-links-seperator {
+  color: ghostwhite;
+  font-family: 'Amaranth', sans-serif;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 40px;
   text-decoration: none;
   border: none;
   background: none;
   outline: none;
+  cursor: pointer;
+  text-shadow: 3px 2px 2px black;
+  font-size: 25px;
+}
+
+#nav-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 5vh 5vh 0 5vh;;
 }
 
 .navLogo {
-  color: lightgrey;
+  color: ghostwhite;
   font-family: "Great Vibes", cursive;
   text-align: center;
-  padding-top: 5vh;
+  padding: 5vh;
+  display: inline-block;
 }
 
 .navLogo h1:nth-child(3) {
@@ -143,11 +157,16 @@ body.noscroll {
 #index-image {
   text-align: center;
   padding-bottom: 10px;
+  /*background-image: url("../images/allyouneedlove.jpg");*/
+  height: 325px;
+  background-size: cover;
+  background-position-y: 20%;
 }
 
 #index-image > img {
-  width: 65%;
-  border: 5px solid lightgray;
+  width: 94%;
+  padding: 10vh 0;
+  /*border: 5px solid lightgray;*/
 }
 
 .info-bio {
@@ -447,13 +466,13 @@ body.noscroll {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: lightgrey;
+    margin: 0 100px;
   }
 
   .nav-links {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
     width: 100%;
     list-style: none;
     padding-right: 10px;
@@ -462,16 +481,18 @@ body.noscroll {
 
   .nav-links li a,
   .nav-links li button {
-    color: #13283a;
-    font-family: "Amatic SC", cursive;
+    color: ghostwhite;
+    /* font-family: "Amatic SC", cursive; */
+    font-family: 'Amaranth', sans-serif;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 40px;
     text-decoration: none;
     border: none;
     background: none;
     outline: none;
     cursor: pointer;
+    text-shadow: 3px 2px 2px black;
+    font-size: 25px;
   }
 
   .nav-links li a:hover,
@@ -480,12 +501,14 @@ body.noscroll {
   }
 
   .nav-brand {
-    color: #13283a;
-    font-family: "Amatic SC", cursive;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 40px;
+    color: ghostwhite;
+    font-family: 'Amaranth', sans-serif;
+    font-size: 25px;
     text-decoration: none;
+    text-shadow: 3px 2px 2px black;
+    position: absolute;
+    top: 5px;
+    right: 20px;
   }
 
   .nav-burger {
@@ -493,15 +516,15 @@ body.noscroll {
   }
 
   .navLogo {
-    color: lightgrey;
+    color: ghostwhite;
     font-family: "Great Vibes", cursive;
     text-align: center;
-    padding-top: 5vh;
-    display: block;
+    padding: 5vh;
+    display: inline-block;
   }
 
   .navLogo h1:nth-child(3) {
-    display: block;
+    display: flex;
   }
 
   #ampersand {
@@ -518,7 +541,8 @@ body.noscroll {
   
   #index-image > img {
     width: 65%;
-    border: 5px solid lightgray;
+    padding: 10vh 0;
+    /*border: 5px solid lightgray;*/
   }
 
   .imageFrame-content {
@@ -583,7 +607,7 @@ body.noscroll {
   }
 }
 
-@media screen and (min-width: 870px) {
+@media screen and (min-width: 890px) {
   #rsvpPage {
     color: lightgrey;
     width: 100%;
@@ -682,5 +706,10 @@ body.noscroll {
     flex-direction: column;
     width: 35%;
   }
+
+  body.noscroll {
+    overflow: hidden;
+    padding-right: 15px;
+  }  
 }
 /* #endregion Start of media queries below: */
