@@ -23,8 +23,8 @@ body.noscroll {
 
 .nav-burger {
   position: absolute;
-  right: 15px;
-  top: 21px;
+  left: 10px;
+  top: 15px;
   width: 20px;
   height: 16.5px;
   -webkit-transform: rotate(0deg);
@@ -36,6 +36,7 @@ body.noscroll {
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
+  z-index: 1;
 }
 
 .nav-burger span {
@@ -43,7 +44,7 @@ body.noscroll {
   position: absolute;
   height: 3px;
   width: 20px;
-  background: #13283a;
+  background: ghostwhite;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -109,6 +110,10 @@ body.noscroll {
   width: 100%;
   list-style: none;
   margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  padding-top: 35px;
+  background-color: rgba(0, 0, 0, 0.39);
 }
 
 .nav-links li a,
@@ -147,6 +152,14 @@ body.noscroll {
   flex-direction: column;
 }
 
+.navLogo-story {
+  color: ghostwhite;
+  font-family: "Great Vibes", cursive;
+  text-align: center;
+  padding: 5vh;
+  display: block;
+}
+
 #ampersand {
   font-family: "Great Vibes", cursive;
   font-size: 200%;
@@ -170,9 +183,9 @@ body.noscroll {
 }
 
 .info-bio {
-  color: lightgray;
-  margin: 0 auto;
-  width: 90%;
+  color: ghostwhite;
+  /* margin: 0 auto; */
+  width: 40%;
   margin-top: 30px;
 }
 
@@ -309,7 +322,6 @@ body.noscroll {
 
 .open-links {
   display: flex;
-  background-color: lightgrey;
 }
 
 .form-group input[name*="email"] {
@@ -362,13 +374,13 @@ body.noscroll {
 
 #nav-dropdown > ul {
   transition: all 0.5s ease;
-  background: lightgrey;
   list-style: none;
-  text-align: center;
+  text-align: left;
   padding: 0;
   max-height: 0px;
   overflow: hidden;
   z-index: 1;
+  margin-left: 20px;
 }
 
 #nav-dropdown > button > i {
@@ -461,7 +473,7 @@ body.noscroll {
 }
 
 /* #region Start of media queries below: */
-@media screen and (min-width: 622px) {
+@media screen and (min-width: 707px) {
   .navHeader {
     display: flex;
     flex-direction: row;
@@ -477,6 +489,8 @@ body.noscroll {
     list-style: none;
     padding-right: 10px;
     margin-bottom: 0;
+    position: initial;
+    background: none;
   }
 
   .nav-links li a,
@@ -527,11 +541,19 @@ body.noscroll {
     display: flex;
   }
 
+  .navLogo-story {
+    color: ghostwhite;
+    font-family: "Great Vibes", cursive;
+    text-align: center;
+    padding: 5vh;
+    display: block;
+  }
+
   #ampersand {
     font-family: "Great Vibes", cursive;
     font-size: 200%;
-    padding-left: 30px;
-    padding-right: 15px;
+    padding-top: 0.15em;
+    padding-right: 0.15em;
   }
 
   #index-image {
@@ -566,7 +588,8 @@ body.noscroll {
 
   #nav-dropdown > ul {
     transition: all 0.5s ease;
-    background: lightgrey;
+    background-color: rgba(0, 0, 0, .3);
+    margin-left: 0;
     list-style: none;
     position: absolute;
     text-align: center;
@@ -604,6 +627,14 @@ body.noscroll {
   #song-list > ul {
     list-style-type: none;
     padding: 0;
+  }
+
+  #our-story-main {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, .3);
+    margin: 120px auto 0 auto;
   }
 }
 
