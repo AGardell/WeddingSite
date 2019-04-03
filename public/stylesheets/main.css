@@ -8,6 +8,7 @@ body {
 }
 
 body.noscroll {
+  overflow: hidden;
 }
 
 .weddingTag {
@@ -184,8 +185,7 @@ body.noscroll {
 
 .info-bio {
   color: ghostwhite;
-  /* margin: 0 auto; */
-  width: 40%;
+  width: 85%;
   margin-top: 30px;
 }
 
@@ -220,7 +220,8 @@ body.noscroll {
 .imageFrame-content {
   margin: auto;
   display: block;
-  width: 100%;
+  max-width: 85%;
+  max-height: 85%;
 }
 
 /* Add Animation - Zoom in the Modal */
@@ -472,6 +473,15 @@ body.noscroll {
   padding: 0;
 }
 
+#our-story-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  background-color: rgba(0,0,0,0.3);
+  margin: auto;
+}
+
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   .navHeader {
@@ -631,11 +641,23 @@ body.noscroll {
 
   #our-story-main {
     display: flex;
+    flex-direction: row;
     width: 90%;
     justify-content: space-evenly;
+    align-items: flex-start;
     background-color: rgba(0, 0, 0, .3);
     margin: 120px auto 0 auto;
   }
+
+  .info-bio {
+    color: ghostwhite;
+    width: 40%;
+    margin-top: 30px;
+  }
+  
+  .info-bio p {
+    white-space: pre-line;
+  }   
 }
 
 @media screen and (min-width: 890px) {
