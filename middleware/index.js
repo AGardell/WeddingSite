@@ -32,7 +32,6 @@ middlewareObj.authorizeAccount = function(req, res, next) {
     });
 
     response.on("end", () => {
-      // console.log(result);
       let err = JSON.parse(result).error;
 
       if (err === undefined || err === null) {
@@ -55,15 +54,15 @@ middlewareObj.authorizeAccount = function(req, res, next) {
 middlewareObj.findSongAndArtist = function(req, res, next) {
   let options = {
     host: "api.spotify.com",
-    path: '/v1/search?q=' + req.body.song.replace(/ /g, "%20") + '&type=track',
+    path: '/v1/search?q=artist%3A%22' + req.body.artist.replace(/ /g, "%20") + '%22%20track%3A' + req.body.song.replace(/ /g, "%20") + '&type=track',
     headers: {
       Authorization: "Bearer " + res.locals.spotifyAuth
-    }
+    }   
   };
-  // console.log(options.path);
+
   https.get(options, response => {
     if (response.statusCode !== 200) {
-      next(response.statusCode);
+      next(response.statusCode + ' ' + response.statusMessage);
     }
 
     let result = "";
@@ -104,7 +103,7 @@ middlewareObj.checkIfExisting = function (req, res, next) {
   })
   .then(requests => {
     if (requests.length !== 0) {
-      let err = "Looks like we already have that song. Please enter something new!";
+      let err = "Looks like we already have that song requested. Please enter something new!";
       next(err);
     }
     else {

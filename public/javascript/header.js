@@ -149,7 +149,6 @@ function sendData(roomConfirm) {
           }
         });
       } else {
-        console.log(response.data);
         swal.fire({
           titleText: "Error",
           text:

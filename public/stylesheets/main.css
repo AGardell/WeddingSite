@@ -1,3 +1,7 @@
+body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
+  overflow: auto;
+}
+
 html,
 body {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg");
@@ -256,14 +260,13 @@ body.noscroll {
 }
 
 #rsvpPage, #music-page {
-  color: lightgrey;
   width: 100%;
-  font-family: "Amatic SC", cursive;
+  font-family: 'Amaranth', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 20vh;
+  color: ghostwhite;
 }
 
 #rsvpPage > h2 {
@@ -464,6 +467,7 @@ body.noscroll {
 #music-page > h1 {
   text-align: center;
   margin: 10px 10px;
+  text-shadow: 3px 2px 2px black;
 }
 
 #song-request-form {
@@ -484,11 +488,12 @@ body.noscroll {
 }
 
 #song-list {
-  color: lightgrey;
+  color: ghostwhite;
   display: flex;
   justify-content: center;
   margin-top: 20px;
   text-align: center;
+  text-shadow: 3px 2px 2px black;
 }
 
 #song-list > ul {
@@ -512,6 +517,16 @@ body.noscroll {
 
 .favorite-spots ol {
   padding-right: 40px;
+}
+
+#music-page-main {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 125px auto 100px auto;
+  background-color: rgba(0,0,0,0.3);
+  font-family: 'Amaranth', sans-serif;
+  color: ghostwhite; 
 }
 
 /* #region Start of media queries below: */
@@ -642,6 +657,7 @@ body.noscroll {
   #music-page > h1 {
     text-align: center;
     margin: 10px 10px;
+    text-shadow: 3px 2px 2px black;
   }
 
   #song-request-form {
@@ -660,11 +676,12 @@ body.noscroll {
   }
 
   #song-list {
-    color: lightgrey;
+    color: ghostwhite;
     display: flex;
     justify-content: center;
     margin-top: 20px;
     text-align: center;
+    text-shadow: 3px 2px 2px black;
   }
 
   #song-list > ul {

@@ -28,7 +28,6 @@ router.post("/", authorizeAccount, searchForSong, checkIfExisting, (req, res, ne
       }
     )
       .then(() => {
-        // res.redirect("/music");
         Request.findAll({ raw: true })
           .then(requests => {
             res.send(requests);
@@ -41,7 +40,7 @@ router.post("/", authorizeAccount, searchForSong, checkIfExisting, (req, res, ne
         next(err);
       });
   } else {
-    next("No matching song found");
+    next(req.body.song + " by " + req.body.artist + " could not be found. Please verify the song and artist can be found in Spotify!");
   }
 });
 

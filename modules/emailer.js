@@ -22,7 +22,7 @@ module.exports.sendError = function(err) {
       if (err) {
         console.log(err);
       } else {
-        console.log("SUCCESS! " + info);
+        console.log("Email sent. " + JSON.parse(info));
       }
     }
   );
@@ -39,7 +39,7 @@ module.exports.sendRsvpAlert = function(guestList) {
         from: "goinggardell@gmail.com",
         to: "alexgardell@yahoo.com",
         subject: "You've Received an RSVP!",
-        html: `<p>The following persons) have sent their RSVP. Please see below:
+        html: `<p>The following person(s) have sent their RSVP. Please see below:
                     <br/>
                     <br/>` + guestListHtml + `</p>`
         },
@@ -47,7 +47,7 @@ module.exports.sendRsvpAlert = function(guestList) {
         if (err) {
             console.log(err);
         } else {
-            console.log("SUCCESS! " + info);
+            console.log("Email sent. " + JSON.parse(info));
         }
         }
     );

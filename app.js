@@ -32,8 +32,7 @@ testDB(db)
     // error handler all routes
     app.use((err, req, res, next) => {
       emailer.sendError(err);
-      console.log(err);
-      res.status(404).send(err);
+      res.sendStatus(404).send(err);
     });
 
     app.listen(PORT, () => {

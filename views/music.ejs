@@ -1,27 +1,26 @@
 <% include partials/header %>
-
-    <div id='music-page'>
-        <h1>Please enter the song and artist that you would like to hear at our wedding!</h1>
-    </div>
-
-    <div>
-        <form id='song-request-form' action='/music' method='POST'>
-            <div class='form-group'>
-                <input id='song-title' type='text' name='song' placeholder='Song'>
-                <span class='box-break'>|</span>
-                <input id='artist' type='text' name='artist' placeholder='Artist'>
-            </div>
-            <button id='song-request-button' class='submit-button' type='submit'>REQUEST</button>
-        </form>
-    </div>
-    <div id='song-list' style='color: lightgrey'>
-        <ul>
-            <% if (requests != 'undefined' && requests.length > 0) { %>
-                <% requests.forEach((request) => { %>
-                        <li><%=request.song%> | <%=request.artist%></li>
-                <% }) %>
-            <% } %>%>
-        </ul>
-    </div>
-
+    <main id='music-page-main'>
+        <div id='music-page'>
+            <h1>Please enter the Song and Artist that you would like to hear at our wedding!</h1>
+        </div>
+        <div>
+            <form id='song-request-form' action='/music' method='POST'>
+                <div class='form-group'>
+                    <input id='song-title' type='text' name='song' placeholder='Song' required>
+                    <span class='box-break'>/</span>
+                    <input id='artist' type='text' name='artist' placeholder='Artist' required>
+                </div>
+                <button id='song-request-button' class='submit-button' type='submit'>REQUEST</button>
+            </form>
+        </div>
+        <div id='song-list'>
+            <ul>
+                <% if (requests != 'undefined' && requests.length > 0) { %>
+                    <% requests.forEach((request) => { %>
+                            <li><%=request.song%> | <%=request.artist%></li>
+                    <% }) %>
+                <% } %>%>
+            </ul>
+        </div>
+    </main>
 <% include partials/footer %> 
