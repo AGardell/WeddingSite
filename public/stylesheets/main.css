@@ -405,7 +405,7 @@ body.noscroll {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 90%;
   margin: 40px auto 0 auto;
 }
 
@@ -417,14 +417,37 @@ body.noscroll {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-bottom: 100px;
 }
 
 .favorite-spots {
   margin-top: 10px;
+  background-color: rgba(0,0,0,0.3);
+  color: ghostwhite;
+  text-shadow: 3px 2px 2px black;
+}
+
+.favorite-spots ol li a {
+  color: ghostwhite;
+  text-decoration: underline;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+.favorite-spots ol li a:hover {
+  font-weight: bold;
 }
 
 .favorite-spot-addr {
   cursor: pointer;
+}
+
+#favorite-spots-header {
+  font-family: 'Amaranth', sans-serif;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 1.25em;
+  text-shadow: 3px 2px 2px black;
 }
 
 #bodyContent {
@@ -480,6 +503,15 @@ body.noscroll {
   width: 90%;
   background-color: rgba(0,0,0,0.3);
   margin: auto;
+}
+
+#MapBtn:hover {
+  background-color: ghostwhite;
+  cursor: pointer;
+}
+
+.favorite-spots ol {
+  padding-right: 40px;
 }
 
 /* #region Start of media queries below: */
@@ -582,6 +614,7 @@ body.noscroll {
     display: block;
     width: 50%;
     max-width: 700px;
+    max-height: none;
   }
 
   .image-grid {
@@ -658,6 +691,10 @@ body.noscroll {
   .info-bio p {
     white-space: pre-line;
   }   
+
+  .favorite-spots ol {
+    padding-right: 40px;
+  }
 }
 
 @media screen and (min-width: 890px) {
@@ -744,6 +781,7 @@ body.noscroll {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 100px;
   }
 
   #map {

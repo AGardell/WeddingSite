@@ -44,7 +44,9 @@ var addresses = document.getElementsByClassName('favorite-spot-addr');
 
 function createMarkers(map) {
   let labelLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  let infoWindow = new google.maps.InfoWindow(); 
+  let infoWindow = new google.maps.InfoWindow({
+    maxWidth: 200
+  }); 
   locationData.forEach((location) => {
     geocodeAddress(location.address)
     .then((result) => {
@@ -57,7 +59,8 @@ function createMarkers(map) {
 
       customMarker.addListener('click', () => {
         infoWindow.close();
-        infoWindow.setContent(`<div id="info-window-content"><h4 id="firstHeading" class="firstHeading">${ location.name }</h4><div id="bodyContent"><p id="info-window-blurb">${ location.blurb }</p><img src=${ location.image }></img></div></div>`);
+        // infoWindow.setContent(`<div id="info-window-content"><h4 id="firstHeading" class="firstHeading">${ location.name }</h4><div id="bodyContent"><p id="info-window-blurb">${ location.blurb }</p><img src=${ location.image }></img></div></div>`);
+        infoWindow.setContent(`<div id="info-window-content"><h4 id="firstHeading" class="firstHeading">${ location.name }</h4><div id="bodyContent"><p id="info-window-blurb">${ location.blurb }</p></div></div>`);
         infoWindow.open(map, customMarker);
       });     
     })
