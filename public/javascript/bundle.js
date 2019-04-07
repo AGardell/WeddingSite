@@ -4345,7 +4345,6 @@ function sendData(roomConfirm) {
           }
         });
       } else {
-        console.log(response.data);
         swal.fire({
           titleText: "Error",
           text:
@@ -4438,10 +4437,17 @@ if (guestList != null) {
       confirmButtonText: "Yes, I will be reserving a room in your block",
       cancelButtonText: "No, I will find my own accomodations. Thanks!"
     }).then(result => {
-      console.log(result);
       if(result.value) {
         roomConfirm = true;
-        sendData(roomConfirm);
+        swal.fire({
+          title: "Reserve a room in our block!",
+          type: "info",
+          text: "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
+          confirmButtonText: "OK!",
+          allowOutsideClick: false
+        }).then(() => {
+          sendData(roomConfirm);
+        });
       }
       else if (result.dismiss === swal.DismissReason.cancel) {
         sendData(roomConfirm)
