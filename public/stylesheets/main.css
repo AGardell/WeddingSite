@@ -384,17 +384,17 @@ body.noscroll {
   transition: 0.5s;
 }
 
-#nav-dropdown {
+.nav-dropdown {
   transition: all 0.5s ease;
 }
 
-#nav-dropdown.pseudo-hover > ul {
+.nav-dropdown.pseudo-hover > ul {
   display: block;
   max-height: 500px;
   z-index: 1;
 }
 
-#nav-dropdown > ul {
+.nav-dropdown > ul {
   transition: all 0.5s ease;
   list-style: none;
   text-align: left;
@@ -405,12 +405,12 @@ body.noscroll {
   margin-left: 20px;
 }
 
-#nav-dropdown > button > i {
+.nav-dropdown > button > i {
   font-size: 20px;
   padding-left: 5px;
 }
 
-#nav-dropdown > button {
+.nav-dropdown > button {
   display: flex;
   align-items: center;
 }
@@ -659,11 +659,11 @@ body.noscroll {
     justify-content: center;
   }
 
-  #nav-dropdown {
+  .nav-dropdown {
     transition: 0.5s;
   }
 
-  #nav-dropdown > ul {
+  .nav-dropdown > ul {
     transition: all 0.5s ease;
     background-color: rgba(0, 0, 0, .3);
     margin-left: 0;

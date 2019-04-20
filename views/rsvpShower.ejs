@@ -1,9 +1,9 @@
 <% include partials/header %>
 <div id='rsvpPage'>
-    <h2>Please enter your information below to RSVP to the Wedding:</h2>
+    <h2>Please enter your information below to RSVP to the Bridal Shower:</h2>
     <button id='add-person' type='button'><i class='far fa-user-circle'></i>&nbsp;&nbsp;Click me to add additional guests!</button>
     <div>
-        <form id='guest-list' action='/rsvp' method='POST'>
+        <form id='guest-list' action='/rsvpShower' method='POST'>
             <i class="far fa-times-circle delete-button"></i>
             <div class='form-group'>
                 <input id='firstname' type='text' name='firstname0' placeholder='First Name' required>

@@ -4207,14 +4207,17 @@ let deleteBtn = document.getElementsByClassName(
 let images = document.querySelectorAll(".images, .grid-thumbnail-image");
 let imageFrame = document.getElementById("imageFrame");
 let imageFrameContent = document.getElementById("frameContent");
-let navDropdown = document.getElementById("nav-dropdown");
-let landingEnter = document.getElementById("enter-website");
+let navDropdown = document.getElementsByClassName("nav-dropdown");
+//let landingEnter = document.getElementById("enter-website");
 
 var guestCount = 1;
 
-navDropdown.addEventListener("click", function() {
-  this.classList.toggle("pseudo-hover");
-});
+[...navDropdown].forEach(el => {
+  el.addEventListener("click", function() {
+    this.classList.toggle("pseudo-hover");
+  });
+})
+
 
 // add JS to click button in order to append additional text fields for additional guests.
 // -------------------------------------------------------
@@ -4270,6 +4273,7 @@ function createFirstNameElement(num) {
   firstNameEl.type = "text";
   firstNameEl.placeholder = "First Name";
   firstNameEl.name = "firstname" + num;
+  firstNameEl.required = true;
   return firstNameEl;
 }
 
@@ -4285,6 +4289,7 @@ function createLastNameElement(num) {
   lastNameEl.type = "text";
   lastNameEl.placeholder = "Last Name";
   lastNameEl.name = "lastname" + num;
+  lastNameEl.required = true;
   return lastNameEl;
 }
 
