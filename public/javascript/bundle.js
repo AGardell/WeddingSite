@@ -4313,7 +4313,7 @@ function createButtonElement() {
 
 // JS to compile proper JSON object before sending.
 // -------------------------------------------------------
-function sendData(roomConfirm) {
+function sendData(roomConfirm, showerRSVP) {
   let guestList = {};
   for (var i = 0; i < guestCount; i++) {
     let firstname = document.getElementsByName("firstname" + i)[0].value;
@@ -4329,11 +4329,16 @@ function sendData(roomConfirm) {
     };
   }
 
+  let postURL = '/rsvp';
+  if (showerRSVP = true) {
+    postURL = '/rsvpShower';
+  }
+
   // ------------------------------------------------
   // ajax request for guests to rsvp to our wedding.
   // ------------------------------------------------
   axios
-    .post("/rsvp", {
+    .post(postURL, {
       guestList: guestList
     })
     .then(response => {
@@ -4433,31 +4438,38 @@ function clearRsvpForm() {
 if (guestList != null) {
   guestList.addEventListener("submit", () => {
     event.preventDefault();
+    let senderPage = event.srcElement.ownerDocument.URL;
+    let showerRSVP = senderPage.indexOf('rsvpShower') > -1;
     let roomConfirm = false;
 
-    swal.fire({
-      title: "Will you be requiring a hotel room?",
-      type: "question",
-      showCancelButton: true,
-      confirmButtonText: "Yes, I will be reserving a room in your block",
-      cancelButtonText: "No, I will find my own accomodations. Thanks!"
-    }).then(result => {
-      if(result.value) {
-        roomConfirm = true;
-        swal.fire({
-          title: "Reserve a room in our block!",
-          type: "info",
-          text: "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
-          confirmButtonText: "OK!",
-          allowOutsideClick: false
-        }).then(() => {
-          sendData(roomConfirm);
-        });
-      }
-      else if (result.dismiss === swal.DismissReason.cancel) {
-        sendData(roomConfirm)
-      }
-    });
+    if (!showerRSVP) {
+      swal.fire({
+        title: "Will you be requiring a hotel room?",
+        type: "question",
+        showCancelButton: true,
+        confirmButtonText: "Yes, I will be reserving a room in your block",
+        cancelButtonText: "No, I will find my own accomodations. Thanks!"
+      }).then(result => {
+        if(result.value) {
+          roomConfirm = true;
+          swal.fire({
+            title: "Reserve a room in our block!",
+            type: "info",
+            text: "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
+            confirmButtonText: "OK!",
+            allowOutsideClick: false
+          }).then(() => {
+            sendData(roomConfirm, showerRSVP);
+          });
+        }
+        else if (result.dismiss === swal.DismissReason.cancel) {
+          sendData(roomConfirm, showerRSVP)
+        }
+      });
+    }
+    else {
+      sendData(roomConfirm, showerRSVP);
+    }
   });
 }
 

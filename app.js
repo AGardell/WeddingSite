@@ -28,9 +28,9 @@ testDB(db)
 
     //set routes up in pipeline
     app.use(mainRoute);
+    app.use('/rsvpShower', rsvpShowerRoute);
     app.use('/rsvp', rsvpRoute);
     app.use('/music', musicRoute);
-    app.use('/rsvpShower', rsvpShowerRoute);
 
     // error handler all routes
     app.use((err, req, res, next) => {

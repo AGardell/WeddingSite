@@ -1,5 +1,5 @@
 const express = require("express");
-const Guest = require("../models").guest;
+const Guest = require("../models").showerGuest;
 const transporter = require("../modules/emailer");
 
 var router = express.Router();
@@ -14,10 +14,11 @@ router.post("/", (req, res) => {
     myGuests.push({
       firstname: req.body.guestList[key].firstname,
       lastname: req.body.guestList[key].lastname,
-      email: req.body.guestList[key].email,
-      hotelRequired: req.body.guestList[key].roomConfirm
+      email: req.body.guestList[key].email
     });
   }
+
+  console.log(myGuests);
 
   Guest.bulkCreate(myGuests, 
     {

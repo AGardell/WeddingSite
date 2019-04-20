@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log("ON THE RSVP POST ROUTE!");
   let myGuests = [];
   for (var key in req.body.guestList) {
     myGuests.push({

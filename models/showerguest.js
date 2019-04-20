@@ -1,7 +1,7 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const guest = sequelize.define(
-    "guest",
+  const showerGuest = sequelize.define(
+    "showerGuest",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -29,10 +29,6 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           isEmail: true
         }
-      },
-      hotelRequired: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false
       }
     },
     {
@@ -40,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: "updated_at",
       indexes: [
         {
-          name: "uniqueGuestIndex",
+          name: "uniqueShowerGuestIndex",
           unique: true,
           fields: [
             sequelize.fn("lower", sequelize.col("firstname")),
@@ -50,9 +46,8 @@ module.exports = (sequelize, DataTypes) => {
       ]
     }
   );
-  guest.associate = function(models) {
+  showerGuest.associate = function(models) {
     // associations can be defined here
   };
-
-  return guest;
+  return showerGuest;
 };
