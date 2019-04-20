@@ -114,7 +114,6 @@ body.noscroll {
   flex-direction: column;
   width: 100%;
   list-style: none;
-  margin: 0 auto;
   position: absolute;
   top: 0px;
   padding-top: 35px;
@@ -259,7 +258,7 @@ body.noscroll {
   margin-bottom: 10px;
 }
 
-#rsvpPage, #music-page {
+#music-page {
   width: 100%;
   font-family: 'Amaranth', sans-serif;
   display: flex;
@@ -269,20 +268,33 @@ body.noscroll {
   color: ghostwhite;
 }
 
+#rsvpPage {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 125px auto 100px auto;
+  background-color: rgba(0,0,0,0.3);
+  font-family: 'Amaranth', sans-serif;
+  color: ghostwhite;
+  text-shadow: 3px 2px 2px black;
+}
+
 #rsvpPage > h2 {
   display: flex;
   font-size: 50px;
   margin-bottom: 20px;
   text-align: center;
+  justify-content: center;
 }
 
 #add-person {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: lightgrey;
+  color: ghostwhite;
   font-size: 25px;
   margin-bottom: 7px;
+  text-shadow: inherit;
 }
 
 #add-person > i {
@@ -297,6 +309,7 @@ body.noscroll {
 #rsvpPage > div > form {
   width: 100%;
   text-align: center;
+  padding-bottom: 10vh;
 }
 
 #rsvpPage .form-group {
@@ -315,6 +328,11 @@ body.noscroll {
 #rsvpPage > div > form > .submit-button {
   font-size: 30px;
   margin-top: 15px;
+}
+
+#rsvpPage > div > form > .submit-button:hover {
+  background-color: ghostwhite;
+  cursor: pointer;
 }
 
 .box-break {
@@ -548,6 +566,7 @@ body.noscroll {
     margin-bottom: 0;
     position: initial;
     background: none;
+    margin: 0 auto;
   }
 
   .nav-links li a,
@@ -716,14 +735,14 @@ body.noscroll {
 
 @media screen and (min-width: 890px) {
   #rsvpPage {
-    color: lightgrey;
-    width: 100%;
-    font-family: "Amatic SC", cursive;
+    width: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20vh;
+    margin: 125px auto 100px auto;
+    background-color: rgba(0,0,0,0.3);
+    font-family: 'Amaranth', sans-serif;
+    color: ghostwhite;
+    text-shadow: 3px 2px 2px black;
   }
 
   #rsvpPage > h2 {
@@ -731,15 +750,18 @@ body.noscroll {
     font-size: 50px;
     margin-bottom: 10px;
     text-align: center;
+    justify-content: center;
+    padding-top: 10vh;
   }
 
   #add-person {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: lightgrey;
+    color: ghostwhite;
     font-size: 25px;
     margin-bottom: 7px;
+    text-shadow: inherit;
   }
 
   #add-person > i {
@@ -754,6 +776,7 @@ body.noscroll {
   #rsvpPage > div > form {
     width: 100%;
     text-align: center;
+    padding-bottom: 10vh;
   }
 
   #rsvpPage .form-group {
@@ -772,6 +795,11 @@ body.noscroll {
   #rsvpPage > div > form > .submit-button {
     font-size: 30px;
     margin-top: 15px;
+  }
+
+  #rsvpPage > div > form > .submit-button:hover {
+    background-color: ghostwhite;
+    cursor: pointer;
   }
 
   .box-break {
@@ -798,7 +826,7 @@ body.noscroll {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-bottom: 100px;
+    margin: 125px auto 100px auto;
   }
 
   #map {
