@@ -18,14 +18,12 @@ router.post("/", (req, res) => {
     });
   }
 
-  console.log(myGuests);
-
   Guest.bulkCreate(myGuests, 
     {
       validate:true
     })
     .then(() => {
-      transporter.sendRsvpAlert(myGuests);
+      transporter.sendBridalRSVPAlert(myGuests);
       res.send('1');
     })
     .catch(err => {

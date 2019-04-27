@@ -52,3 +52,28 @@ module.exports.sendRsvpAlert = function(guestList) {
         }
     );
 };
+
+module.exports.sendBridalRSVPAlert = function(guestList) {
+
+  let guestListHtml = guestList.reduce((totalGuests, guest)  => {
+      return totalGuests + '<p>' + guest.firstname + ' ' + guest.lastname + '</p>'
+  }, '');
+
+  transporter.sendMail(
+      {
+      from: "goinggardell@gmail.com",
+      to: ["betts109@gmail.com","alexgardell@yahoo.com"],
+      subject: "You've Received an RSVP to your kick ass Bridal Shower!",
+      html: `<p>The following person(s) have sent their RSVP to your Bridal Shower!!! Please see below:
+                  <br/>
+                  <br/>` + guestListHtml + `</p>`
+      },
+      (err, info) => {
+      if (err) {
+          console.log(err);
+      } else {
+          console.log("Email sent. " + JSON.parse(info));
+      }
+      }
+  );
+};
