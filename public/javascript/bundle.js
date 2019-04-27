@@ -4231,8 +4231,12 @@ if (faqForm != null) {
               titleText: "We Received Your Message!",
               text: "We received your message, Michelle or Alex will be in contact shortly!",
               type: "success",
-              confirmButtonText: "See you there!",
+              confirmButtonText: "OK",
               allowOutsideClick: false
+            }).then((isConfirm) => {
+              if (isConfirm) {
+                e.target.reset();
+              }
             });      
         }}
       );
