@@ -268,7 +268,7 @@ body.noscroll {
   color: ghostwhite;
 }
 
-#rsvpPage {
+#rsvpPage, #faqPage {
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -279,7 +279,7 @@ body.noscroll {
   text-shadow: 3px 2px 2px black;
 }
 
-#rsvpPage > h2 {
+#rsvpPage > h2, #faqPage > h2 {
   display: flex;
   font-size: 50px;
   margin-bottom: 20px;
@@ -302,17 +302,18 @@ body.noscroll {
   color: lightgrey;
 }
 
-#rsvpPage > div {
+#rsvpPage > div, #faqPage > div {
   width: 100%;
 }
 
-#rsvpPage > div > form {
+#rsvpPage > div > form, #faqPage > div > form {
   width: 100%;
   text-align: center;
   padding-bottom: 10vh;
 }
 
-#rsvpPage .form-group {
+#rsvpPage .form-group,
+#faqPage .form-group {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -325,12 +326,14 @@ body.noscroll {
   font-size: 25px;
 }
 
-#rsvpPage > div > form > .submit-button {
+#rsvpPage > div > form > .submit-button,
+#faqPage > div > form > .submit-button {
   font-size: 30px;
   margin-top: 15px;
 }
 
-#rsvpPage > div > form > .submit-button:hover {
+#rsvpPage > div > form > .submit-button:hover,
+#faqPage > div > form > .submit-button:hover {
   background-color: ghostwhite;
   cursor: pointer;
 }
@@ -547,6 +550,17 @@ body.noscroll {
   color: ghostwhite; 
 }
 
+#faq-submit-form input {
+  margin: 5px 0;
+  width: 80%;
+}
+
+#faq-submit-form textarea {
+  margin: 5px 0;
+  width: 80%;
+  height: 12em;
+}
+
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   .navHeader {
@@ -562,11 +576,11 @@ body.noscroll {
     justify-content: space-around;
     width: 100%;
     list-style: none;
-    padding-right: 10px;
     margin-bottom: 0;
     position: initial;
     background: none;
     margin: 0 auto;
+    padding: 35px 0 0 0;
   }
 
   .nav-links li a,
@@ -731,10 +745,21 @@ body.noscroll {
   .favorite-spots ol {
     padding-right: 40px;
   }
+
+  #faq-submit-form input {
+    margin: 5px 0;
+    width: 40%;
+  }
+  
+  #faq-submit-form textarea {
+    margin: 5px 0;
+    width: 40%;
+    height: 12em;
+  }  
 }
 
 @media screen and (min-width: 890px) {
-  #rsvpPage {
+  #rsvpPage, #faqPage {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -745,7 +770,7 @@ body.noscroll {
     text-shadow: 3px 2px 2px black;
   }
 
-  #rsvpPage > h2 {
+  #rsvpPage > h2, #faqPage > h2 {
     display: flex;
     font-size: 50px;
     margin-bottom: 10px;
@@ -769,11 +794,11 @@ body.noscroll {
     color: lightgrey;
   }
 
-  #rsvpPage > div {
+  #rsvpPage > div, #faqPage > div {
     width: 100%;
   }
 
-  #rsvpPage > div > form {
+  #rsvpPage > div > form, #faqPage > div > form {
     width: 100%;
     text-align: center;
     padding-bottom: 10vh;
@@ -786,18 +811,27 @@ body.noscroll {
     align-items: center;
   }
 
+  #faqPage .form-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .form-group input[type="text"] {
     width: 200px;
     margin: 0 25px;
     font-size: 25px;
   }
 
-  #rsvpPage > div > form > .submit-button {
+  #rsvpPage > div > form > .submit-button,
+  #faqPage > div > form > .submit-button {
     font-size: 30px;
     margin-top: 15px;
   }
 
-  #rsvpPage > div > form > .submit-button:hover {
+  #rsvpPage > div > form > .submit-button:hover, 
+  #faqPage > div > form > .submit-button:hover {
     background-color: ghostwhite;
     cursor: pointer;
   }
