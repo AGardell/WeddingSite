@@ -4208,16 +4208,42 @@ let images = document.querySelectorAll(".images, .grid-thumbnail-image");
 let imageFrame = document.getElementById("imageFrame");
 let imageFrameContent = document.getElementById("frameContent");
 let navDropdown = document.getElementsByClassName("nav-dropdown");
+let faqForm = document.querySelector("#faq-submit-form");
 //let landingEnter = document.getElementById("enter-website");
 
 var guestCount = 1;
+
+if (faqForm != null) {
+  faqForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    axios
+      .post("/faq", {
+        name: formData.get("name"),
+        subject: formData.get("subject"),
+        message: formData.get("message")
+      })
+      .then(response => {
+        if (response.data === 1) {
+          swal
+            .fire({
+              titleText: "We Received Your Message!",
+              text: "We received your message, Michelle or Alex will be in contact shortly!",
+              type: "success",
+              confirmButtonText: "See you there!",
+              allowOutsideClick: false
+            });      
+        }}
+      );
+  });
+}
 
 [...navDropdown].forEach(el => {
   el.addEventListener("click", function() {
     this.classList.toggle("pseudo-hover");
   });
-})
-
+});
 
 // add JS to click button in order to append additional text fields for additional guests.
 // -------------------------------------------------------
@@ -4329,9 +4355,9 @@ function sendData(roomConfirm, showerRSVP) {
     };
   }
 
-  let postURL = '/rsvp';
-  if (showerRSVP = true) {
-    postURL = '/rsvpShower';
+  let postURL = "/rsvp";
+  if ((showerRSVP = true)) {
+    postURL = "/rsvpShower";
   }
 
   // ------------------------------------------------
@@ -4343,17 +4369,19 @@ function sendData(roomConfirm, showerRSVP) {
     })
     .then(response => {
       if (response.data === 1) {
-        swal.fire({
-          titleText: "Thank you!",
-          text: "Look forward to seeing you Oct 27th!",
-          type: "success",
-          confirmButtonText: "See you there!",
-          allowOutsideClick: false
-        }).then(isConfirm => {
-          if (isConfirm) {
-            clearRsvpForm();
-          }
-        });
+        swal
+          .fire({
+            titleText: "Thank you!",
+            text: "Look forward to seeing you Oct 27th!",
+            type: "success",
+            confirmButtonText: "See you there!",
+            allowOutsideClick: false
+          })
+          .then(isConfirm => {
+            if (isConfirm) {
+              clearRsvpForm();
+            }
+          });
       } else {
         swal.fire({
           titleText: "Error",
@@ -4423,10 +4451,10 @@ function clearRsvpForm() {
   divEl.appendChild(createEmailElement(guestCount));
   guestCount += 1;
 
-  while (guestList.hasChildNodes()){
+  while (guestList.hasChildNodes()) {
     guestList.lastChild.remove();
   }
-  
+
   let iconEl = document.createElement("i");
   iconEl.classList.add("far", "fa-times-circle", "delete-button");
   addDeleteEvent(iconEl);
@@ -4439,35 +4467,38 @@ if (guestList != null) {
   guestList.addEventListener("submit", () => {
     event.preventDefault();
     let senderPage = event.srcElement.ownerDocument.URL;
-    let showerRSVP = senderPage.indexOf('rsvpShower') > -1;
+    let showerRSVP = senderPage.indexOf("rsvpShower") > -1;
     let roomConfirm = false;
 
     if (!showerRSVP) {
-      swal.fire({
-        title: "Will you be requiring a hotel room?",
-        type: "question",
-        showCancelButton: true,
-        confirmButtonText: "Yes, I will be reserving a room in your block",
-        cancelButtonText: "No, I will find my own accomodations. Thanks!"
-      }).then(result => {
-        if(result.value) {
-          roomConfirm = true;
-          swal.fire({
-            title: "Reserve a room in our block!",
-            type: "info",
-            text: "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
-            confirmButtonText: "OK!",
-            allowOutsideClick: false
-          }).then(() => {
+      swal
+        .fire({
+          title: "Will you be requiring a hotel room?",
+          type: "question",
+          showCancelButton: true,
+          confirmButtonText: "Yes, I will be reserving a room in your block",
+          cancelButtonText: "No, I will find my own accomodations. Thanks!"
+        })
+        .then(result => {
+          if (result.value) {
+            roomConfirm = true;
+            swal
+              .fire({
+                title: "Reserve a room in our block!",
+                type: "info",
+                text:
+                  "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
+                confirmButtonText: "OK!",
+                allowOutsideClick: false
+              })
+              .then(() => {
+                sendData(roomConfirm, showerRSVP);
+              });
+          } else if (result.dismiss === swal.DismissReason.cancel) {
             sendData(roomConfirm, showerRSVP);
-          });
-        }
-        else if (result.dismiss === swal.DismissReason.cancel) {
-          sendData(roomConfirm, showerRSVP)
-        }
-      });
-    }
-    else {
+          }
+        });
+    } else {
       sendData(roomConfirm, showerRSVP);
     }
   });
@@ -4500,13 +4531,13 @@ function sendSongData() {
       artist: requestedArtist.value
     })
     .then(response => {
-      let list = document.createElement('ul');
+      let list = document.createElement("ul");
       songList.innerHTML = "";
       songList.appendChild(list);
       response.data.forEach(request => {
-          let listItem = document.createElement('li');
-          listItem.innerHTML = request.song + ' | ' + request.artist;
-          list.appendChild(listItem);
+        let listItem = document.createElement("li");
+        listItem.innerHTML = request.song + " | " + request.artist;
+        list.appendChild(listItem);
       });
       requestedSong.value = "";
       requestedArtist.value = "";
@@ -4520,7 +4551,7 @@ function sendSongData() {
     });
 }
 
-function addDeleteEvent(button){
+function addDeleteEvent(button) {
   button.addEventListener("click", () => {
     if (guestCount > 1) {
       let removeEl = document.querySelector(".form-group:last-of-type");
@@ -4529,6 +4560,7 @@ function addDeleteEvent(button){
     }
   });
 }
+
 },{"axios":1,"sweetalert2":27}],29:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};

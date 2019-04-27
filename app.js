@@ -25,12 +25,14 @@ testDB(db)
     let rsvpRoute = require("./routes/rsvp.js");
     let musicRoute = require("./routes/music.js");
     let rsvpShowerRoute = require("./routes/rsvpShower.js");
+    let faqRoute = require("./routes/faq.js");
 
     //set routes up in pipeline
     app.use(mainRoute);
     app.use('/rsvpShower', rsvpShowerRoute);
     app.use('/rsvp', rsvpRoute);
     app.use('/music', musicRoute);
+    app.use('/faq', faqRoute);
 
     // error handler all routes
     app.use((err, req, res, next) => {

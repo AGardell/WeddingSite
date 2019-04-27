@@ -77,3 +77,24 @@ module.exports.sendBridalRSVPAlert = function(guestList) {
       }
   );
 };
+
+module.exports.sendFaqAlert = function(name, subject, message) {
+  transporter.sendMail(
+    {
+    from: {
+      name: name,
+      address: "goinggardell@gmail.com"
+    },
+    to: "alexgardell@yahoo.com",
+    subject: subject,
+    html: message
+    },
+    (err, info) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("Email sent. " + JSON.parse(info));
+    }
+    }
+);
+};
