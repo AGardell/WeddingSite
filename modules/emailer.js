@@ -78,16 +78,19 @@ module.exports.sendBridalRSVPAlert = function(guestList) {
   );
 };
 
-module.exports.sendFaqAlert = function(name, subject, message) {
+module.exports.sendFaqAlert = function(name, subject, email, message) {
   transporter.sendMail(
     {
     from: {
-      name: name,
+      name: email,
       address: "goinggardell@gmail.com"
     },
     to: "alexgardell@yahoo.com",
     subject: subject,
-    html: message
+    html: `Name: ${name} 
+           <br>
+           <br>
+           <br>` + message
     },
     (err, info) => {
     if (err) {

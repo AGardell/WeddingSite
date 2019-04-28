@@ -26,7 +26,8 @@ if (faqForm != null) {
       .post("/faq", {
         name: formData.get("name"),
         subject: formData.get("subject"),
-        message: formData.get("message")
+        message: formData.get("message"),
+        email: formData.get("email")
       })
       .then(response => {
         if (response.data === 1) {

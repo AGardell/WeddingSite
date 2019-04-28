@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    transporter.sendFaqAlert(req.body.name, req.body.subject, req.body.message);
+    transporter.sendFaqAlert(req.body.name, req.body.subject, req.body.email, req.body.message);
     res.send('1');
 });
 
