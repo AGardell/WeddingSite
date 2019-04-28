@@ -4229,7 +4229,7 @@ if (faqForm != null) {
           swal
             .fire({
               titleText: "We Received Your Message!",
-              text: "We received your message, Michelle or Alex will be in contact shortly!",
+              text: "Thanks for reaching out! Michelle or Alex will be in contact shortly!",
               type: "success",
               confirmButtonText: "OK",
               allowOutsideClick: false

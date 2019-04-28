@@ -9,7 +9,6 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    console.log('sending email inquiry');
     transporter.sendFaqAlert(req.body.name, req.body.subject, req.body.message);
     res.send('1');
 });
