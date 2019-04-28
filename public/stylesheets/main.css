@@ -149,6 +149,7 @@ body.noscroll {
   text-align: center;
   padding: 5vh;
   display: inline-block;
+  font-size: 12px;
 }
 
 .navLogo h1:nth-child(3) {
@@ -171,13 +172,43 @@ body.noscroll {
   padding-right: 0.15em;
 }
 
+#index-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+#vital-information {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 3vh;
+  color: ghostwhite;
+  font-family: 'Amaranth', sans-serif;
+  text-shadow: 3px 2px 2px black;
+  font-size: 25px;
+  background-color: rgba(0,0,0,0.3);
+  margin: 2vh;
+}
+
+#vital-information h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+#vital-information ul {
+  list-style: none;
+  padding: 0;
+}
+
 #index-image {
   text-align: center;
   padding-bottom: 10px;
+  flex: 1;
   /*background-image: url("../images/allyouneedlove.jpg");*/
-  height: 325px;
+  /*height: 325px;
   background-size: cover;
-  background-position-y: 20%;
+  background-position-y: 20%;*/
 }
 
 #index-image > img {
@@ -625,6 +656,7 @@ body.noscroll {
     text-align: center;
     padding: 5vh;
     display: inline-block;
+    font-size: 15px;
   }
 
   .navLogo h1:nth-child(3) {
@@ -646,15 +678,43 @@ body.noscroll {
     padding-right: 0.15em;
   }
 
-  #index-image {
+  #index-main {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+
+  #vital-information {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10vh;
+    align-items: stretch;
+    color: ghostwhite;
+    font-family: 'Amaranth', sans-serif;
+    text-shadow: 3px 2px 2px black;
+    font-size: 25px;
+    background-color: rgba(0,0,0,0.3);
+    margin-bottom: 5vh;
+  }
+
+  #vital-information h2 {
     text-align: center;
+    text-decoration: underline;
+  }
+
+  #vital-information ul {
+    list-style: none;
+  }
+
+  #index-image {
     padding-bottom: 10px;
   }
   
   #index-image > img {
-    width: 65%;
-    padding: 10vh 0;
-    /*border: 5px solid lightgray;*/
+    width: 60%;
+    /*padding: 10vh 0;
+    border: 5px solid lightgray;*/
   }
 
   .imageFrame-content {
