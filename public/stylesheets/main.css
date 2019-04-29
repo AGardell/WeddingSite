@@ -602,6 +602,17 @@ body.noscroll {
   height: 12em;
 }
 
+#registry-links {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 8em;
+  margin: 15vh;
+}
+
+.registry-icon {
+  color: ghostwhite;
+}
+
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   .navHeader {
@@ -830,6 +841,17 @@ body.noscroll {
     width: 40%;
     height: 12em;
   }  
+
+  #registry-links {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 8em;
+    margin: 15vh;
+  }
+
+  .registry-icon {
+    color: ghostwhite;
+  }
 }
 
 @media screen and (min-width: 890px) {

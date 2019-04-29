@@ -23,4 +23,8 @@ router.get("/location", (req, res) => {
   });
 });
 
+router.get("/registry", (req, res) => {
+  res.render("registry");
+});
+
 module.exports = router;
