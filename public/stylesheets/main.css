@@ -606,11 +606,17 @@ body.noscroll {
   display: flex;
   justify-content: space-evenly;
   font-size: 8em;
-  margin: 15vh;
+  flex-direction: column;
+  padding: 0;
+  align-items: center;
 }
 
 .registry-icon {
   color: ghostwhite;
+  font-family: 'Amaranth', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  text-shadow: 3px 2px 2px black;
 }
 
 /* #region Start of media queries below: */
@@ -851,6 +857,10 @@ body.noscroll {
 
   .registry-icon {
     color: ghostwhite;
+    font-family: 'Amaranth', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: 3px 2px 2px black;
   }
 }
 
