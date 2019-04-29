@@ -107,17 +107,22 @@ body.noscroll {
   right: 20px;
 }
 
+.nav-links.open-links {
+  background-color: rgba(0, 0, 0, 0.39);
+}
+
 .nav-links {
-  display: none;
+  /*display: none;*/
   justify-content: space-around;
   text-align: left;
   flex-direction: column;
-  width: 100%;
+  width: 0;
   list-style: none;
   position: absolute;
   top: 0px;
   padding-top: 35px;
-  background-color: rgba(0, 0, 0, 0.39);
+  overflow-x: hidden;
+  transition: all .2s linear;
 }
 
 .nav-links li a,
@@ -134,6 +139,8 @@ body.noscroll {
   cursor: pointer;
   text-shadow: 3px 2px 2px black;
   font-size: 25px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 #nav-container {
@@ -277,13 +284,13 @@ body.noscroll {
   }
 }
 
-.info-bio img[src="/images/kissing.jpg"] {
+.info-bio img[src="/images/weddingRing.jpg"] {
   float: right;
   margin-left: 10px;
   margin-bottom: 10px;
 }
 
-.info-bio img[src="/images/weddingRing.jpg"] {
+.info-bio img[src="/images/lookingback.jpg"] {
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -378,6 +385,8 @@ body.noscroll {
 
 .open-links {
   display: flex;
+  width: 100%;
+  transition: all .2s linear;
 }
 
 .form-group input[name*="email"] {
@@ -426,6 +435,7 @@ body.noscroll {
   display: block;
   max-height: 500px;
   z-index: 1;
+  transition: all 1.5s linear;
 }
 
 .nav-dropdown > ul {
@@ -599,6 +609,10 @@ body.noscroll {
     flex-direction: row;
     align-items: center;
     margin: 0 100px;
+  }
+
+  .nav-links.open-links {
+    background: none;
   }
 
   .nav-links {
