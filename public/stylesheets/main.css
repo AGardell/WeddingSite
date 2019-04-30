@@ -850,6 +850,7 @@ body.noscroll {
 
   #registry-links {
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     font-size: 8em;
     margin: 15vh;
