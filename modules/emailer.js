@@ -1,10 +1,20 @@
 const nodemailer = require("nodemailer");
+
+const auth = {
+  type: 'OAuth2',
+  user: 'goinggardell@gmail.com',
+  clientid: '350027263679-ilfeet30r1dadusndprdsqlnq4e6r8qa.apps.googleusercontent.com',
+  clientSecret: 'hBE8PeH_jnnGntvNEQs8L3lo',
+  refreshToken: '6YLDiO8nOUbfAB4O0Fa8gSUSkCMBMM_zTxlh_wEL9oE'
+};
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD
-  }
+  auth: auth
+  // auth: {
+  //   user: process.env.EMAIL_USERNAME,
+  //   pass: process.env.EMAIL_PASSWORD
+  // }
 });
 
 module.exports.sendError = function(err) {

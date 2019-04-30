@@ -165,7 +165,7 @@ function sendData(roomConfirm, showerRSVP) {
   }
 
   let postURL = "/rsvp";
-  if ((showerRSVP = true)) {
+  if ((showerRSVP == true)) {
     postURL = "/rsvpShower";
   }
 
