@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+    <div id='location-body'>
+        <div class='info-bio-location'>
+            <input type="text" id="start" placeholder="Start Location..">
+            <input type="text" id="end" placeholder="End Location..">
+            <button id="MapBtn" type="submit">Get Directions</button>
+            <div class='favorite-spots'>
+                <p id='favorite-spots-header'>Check out our Favorite Spots!</p>
+                <ol type='A'>
+                    <% locations.forEach(location => { %>
+                        <li>
+                            <a href="<%=location.website%>"><%=location.name%></a> - <span class='favorite-spot-addr'><%=location.address%></span>
+                        </li>   
+                    <% }) %>                 
+                </ol>
+            </div>
+        </div>
+
+        <div id='map'></div>
+    </div>
+    <!--<div id='geolocation' class='weddingTag' style='color: white;'></div>-->
+    <script type='text/javascript'> 
+        var locationData = <%- JSON.stringify(locations) %>;
+    </script>
+    <script src='/javascript/location.js'></script>
+    <!-- Below is for Google Maps API with my key -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkowKgrWxL_8B6wyHtmY-JExvNlG41X5Y&callback=initMap">
+    </script> 
+<% include partials/footer %>

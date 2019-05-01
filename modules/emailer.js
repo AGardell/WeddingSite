@@ -1,43 +1,16 @@
 const nodemailer = require("nodemailer");
-// const { google } = require("googleapis");
-// const OAuth2 = google.auth.OAuth2;
-
-// const oauth2Client = new OAuth2(
-//   '350027263679-ilfeet30r1dadusndprdsqlnq4e6r8qa.apps.googleusercontent.com', // ClientID
-//   'hBE8PeH_jnnGntvNEQs8L3lo', // Client Secret
-//   'https://developers.google.com/oauthplayground' // Redirect URL
-// );
-
-// oauth2Client.setCredentials({
-//   refresh_token: '1/H8XDgMkMHfzdfHFnXVKEgZTMHR0AM25ZpG8cq19vFlM'
-// });
-
-//const tokens = await oauth2Client.getRequestHeaders();
-//const accessToken = tokens.credentials.access_token;
-
-// const auth = {
-//   type: 'OAuth2',
-//   user: 'goinggardell@gmail.com',
-//   clientId: '350027263679-ilfeet30r1dadusndprdsqlnq4e6r8qa.apps.googleusercontent.com',
-//   clientSecret: 'hBE8PeH_jnnGntvNEQs8L3lo',
-//   refreshToken: '6YLDiO8nOUbfAB4O0Fa8gSUSkCMBMM_zTxlh_wEL9oE',
-//   expires: 
-// };
+require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     type: "OAuth2",
     user: "goinggardell@gmail.com",
-    clientId: "350027263679-ilfeet30r1dadusndprdsqlnq4e6r8qa.apps.googleusercontent.com",
-    clientSecret: "hBE8PeH_jnnGntvNEQs8L3lo",
-    refreshToken: "1/H8XDgMkMHfzdfHFnXVKEgZTMHR0AM25ZpG8cq19vFlM",
+    clientId: process.env.NODEMAILER_CLIENT_ID,
+    clientSecret: process.env.NODEMAILER_CLIENT_SECRET,
+    refreshToken: process.env.NODEMAILER_REFRESH_TOKEN,
     expires: 3600
   }
-  // auth: {
-  //   user: process.env.EMAIL_USERNAME,
-  //   pass: process.env.EMAIL_PASSWORD
-  // }
 });
 
 module.exports.sendError = function(err) {
