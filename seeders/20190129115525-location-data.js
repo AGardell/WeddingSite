@@ -11,7 +11,7 @@ module.exports = {
           website: "http://www.luckyslastchance.com",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/luckys.jpg",
+          // image: "/images/luckys.jpg",
           blurb:
             "Lively bar with gourmet burgers, craft cocktails & a substantial beer menu, plus dancing upstairs. Avoid the Inferno burger..."
         },
@@ -21,7 +21,7 @@ module.exports = {
           website: "https://www.adventureaquarium.com",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/phillyZoo.jpg",
+          // image: "/images/phillyZoo.jpg",
           blurb: "One of the best laid-out and most animal-packed zoos in the country, the Philadelphia Zoo is set among a charming 42-acre Victorian garden with tree-lined walks, formal shrubbery and animal sculptures."
         },
         {
@@ -30,7 +30,7 @@ module.exports = {
           website: "https://www.fi.edu",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/benFranklinInstitute.jpg",
+          // image: "/images/benFranklinInstitute.jpg",
           blurb: "Located in the heart of Philadelphia, The Franklin Institute is one of America's most celebrated museums—a renowned leader in science and technology."
         },
         {
@@ -39,7 +39,7 @@ module.exports = {
           website: "http://www.thepopshopusa.com",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/popShop.jpg",
+          // image: "/images/popShop.jpg",
           blurb:
             "One of our favorite breakfast spots! Michelle and I have a tradition where we grab breakfast here on my birthday. It\'s a little kitchsy but the food is great!"
         },
@@ -50,7 +50,7 @@ module.exports = {
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
           // image: "/images/weddingRing.jpg",
-          image: "",
+          // image: "",
           blurb:
             "The heart and soul of the Manayunk, a mercifully level thoroughfare bustling with dozens of restaurants, owner-operated boutiques, bars and galleries."
         },
@@ -60,7 +60,7 @@ module.exports = {
           website: "http://muttermuseum.org/",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/mutterMuseum.jpg",
+          // image: "/images/mutterMuseum.jpg",
           blurb:
             "The Mütter Museum helps the public appreciate the mysteries and beauty of the human body while understanding the history of diagnosis and treatment of disease."
         },
@@ -70,7 +70,7 @@ module.exports = {
           website: "http://longwoodgardens.org/",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/longwood.jpg",
+          // image: "/images/longwood.jpg",
           blurb:
             "One of the premier horticultural display gardens in the United States and is open to visitors year-round to enjoy exotic plants and horticulture (both indoor and outdoor), events and performances, seasonal and themed attractions, as well as educational lectures, courses, and workshops."
         },
@@ -80,7 +80,7 @@ module.exports = {
           website: "https://www.ansp.org/",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/drexelScience.jpg",
+          // image: "/images/drexelScience.jpg",
           blurb:
             "The Academy of Natural Sciences of Drexel University is a leading natural history museum dedicated to advancing research, education, and public engagement in biodiversity and environmental science."
         },
@@ -91,7 +91,7 @@ module.exports = {
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
           // image: "/images/weddingRing.jpg",
-          image: "",
+          // image: "",
           blurb:
             "Can\'t visit Philly without enjoying a classic cheese steak. This spot is my favorite but as long as you avoid Pat\'s and/or Geno\'s you\'ll be in good shape."
         },
@@ -101,7 +101,7 @@ module.exports = {
           website: "https://www.adventureaquarium.com/",
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
-          image: "/images/adventureAquarium.jpg",
+          // image: "/images/adventureAquarium.jpg",
           blurb:
             "Adventure Aquarium is just minutes from downtown Philadelphia on the Camden Waterfront and features one-of-a-kind exhibits with more than 15,000 aquatic species throughout two million gallons of water."
         },
@@ -112,7 +112,7 @@ module.exports = {
           created_at: new Date(Date.now()),
           updated_at: new Date(Date.now()),
           // image: "/images/weddingRing.jpg",
-          image: "",
+          // image: "",
           blurb:
             "I gotta admit I was doubtful when Michelle took me here but Donkey's makes a damn good cheesesteak. Yes I know this isn\'t the original Donkey\'s but Michelle and I can\'t in good conscience recommend anyone travel to Camden."
         }
