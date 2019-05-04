@@ -2,8 +2,7 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
   overflow: auto;
 }
 
-html,
-body {
+html {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg");
   background-attachment: fixed;
   -moz-background-size: cover;
@@ -12,6 +11,13 @@ body {
   background-size: cover;
   background-position: center;
   overflow: visible;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background: transparent;
 }
 
 body.noscroll {
@@ -250,6 +256,7 @@ body.noscroll {
 
 #imageFrame {
   display: none; /* Hidden by default */
+  align-items: center; /* set so when flexed image centers on phone */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;

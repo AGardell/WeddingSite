@@ -4209,6 +4209,7 @@ let imageFrame = document.getElementById("imageFrame");
 let imageFrameContent = document.getElementById("frameContent");
 let navDropdown = document.getElementsByClassName("nav-dropdown");
 let faqForm = document.querySelector("#faq-submit-form");
+let viewportSize = document.querySelector('meta[name="viewport"]');
 //let landingEnter = document.getElementById("enter-website");
 
 var guestCount = 1;
@@ -4267,6 +4268,9 @@ hamburger.addEventListener("click", () => {
     } else {
       imageFrame.style.display = "none";
       document.body.classList.toggle("noscroll");
+      if (viewportSize) {
+        viewportSize.content = "width=device-width, initial-scale=1, maximum-scale=2.0";
+      }
     }
   });
 });
