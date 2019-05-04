@@ -64,17 +64,10 @@ hamburger.addEventListener("click", () => {
 
 [...images].forEach(img => {
   img.addEventListener("click", function() {
-    console.log(imageFrame.style.display);
     if (imageFrame.style.display == "none" || imageFrame.style.display == "") {
       imageFrame.style.display = "flex";
       imageFrameContent.src = this.src;
       document.body.classList.toggle("noscroll");
-    } else {
-      imageFrame.style.display = "none";
-      document.body.classList.toggle("noscroll");
-      if (viewportSize) {
-        viewportSize.content = "width=device-width, initial-scale=1, maximum-scale=2.0";
-      }
     }
   });
 });
@@ -84,6 +77,7 @@ if (imageFrameContent != null) {
     if (imageFrame.style.display != "none") {
       imageFrame.style.display = "none";
       document.body.classList.toggle("noscroll");
+      viewportSize.setAttribute('content', "width=device-width, initial-scale=1, maximum-scale=2.5");
     }
   });
 }
