@@ -4264,6 +4264,7 @@ hamburger.addEventListener("click", () => {
       imageFrame.style.display = "flex";
       imageFrameContent.src = this.src;
       document.body.classList.toggle("noscroll");
+      viewportSize.setAttribute('content', "width=device-width, initial-scale=.999, maximum-scale=2.5");
     }
   });
 });
