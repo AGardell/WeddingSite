@@ -13,8 +13,11 @@ app.use(bodyParser.json());
 const PORT = process.env.PORT;
 
 // execute promise and if resolved, proceeed to launch web application. If rejected, return the error and end.
-testDB(db)
-  .then(() => {
+
+// ASYNC / AWAIT
+(async () => {
+  try {
+    await testDB(db);
     // set view engine to ejs
     app.set("view engine", "ejs");
     app.use(express.static(__dirname + "/public"));
@@ -42,11 +45,16 @@ testDB(db)
 
     app.listen(PORT, () => {
       console.log("Website started on port 5500!");
-    });
-  })
-  .catch(err => {
-    console.log("Failed to connect to DB: " + err);
-  });
+    });    
+  } catch (dbConnectError) {
+    try {
+      console.log("Unable to connect to database: " + dbConnectError);
+      await emailer.sendError(dbConnectError);
+    } catch (emailerError) {
+      console.log("Email service failed: " + emailerError);
+    }
+  }
+})();
 
 function testDB(db) {
     return new Promise ((resolve, reject) => {
@@ -55,7 +63,8 @@ function testDB(db) {
             resolve(console.log("Successfully connected to database!"));
         })
         .catch((err) => {
-            reject(console.log("Unable to connect to database! ERROR: " + err));
+            console.log("Unable to connect to database.");
+            reject(err);
         })
     });
 };
