@@ -22,9 +22,13 @@ router.post("/", (req, res) => {
     {
       validate:true
     })
-    .then(() => {
-      transporter.sendBridalRSVPAlert(myGuests);
-      res.send('1');
+    .then(async () => {
+      try {
+        await transporter.sendBridalRSVPAlert(myGuests);
+        res.send('1');
+      } catch (emailerErr) {
+        return next(emailerErr);
+      }
     })
     .catch(err => {
       // TODO: Look into if error proprerly being sent via email.

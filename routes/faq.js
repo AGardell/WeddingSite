@@ -8,9 +8,13 @@ router.get("/", (req, res) => {
   res.render("faq");
 });
 
-router.post("/", (req, res) => {
-    transporter.sendFaqAlert(req.body.name, req.body.subject, req.body.email, req.body.message);
+router.post("/", async (req, res) => {
+  try {
+    await transporter.sendFaqAlert(req.body.name, req.body.subject, req.body.email, req.body.message);
     res.send('1');
+  } catch (emailerErr) {
+    return next(emailerErr);
+  }
 });
 
 module.exports = router;

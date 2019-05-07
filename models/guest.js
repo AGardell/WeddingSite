@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
-          isAlphanumeric: true
+          is: /^[A-Za-z]+(\s?[A-Za-z]*)*[A-Za-z]$/
         }
       },
       lastname: {

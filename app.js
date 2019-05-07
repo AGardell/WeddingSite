@@ -21,7 +21,6 @@ const PORT = process.env.PORT;
     // set view engine to ejs
     app.set("view engine", "ejs");
     app.use(express.static(__dirname + "/public"));
-    
 
     // importing routes
     let mainRoute = require("./routes/index.js");
@@ -32,39 +31,47 @@ const PORT = process.env.PORT;
 
     //set routes up in pipeline
     app.use(mainRoute);
-    app.use('/rsvpShower', rsvpShowerRoute);
-    app.use('/rsvp', rsvpRoute);
-    app.use('/music', musicRoute);
-    app.use('/faq', faqRoute);
+    app.use("/rsvpShower", rsvpShowerRoute);
+    app.use("/rsvp", rsvpRoute);
+    app.use("/music", musicRoute);
+    app.use("/faq", faqRoute);
 
     // error handler all routes
-    app.use((err, req, res, next) => {
-      emailer.sendError(err);
-      res.sendStatus(404).send(err);
+    app.use(async (err, req, res, next) => {
+      try {
+        console.log(err);
+        await emailer.sendError(err);
+        res.status(500).send(err);
+      } catch (emailerError) {
+        console.log("Email service failed: " + emailerError);
+      }
     });
 
     app.listen(PORT, () => {
       console.log("Website started on port 5500!");
-    });    
+    });
   } catch (dbConnectError) {
     try {
       console.log("Unable to connect to database: " + dbConnectError);
       await emailer.sendError(dbConnectError);
     } catch (emailerError) {
-      console.log("Email service failed: " + emailerError);
+      console.log(
+        "Database connection failed. Email service failed: " + emailerError
+      );
     }
   }
 })();
 
 function testDB(db) {
-    return new Promise ((resolve, reject) => {
-        db.sequelize.authenticate()
-        .then(() => {
-            resolve(console.log("Successfully connected to database!"));
-        })
-        .catch((err) => {
-            console.log("Unable to connect to database.");
-            reject(err);
-        })
-    });
-};
+  return new Promise((resolve, reject) => {
+    db.sequelize
+      .authenticate()
+      .then(() => {
+        resolve(console.log("Successfully connected to database!"));
+      })
+      .catch(err => {
+        console.log("Unable to connect to database.");
+        reject(err);
+      });
+  });
+}

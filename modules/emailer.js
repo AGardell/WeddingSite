@@ -14,96 +14,113 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports.sendError = function(err) {
-  transporter.sendMail(
-    {
-      from: "goinggardell@gmail.com",
-      to: "alexgardell@yahoo.com",
-      subject: "Error in application!",
-      html: `<p>Error has occurred in the application. Please see below:
-              <br/>
-              <br/> 
-              ${err}</p>`
-    },
-    (err, info) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Email sent. " + JSON.parse(info));
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(
+      {
+        from: "goinggardell@gmail.com",
+        to: "alexgardell@yahoo.com",
+        subject: "Error in application!",
+        html: `<p>Error has occurred in the application. Please see below:
+                <br/>
+                <br/> 
+                ${err}</p>`
+      },
+      (err, info) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(info);
+        }
       }
-    }
-  );
+    );
+  });
 };
 
 module.exports.sendRsvpAlert = function(guestList) {
-
-    let guestListHtml = guestList.reduce((totalGuests, guest)  => {
-        return totalGuests + '<p>' + guest.firstname + ' ' + guest.lastname + '</p>'
-    }, '');
+  return new Promise((resolve, reject) => {
+    let guestListHtml = guestList.reduce((totalGuests, guest) => {
+      return (
+        totalGuests + "<p>" + guest.firstname + " " + guest.lastname + "</p>"
+      );
+    }, "");
 
     transporter.sendMail(
-        {
+      {
         from: "goinggardell@gmail.com",
         to: "alexgardell@yahoo.com",
         subject: "You've Received an RSVP!",
-        html: `<p>The following person(s) have sent their RSVP. Please see below:
+        html:
+          `<p>The following person(s) have sent their RSVP. Please see below:
                     <br/>
-                    <br/>` + guestListHtml + `</p>`
-        },
-        (err, info) => {
+                    <br/>` +
+          guestListHtml +
+          `</p>`
+      },
+      (err, info) => {
         if (err) {
-            console.log(err);
+          reject(err);
         } else {
-            console.log("Email sent. " + JSON.parse(info));
+          resolve(info);
         }
-        }
+      }
     );
+  });
 };
 
 module.exports.sendBridalRSVPAlert = function(guestList) {
+  return new Promise((resolve, reject) => {
+    let guestListHtml = guestList.reduce((totalGuests, guest) => {
+      return (
+        totalGuests + "<p>" + guest.firstname + " " + guest.lastname + "</p>"
+      );
+    }, "");
 
-  let guestListHtml = guestList.reduce((totalGuests, guest)  => {
-      return totalGuests + '<p>' + guest.firstname + ' ' + guest.lastname + '</p>'
-  }, '');
-
-  transporter.sendMail(
+    transporter.sendMail(
       {
-      from: "goinggardell@gmail.com",
-      to: ["betts109@gmail.com","alexgardell@yahoo.com"],
-      subject: "You've Received an RSVP to your kick ass Bridal Shower!",
-      html: `<p>The following person(s) have sent their RSVP to your Bridal Shower!!! Please see below:
+        from: "goinggardell@gmail.com",
+        to: ["betts109@gmail.com", "alexgardell@yahoo.com"],
+        subject: "You've Received an RSVP to your kick ass Bridal Shower!",
+        html:
+          `<p>The following person(s) have sent their RSVP to your Bridal Shower!!! Please see below:
                   <br/>
-                  <br/>` + guestListHtml + `</p>`
+                  <br/>` +
+          guestListHtml +
+          `</p>`
       },
       (err, info) => {
-      if (err) {
-          console.log(err);
-      } else {
-          console.log("Email sent. " + JSON.parse(info));
+        if (err) {
+          reject(err);
+        } else {
+          resolve(info);
+        }
       }
-      }
-  );
+    );
+  });
 };
 
 module.exports.sendFaqAlert = function(name, subject, email, message) {
-  transporter.sendMail(
-    {
-    from: {
-      name: email,
-      address: "goinggardell@gmail.com"
-    },
-    to: "alexgardell@yahoo.com",
-    subject: subject,
-    html: `Name: ${name} 
+  return new Promise((resolve, reject) => {
+    transporter.sendMail(
+      {
+        from: {
+          name: email,
+          address: "goinggardell@gmail.com"
+        },
+        to: "alexgardell@yahoo.com",
+        subject: subject,
+        html:
+          `Name: ${name} 
            <br>
            <br>
            <br>` + message
-    },
-    (err, info) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Email sent. " + JSON.parse(info));
-    }
-    }
-);
+      },
+      (err, info) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(info);
+        }
+      }
+    );
+  });
 };

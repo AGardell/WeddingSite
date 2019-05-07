@@ -351,8 +351,9 @@ function sendSongData() {
       requestedArtist.value = "";
     })
     .catch(err => {
+      console.log(err);
       swal.fire({
-        titleText: "ERROR!",
+        title: "ERROR!",
         text: err.response.data,
         type: "error"
       });

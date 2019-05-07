@@ -832,6 +832,11 @@ body.noscroll {
     margin: auto;
   }
 
+  #song-request-button:hover {
+    background-color: ghostwhite;
+    cursor: pointer;
+  }
+
   #song-list {
     color: ghostwhite;
     display: flex;
