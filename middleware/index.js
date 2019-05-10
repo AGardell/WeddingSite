@@ -10,6 +10,10 @@ require("dotenv").config();
 middlewareObj = {};
 
 middlewareObj.authorizeAccount = function(req, res, next) {
+  if (Object.keys(req.query).length == 0) {
+    return next();
+  }
+
   let postData = querystring.stringify({
     grant_type: "client_credentials"
   });
@@ -52,13 +56,17 @@ middlewareObj.authorizeAccount = function(req, res, next) {
 };
 
 middlewareObj.findSongAndArtist = function(req, res, next) {
-  if (req.body.song.toLowerCase().includes('percolator')) {
+  if (Object.keys(req.query).length == 0) {
+    return next();
+  }
+
+  if (req.query.song.toLowerCase().includes('percolator')) {
     return next('Absolutely not Ally...');
   }
 
   let options = {
     host: "api.spotify.com",
-    path: '/v1/search?q=artist%3A%22' + req.body.artist.replace(/ /g, "%20") + '%22%20track%3A%22' + req.body.song.replace(/ /g, "%20") + '%22&type=track',
+    path: '/v1/search?q=artist%3A%22' + req.query.artist.replace(/ /g, "%20") + '%22%20track%3A%22' + req.query.song.replace(/ /g, "%20") + '%22&type=track',
     headers: {
       Authorization: "Bearer " + res.locals.spotifyAuth
     }   

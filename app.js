@@ -40,7 +40,7 @@ const PORT = process.env.PORT;
     app.use(async (err, req, res, next) => {
       try {
         console.log(err);
-        await emailer.sendError(err);
+        //await emailer.sendError(err);
         res.status(500).send(err);
       } catch (emailerError) {
         console.log("Email service failed: " + emailerError);

@@ -35,17 +35,19 @@ if (faqForm != null) {
           swal
             .fire({
               titleText: "We Received Your Message!",
-              text: "Thanks for reaching out! Michelle or Alex will be in contact shortly!",
+              text:
+                "Thanks for reaching out! Michelle or Alex will be in contact shortly!",
               type: "success",
               confirmButtonText: "OK",
               allowOutsideClick: false
-            }).then((isConfirm) => {
+            })
+            .then(isConfirm => {
               if (isConfirm) {
                 e.target.reset();
               }
-            });      
-        }}
-      );
+            });
+        }
+      });
   });
 }
 
@@ -68,7 +70,10 @@ hamburger.addEventListener("click", () => {
       imageFrame.style.display = "flex";
       imageFrameContent.src = this.src;
       document.body.classList.toggle("noscroll");
-      viewportSize.setAttribute('content', "width=device-width, initial-scale=.999, maximum-scale=2.5");
+      viewportSize.setAttribute(
+        "content",
+        "width=device-width, initial-scale=.999, maximum-scale=2.5"
+      );
     }
   });
 });
@@ -78,7 +83,10 @@ if (imageFrameContent != null) {
     if (imageFrame.style.display != "none") {
       imageFrame.style.display = "none";
       document.body.classList.toggle("noscroll");
-      viewportSize.setAttribute('content', "width=device-width, initial-scale=1, maximum-scale=2.5");
+      viewportSize.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1, maximum-scale=2.5"
+      );
     }
   });
 }
@@ -164,7 +172,7 @@ function sendData(roomConfirm, showerRSVP) {
   }
 
   let postURL = "/rsvp";
-  if ((showerRSVP == true)) {
+  if (showerRSVP == true) {
     postURL = "/rsvpShower";
   }
 
@@ -206,8 +214,7 @@ function sendData(roomConfirm, showerRSVP) {
         type: "error"
       });
     });
-
-  // AJAX request using long form XMLHttpRequest
+  //#region AJAX request using long form XMLHttpRequest
   // let xhr = new XMLHttpRequest();
   // xhr.onload = () => {
   //     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -246,6 +253,7 @@ function sendData(roomConfirm, showerRSVP) {
   // xhr.open('POST', '/rsvp', true);
   // xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
   // xhr.send(JSON.stringify(guestList));
+  //#endregion
 }
 
 function clearRsvpForm() {
@@ -323,20 +331,63 @@ let songReqFrm = document.getElementById("song-request-form");
 if (songReqFrm != null) {
   songReqFrm.addEventListener("submit", () => {
     event.preventDefault();
-    sendSongData();
+    findMatchingSong();
+    //sendSongData();
   });
 }
 
+function findMatchingSong() {
+  let requestedSong = document.getElementById("song-title");
+  let requestedArtist = document.getElementById("artist");
+  let songList = document.getElementById("song-list");
+
+  axios
+    .get(
+      "/music?song=" + requestedSong.value + "&artist=" + requestedArtist.value
+    )
+    .then(async response => {
+      let options = {};
+      let index = 0;
+
+      response.data.forEach(song => {
+        options[index] = song.name + " by " + song.artist;
+        index++;
+      });
+
+      if (Object.keys(options).length > 1) {
+        const { value: selectedSong } = await swal.fire({
+          title:
+            "Looks like Spotify found multiple matching titles. Please select the one you want to hear!",
+          type: "question",
+          input: "select",
+          inputOptions: options,
+          inputPlaceholder: "Song"
+        });
+        sendSongData(response.data[selectedSong].name, response.data[selectedSong].artist);
+      } else {
+        sendSongData(response.data[0].name, response.data[0].artist);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      swal.fire({
+        title: "ERROR!",
+        text: err.response.data,
+        type: "error"
+      });
+    });
+}
+
 // post the song request to the DB and then build the list again to catch any changes made by outside users.
-function sendSongData() {
+function sendSongData(songTitle, artist) {
   let requestedSong = document.getElementById("song-title");
   let requestedArtist = document.getElementById("artist");
   let songList = document.getElementById("song-list");
 
   axios
     .post("/music", {
-      song: requestedSong.value,
-      artist: requestedArtist.value
+      song: songTitle,
+      artist: artist
     })
     .then(response => {
       let list = document.createElement("ul");
