@@ -23,6 +23,13 @@ if (faqForm != null) {
     e.preventDefault();
     const formData = new FormData(e.target);
 
+    swal.fire({
+      title: "Sending email to Alex & Michelle...",
+      onBeforeOpen: () => {
+        swal.showLoading();
+      }
+    });
+
     axios
       .post("/faq", {
         name: formData.get("name"),
@@ -156,6 +163,13 @@ function createButtonElement() {
 // JS to compile proper JSON object before sending.
 // -------------------------------------------------------
 function sendData(roomConfirm, showerRSVP) {
+  swal.fire({
+    title: "Sending RSVP...",
+    onBeforeOpen: () => {
+      swal.showLoading();
+    }
+  });
+
   let guestList = {};
   for (var i = 0; i < guestCount; i++) {
     let firstname = document.getElementsByName("firstname" + i)[0].value;
@@ -339,31 +353,54 @@ if (songReqFrm != null) {
 function findMatchingSong() {
   let requestedSong = document.getElementById("song-title");
   let requestedArtist = document.getElementById("artist");
-  let songList = document.getElementById("song-list");
+  // let songList = document.getElementById("song-list");
+  swal.fire({
+    title: "Locating matching song...",
+    onBeforeOpen: () => {
+      swal.showLoading();
+    }
+  });
 
   axios
     .get(
       "/music?song=" + requestedSong.value + "&artist=" + requestedArtist.value
     )
     .then(async response => {
-      let options = {};
-      let index = 0;
+      if (response.data.length > 1) {
+        let options = {};
+        let index = 0;
 
-      response.data.forEach(song => {
-        options[index] = song.name + " by " + song.artist;
-        index++;
-      });
+        response.data.forEach(song => {
+          options[index] = song.name + " by " + song.artist;
+          index++;
+        });
 
-      if (Object.keys(options).length > 1) {
         const { value: selectedSong } = await swal.fire({
           title:
             "Looks like Spotify found multiple matching titles. Please select the one you want to hear!",
           type: "question",
           input: "select",
           inputOptions: options,
-          inputPlaceholder: "Song"
+          inputPlaceholder: "Song",
+          showCancelButton: true
         });
-        sendSongData(response.data[selectedSong].name, response.data[selectedSong].artist);
+        sendSongData(
+          response.data[selectedSong].name,
+          response.data[selectedSong].artist
+        );
+      } else if (
+        requestedSong != response.data.song ||
+        requestedArtist != response.data.artist
+      ) {
+        swal.fire({
+          title: "Is this the song you meant?",
+          text: response.data[0].name + ' by ' + response.data[0].artist,
+          type: "question",
+          showCancelButton: true,
+          confirmButtonText: "Add to playlist!"
+        }).then((res) => {
+          sendSongData(response.data[0].name, response.data[0].artist);
+        });
       } else {
         sendSongData(response.data[0].name, response.data[0].artist);
       }
@@ -384,6 +421,13 @@ function sendSongData(songTitle, artist) {
   let requestedArtist = document.getElementById("artist");
   let songList = document.getElementById("song-list");
 
+  swal.fire({
+    title: "Adding song to list...",
+    onBeforeOpen: () => {
+      swal.showLoading();
+    }
+  });
+
   axios
     .post("/music", {
       song: songTitle,
@@ -400,6 +444,7 @@ function sendSongData(songTitle, artist) {
       });
       requestedSong.value = "";
       requestedArtist.value = "";
+      swal.close();
     })
     .catch(err => {
       console.log(err);
