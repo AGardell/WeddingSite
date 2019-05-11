@@ -826,6 +826,7 @@ body.noscroll {
   #song-request-form > div {
     display: inherit;
     justify-content: center;
+    flex-direction: row
   }
 
   #song-request-button {

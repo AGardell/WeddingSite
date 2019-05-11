@@ -384,13 +384,16 @@ function findMatchingSong() {
           inputPlaceholder: "Song",
           showCancelButton: true
         });
-        sendSongData(
-          response.data[selectedSong].name,
-          response.data[selectedSong].artist
-        );
+        
+        if (selectedSong != null) {
+          sendSongData(
+            response.data[selectedSong].name,
+            response.data[selectedSong].artist
+          );
+        }
       } else if (
-        requestedSong != response.data.song ||
-        requestedArtist != response.data.artist
+        requestedSong.value.toLowerCase() != response.data[0].name.toLowerCase() ||
+        requestedArtist.value.toLowerCase() != response.data[0].artist.toLowerCase()
       ) {
         swal.fire({
           title: "Is this the song you meant?",
