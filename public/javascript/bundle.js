@@ -4595,7 +4595,9 @@ function findMatchingSong() {
           showCancelButton: true,
           confirmButtonText: "Add to playlist!"
         }).then((res) => {
-          sendSongData(response.data[0].name, response.data[0].artist);
+          if (res.value) {
+            sendSongData(response.data[0].name, response.data[0].artist);
+          }
         });
       } else {
         sendSongData(response.data[0].name, response.data[0].artist);

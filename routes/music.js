@@ -11,12 +11,12 @@ router.get("/", authorizeAccount, searchForSong, (req, res, next) => {
     let songArtist = new Set();
 
     foundSong.tracks.items.forEach(song => {
-      songArtist.add(song.name + " by " + song.artists[0].name);
+      songArtist.add(song.name + " || " + song.artists[0].name);
     });
 
     if (songArtist.size > 0) {
       const newArr = [...songArtist].map(song => {
-        let splitSong = song.split("by");
+        let splitSong = song.split(" || ");
         let obj = {
           name: splitSong[0].trim(),
           artist: splitSong[1].trim()
