@@ -3,7 +3,8 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
 }
 
 html {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg");
+  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
+  background: url("../images/new_background_unedited.jpg");
   background-attachment: fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -150,7 +151,7 @@ body.noscroll {
   list-style: none;
   position: absolute;
   top: 0px;
-  padding-top: 35px;
+  padding-top: 15px;
   overflow-x: hidden;
   transition: all .2s linear;
 }
@@ -174,10 +175,25 @@ body.noscroll {
 }
 
 #nav-container {
+  /* background: url("../images/new_landscape.jpg");
+  background-size: cover;
+  background-position: center;
+  background-position-x: center;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: 5vh 5vh 0 5vh;;
+  margin: 5vh 5vh 0 5vh; */
+  background: url("../images/new_landscape.jpg");
+  background-size: cover;
+  /* background-position: center; */
+  background-position-x: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /* margin: 5vh 5vh 0 5vh; */
+  height: 600px;
 }
 
 .navLogo {
@@ -191,7 +207,8 @@ body.noscroll {
 
 .navLogo h1:nth-child(3) {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
 }
 
 .navLogo-story {
@@ -658,7 +675,8 @@ body.noscroll {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 0 100px;
+    padding: 0 100px;
+    background-color: rgba(0, 0, 0, .3);
   }
 
   .nav-links.open-links {
@@ -675,7 +693,7 @@ body.noscroll {
     position: initial;
     background: none;
     margin: 0 auto;
-    padding: 35px 0 0 0;
+    padding: 15px 0 0 0;
   }
 
   .nav-links li a,
@@ -718,9 +736,10 @@ body.noscroll {
     color: ghostwhite;
     font-family: "Great Vibes", cursive;
     text-align: center;
-    padding: 5vh;
+    padding: 35vh 5vh 5vh 5vh;
     display: inline-block;
-    font-size: 15px;
+    font-size: 20px;
+    width: 75%;
   }
 
   .navLogo h1:nth-child(3) {
