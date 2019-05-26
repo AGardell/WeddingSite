@@ -175,25 +175,14 @@ body.noscroll {
 }
 
 #nav-container {
-  /* background: url("../images/new_landscape.jpg");
-  background-size: cover;
-  background-position: center;
-  background-position-x: center;
+  background: url(../images/new_landscape.jpg);
+  background-size: 320vw;
+  background-position-x: -375px;
   background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: 5vh 5vh 0 5vh; */
-  background: url("../images/new_landscape.jpg");
-  background-size: cover;
-  /* background-position: center; */
-  background-position-x: center;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  /* margin: 5vh 5vh 0 5vh; */
-  height: 600px;
+  height: 500px;
 }
 
 .navLogo {
@@ -435,7 +424,7 @@ body.noscroll {
 
 .open-links {
   display: flex;
-  width: 100%;
+  width: 50%;
   transition: all .2s linear;
 }
 
@@ -671,6 +660,17 @@ body.noscroll {
 
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
+  #nav-container {
+    background: url("../images/new_landscape.jpg");
+    background-size: cover;
+    background-position-x: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 600px;
+  }
+
   .navHeader {
     display: flex;
     flex-direction: row;
