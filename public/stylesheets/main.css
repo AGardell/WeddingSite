@@ -183,8 +183,9 @@ body.noscroll {
 #nav-container {
   background: url("../images/new_landscape_resized.jpg");
   background-size: 320vw;
-  background-position-x: -391px;
-  /* background-attachment: fixed; */
+  /* background-position-x: -391px; */
+  background-position-x: -97%;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -693,7 +694,7 @@ body.noscroll {
     background: url("../images/new_landscape_resized.jpg");
     background-size: cover;
     background-position-x: center;
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-content: center;
