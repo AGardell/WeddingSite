@@ -129,7 +129,7 @@ body.noscroll {
 
 .nav-brand {
   color: ghostwhite;
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   font-size: 25px;
   text-decoration: none;
   text-shadow: 3px 2px 2px black;
@@ -151,16 +151,16 @@ body.noscroll {
   list-style: none;
   position: absolute;
   top: 0px;
-  padding-top: 15px;
+  padding-top: 40px;
   overflow-x: hidden;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
 .nav-links li a,
 .nav-links li button,
 .nav-links .nav-links-seperator {
   color: ghostwhite;
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   padding-left: 10px;
   padding-right: 10px;
   text-decoration: none;
@@ -192,6 +192,7 @@ body.noscroll {
   padding: 5vh;
   display: inline-block;
   font-size: 12px;
+  visibility: hidden;
 }
 
 .navLogo h1:nth-child(3) {
@@ -227,11 +228,11 @@ body.noscroll {
   flex-direction: column;
   padding: 3vh;
   color: ghostwhite;
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   text-shadow: 3px 2px 2px black;
   font-size: 25px;
-  background-color: rgba(0,0,0,0.3);
-  margin: 2vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 10vh 2vh 2vh 2vh;
 }
 
 #vital-information h2 {
@@ -336,7 +337,7 @@ body.noscroll {
 
 #music-page {
   width: 100%;
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -344,18 +345,20 @@ body.noscroll {
   color: ghostwhite;
 }
 
-#rsvpPage, #faqPage {
+#rsvpPage,
+#faqPage {
   width: 90%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto 100px auto;
-  background-color: rgba(0,0,0,0.3);
-  font-family: 'Amaranth', sans-serif;
+  margin: 10vh auto 100px auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: "Amaranth", sans-serif;
   color: ghostwhite;
   text-shadow: 3px 2px 2px black;
 }
 
-#rsvpPage > h2, #faqPage > h2 {
+#rsvpPage > h2,
+#faqPage > h2 {
   display: flex;
   font-size: 50px;
   margin-bottom: 20px;
@@ -379,11 +382,13 @@ body.noscroll {
   color: lightgrey;
 }
 
-#rsvpPage > div, #faqPage > div {
+#rsvpPage > div,
+#faqPage > div {
   width: 100%;
 }
 
-#rsvpPage > div > form, #faqPage > div > form {
+#rsvpPage > div > form,
+#faqPage > div > form {
   width: 100%;
   text-align: center;
   padding-bottom: 10vh;
@@ -424,8 +429,8 @@ body.noscroll {
 
 .open-links {
   display: flex;
-  width: 50%;
-  transition: all .2s linear;
+  width: 60%;
+  transition: all 0.2s linear;
 }
 
 .form-group input[name*="email"] {
@@ -452,6 +457,7 @@ body.noscroll {
   margin-top: 40px;
   grid-gap: 10px;
   justify-content: center;
+  margin: 40px 0px 40px 0px;
 }
 
 .grid-thumbnail-image {
@@ -510,7 +516,7 @@ body.noscroll {
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: 40px auto 0 auto;
+  margin: 10vh auto 0 auto;
 }
 
 .info-bio-location > #end {
@@ -526,7 +532,7 @@ body.noscroll {
 
 .favorite-spots {
   margin-top: 10px;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   color: ghostwhite;
   text-shadow: 3px 2px 2px black;
 }
@@ -547,7 +553,7 @@ body.noscroll {
 }
 
 #favorite-spots-header {
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   text-align: center;
   padding-top: 10px;
   font-size: 1.25em;
@@ -607,8 +613,8 @@ body.noscroll {
   flex-direction: column;
   align-items: center;
   width: 90%;
-  background-color: rgba(0,0,0,0.3);
-  margin: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 10vh 2vh 2vh 2vh;
 }
 
 #MapBtn:hover {
@@ -624,10 +630,10 @@ body.noscroll {
   width: 90%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto 100px auto;
-  background-color: rgba(0,0,0,0.3);
-  font-family: 'Amaranth', sans-serif;
-  color: ghostwhite; 
+  margin: 10vh auto 100px auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: "Amaranth", sans-serif;
+  color: ghostwhite;
 }
 
 #faq-submit-form input {
@@ -652,10 +658,27 @@ body.noscroll {
 
 .registry-icon {
   color: ghostwhite;
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   text-decoration: none;
   cursor: pointer;
   text-shadow: 3px 2px 2px black;
+}
+
+.picture-break {
+  text-shadow: 3px 2px 2px black;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: ghostwhite;
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  text-align: center;
+  font-family: "Great Vibes", cursive;
+  padding: .5vh;
+}
+
+#registry-main {
+  margin: 10vh auto;
 }
 
 /* #region Start of media queries below: */
@@ -676,7 +699,7 @@ body.noscroll {
     flex-direction: row;
     align-items: center;
     padding: 0 100px;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, 0.3);
   }
 
   .nav-links.open-links {
@@ -700,7 +723,7 @@ body.noscroll {
   .nav-links li button {
     color: ghostwhite;
     /* font-family: "Amatic SC", cursive; */
-    font-family: 'Amaranth', sans-serif;
+    font-family: "Amaranth", sans-serif;
     padding-left: 10px;
     padding-right: 10px;
     text-decoration: none;
@@ -719,7 +742,7 @@ body.noscroll {
 
   .nav-brand {
     color: ghostwhite;
-    font-family: 'Amaranth', sans-serif;
+    font-family: "Amaranth", sans-serif;
     font-size: 25px;
     text-decoration: none;
     text-shadow: 3px 2px 2px black;
@@ -744,6 +767,10 @@ body.noscroll {
 
   .navLogo h1:nth-child(3) {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .navLogo-story {
@@ -774,10 +801,10 @@ body.noscroll {
     padding: 10vh;
     align-items: stretch;
     color: ghostwhite;
-    font-family: 'Amaranth', sans-serif;
+    font-family: "Amaranth", sans-serif;
     text-shadow: 3px 2px 2px black;
     font-size: 25px;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     margin-bottom: 5vh;
   }
 
@@ -793,7 +820,7 @@ body.noscroll {
   #index-image {
     padding-bottom: 10px;
   }
-  
+
   #index-image > img {
     width: 60%;
     padding: 125px 0;
@@ -822,7 +849,7 @@ body.noscroll {
 
   .nav-dropdown > ul {
     transition: all 0.5s ease;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, 0.3);
     margin-left: 0;
     list-style: none;
     position: absolute;
@@ -845,7 +872,7 @@ body.noscroll {
   #song-request-form > div {
     display: inherit;
     justify-content: center;
-    flex-direction: row
+    flex-direction: row;
   }
 
   #song-request-button {
@@ -877,7 +904,7 @@ body.noscroll {
     width: 90%;
     justify-content: space-evenly;
     align-items: flex-start;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, 0.3);
     margin: 120px auto 0 auto;
   }
 
@@ -886,10 +913,10 @@ body.noscroll {
     width: 40%;
     margin-top: 30px;
   }
-  
+
   .info-bio p {
     white-space: pre-line;
-  }   
+  }
 
   .favorite-spots ol {
     padding-right: 40px;
@@ -899,12 +926,12 @@ body.noscroll {
     margin: 5px 0;
     width: 40%;
   }
-  
+
   #faq-submit-form textarea {
     margin: 5px 0;
     width: 40%;
     height: 12em;
-  }  
+  }
 
   #registry-links {
     display: flex;
@@ -916,7 +943,7 @@ body.noscroll {
 
   .registry-icon {
     color: ghostwhite;
-    font-family: 'Amaranth', sans-serif;
+    font-family: "Amaranth", sans-serif;
     text-decoration: none;
     cursor: pointer;
     text-shadow: 3px 2px 2px black;
@@ -927,25 +954,41 @@ body.noscroll {
     display: flex;
     flex-direction: column;
     margin: 125px auto 100px auto;
-    background-color: rgba(0,0,0,0.3);
-    font-family: 'Amaranth', sans-serif;
-    color: ghostwhite; 
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: "Amaranth", sans-serif;
+    color: ghostwhite;
   }
+
+  .picture-break {
+    visibility: hidden;
+  }
+
+  .navLogo {
+    color: ghostwhite;
+    font-family: "Great Vibes", cursive;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: visible;
+  }  
 }
 
 @media screen and (min-width: 890px) {
-  #rsvpPage, #faqPage {
+  #rsvpPage,
+  #faqPage {
     width: 90%;
     display: flex;
     flex-direction: column;
     margin: 125px auto 100px auto;
-    background-color: rgba(0,0,0,0.3);
-    font-family: 'Amaranth', sans-serif;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: "Amaranth", sans-serif;
     color: ghostwhite;
     text-shadow: 3px 2px 2px black;
   }
 
-  #rsvpPage > h2, #faqPage > h2 {
+  #rsvpPage > h2,
+  #faqPage > h2 {
     display: flex;
     font-size: 50px;
     margin-bottom: 10px;
@@ -969,11 +1012,13 @@ body.noscroll {
     color: lightgrey;
   }
 
-  #rsvpPage > div, #faqPage > div {
+  #rsvpPage > div,
+  #faqPage > div {
     width: 100%;
   }
 
-  #rsvpPage > div > form, #faqPage > div > form {
+  #rsvpPage > div > form,
+  #faqPage > div > form {
     width: 100%;
     text-align: center;
     padding-bottom: 10vh;
@@ -1005,7 +1050,7 @@ body.noscroll {
     margin-top: 15px;
   }
 
-  #rsvpPage > div > form > .submit-button:hover, 
+  #rsvpPage > div > form > .submit-button:hover,
   #faqPage > div > form > .submit-button:hover {
     background-color: ghostwhite;
     cursor: pointer;
@@ -1055,6 +1100,6 @@ body.noscroll {
   body.noscroll {
     overflow: hidden;
     padding-right: 15px;
-  }  
+  }
 }
 /* #endregion Start of media queries below: */
