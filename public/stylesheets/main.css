@@ -6,6 +6,7 @@ html {
   /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
   background: url("../images/new_background_unedited.jpg");
   background-attachment: fixed;
+  -webkit-background-attachment: fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -13,7 +14,7 @@ html {
   background-position: center;
   overflow: visible;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
