@@ -177,7 +177,7 @@ body.noscroll {
 #nav-container {
   background: url(../images/new_landscape.jpg);
   background-size: 320vw;
-  background-position-x: -375px;
+  background-position-x: -391px;
   background-attachment: fixed;
   display: flex;
   justify-content: center;
