@@ -429,7 +429,7 @@ body.noscroll {
 
 .open-links {
   display: flex;
-  width: 60%;
+  width: 75%;
   transition: all 0.2s linear;
 }
 
@@ -670,7 +670,7 @@ body.noscroll {
   background-color: rgba(0, 0, 0, 0.75);
   color: ghostwhite;
   position: absolute;
-  top: 60%;
+  top: 500px;
   width: 100%;
   text-align: center;
   font-family: "Great Vibes", cursive;
@@ -759,17 +759,18 @@ body.noscroll {
     color: ghostwhite;
     font-family: "Great Vibes", cursive;
     text-align: center;
-    padding: 35vh 5vh 5vh 5vh;
+    padding: 15vh 5vh 5vh 5vh;
     display: inline-block;
     font-size: 20px;
     width: 75%;
+    visibility: visible;
   }
 
   .navLogo h1:nth-child(3) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 100%;
   }
 
@@ -962,7 +963,9 @@ body.noscroll {
   .picture-break {
     visibility: hidden;
   }
+}
 
+@media screen and (min-width: 890px) {
   .navLogo {
     color: ghostwhite;
     font-family: "Great Vibes", cursive;
@@ -970,11 +973,10 @@ body.noscroll {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 15% 0 0 0;
     visibility: visible;
   }  
-}
 
-@media screen and (min-width: 890px) {
   #rsvpPage,
   #faqPage {
     width: 90%;
