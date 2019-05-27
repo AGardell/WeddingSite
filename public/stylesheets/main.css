@@ -183,6 +183,7 @@ body.noscroll {
   justify-content: center;
   align-content: center;
   height: 500px;
+  visibility: hidden;
 }
 
 .navLogo {
