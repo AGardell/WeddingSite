@@ -6,7 +6,6 @@ html {
   /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
   background: url("../images/new_background_resized.jpg");
   background-attachment: fixed;
-  -webkit-background-attachment: fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -179,7 +178,7 @@ body.noscroll {
   background: url("../images/new_landscape_resized.jpg");
   background-size: 320vw;
   background-position-x: -391px;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
   display: flex;
   justify-content: center;
   align-content: center;
@@ -688,7 +687,7 @@ body.noscroll {
     background: url("../images/new_landscape_resized.jpg");
     background-size: cover;
     background-position-x: center;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     display: flex;
     justify-content: center;
     align-content: center;
