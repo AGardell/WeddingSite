@@ -7,17 +7,20 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
   overflow: auto;
 }
 
-#ios-wrapper {
- /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
- background: url("../images/new_background_resized.jpg");
- background-attachment: fixed;
- -moz-background-size: cover;
- -webkit-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
- background-position: center;
- overflow: visible;
- background-repeat: no-repeat;
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url("../images/new_background_resized.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
