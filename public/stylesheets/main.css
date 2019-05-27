@@ -4,7 +4,7 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
 
 html {
   /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
-  background: url("../images/new_background.JPG");
+  background: url("../images/new_background_resized.jpg");
   background-attachment: fixed;
   -webkit-background-attachment: fixed;
   -moz-background-size: cover;
@@ -176,7 +176,7 @@ body.noscroll {
 }
 
 #nav-container {
-  background: url(../images/new_landscape.jpg);
+  background: url("../images/new_landscape_resized.jpg");
   background-size: 320vw;
   background-position-x: -391px;
   background-attachment: fixed;
@@ -685,7 +685,7 @@ body.noscroll {
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   #nav-container {
-    background: url("../images/new_landscape.jpg");
+    background: url("../images/new_landscape_resized.jpg"));
     background-size: cover;
     background-position-x: center;
     background-attachment: fixed;
