@@ -690,7 +690,7 @@ body.noscroll {
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   #nav-container {
-    background: url("../images/new_landscape_resized.jpg");
+    background: url("../images/new_landscape_resized.jpg"));
     background-size: cover;
     background-position-x: center;
     /* background-attachment: fixed; */
