@@ -3,8 +3,8 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
 }
 
 html {
-  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
-  background: url("../images/new_background_resized.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg");
+  /* background: url("../images/new_background_resized.jpg"); */
   background-attachment: fixed;
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -14,7 +14,7 @@ html {
   overflow: visible;
   background-repeat: no-repeat;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 body {
