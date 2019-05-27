@@ -1,20 +1,23 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
   overflow: auto;
 }
 
-html {
-  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
-  background: url("../images/new_background_resized.jpg");
-  background-attachment: fixed;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-position: center;
-  overflow: visible;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
+#ios-wrapper {
+ /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("../images/1084731_baby-breath-wallpaper.jpg"); */
+ background: url("../images/new_background_resized.jpg");
+ background-attachment: fixed;
+ -moz-background-size: cover;
+ -webkit-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ background-position: center;
+ overflow: visible;
+ background-repeat: no-repeat;
 }
 
 body {
@@ -527,7 +530,7 @@ body.noscroll {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .favorite-spots {
@@ -684,7 +687,7 @@ body.noscroll {
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   #nav-container {
-    background: url("../images/new_landscape_resized.jpg"));
+    background: url("../images/new_landscape_resized.jpg");
     background-size: cover;
     background-position-x: center;
     /* background-attachment: fixed; */
