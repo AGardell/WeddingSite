@@ -4214,6 +4214,16 @@ let viewportSize = document.querySelector('meta[name="viewport"]');
 
 var guestCount = 1;
 
+function resizeBackground() {
+  let windowHeight = window.innerHeight;
+  console.log('window height is: ' + windowHeight);
+  document.body.style.height = window.innerHeight + 60 + 'px';
+  console.log('body height is: ' + document.body.clientHeight);
+};
+
+window.onresize = resizeBackground;
+resizeBackground();
+
 if (faqForm != null) {
   faqForm.addEventListener("submit", e => {
     e.preventDefault();
