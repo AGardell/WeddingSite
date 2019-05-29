@@ -4217,7 +4217,7 @@ var guestCount = 1;
 function resizeBackground() {
   let windowHeight = window.innerHeight;
   console.log('window height is: ' + windowHeight);
-  document.body.style.height = window.innerHeight + 60 + 'px';
+  document.body.style.height = window.innerHeight + 61 + 'px';
   console.log('body height is: ' + document.body.clientHeight);
 };
 
