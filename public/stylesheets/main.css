@@ -194,7 +194,7 @@ body.noscroll {
 }
 
 #nav-container {
-  background: url("../images/new_landscape_resized.jpg");
+  background: url("../images/new_landscape_resized_sharpened.jpg");
   background-size: 320vw;
   /* background-position-x: -391px; */
   background-position-x: -97%;
@@ -289,6 +289,7 @@ body.noscroll {
 
 .info-bio p {
   white-space: pre-line;
+  font-weight: bold;
   font-size: 17px;
 }
 
@@ -469,6 +470,7 @@ body.noscroll {
 #bio-header {
   font-size: 3em;
   margin-top: 2%;
+  font-weight: normal;
 }
 
 .image-grid {
@@ -704,7 +706,7 @@ body.noscroll {
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   #nav-container {
-    background: url("../images/new_landscape_resized.jpg");
+    background: url("../images/new_landscape_resized_sharpened.jpg");
     background-size: cover;
     background-position-x: center;
     background-attachment: fixed;
