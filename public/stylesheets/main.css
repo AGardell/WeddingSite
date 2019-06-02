@@ -194,7 +194,7 @@ body.noscroll {
 }
 
 #nav-container {
-  background: url("../images/new_landscape_resized_sharpened.jpg");
+  background: url("../images/new_landscape_860kb.jpg");
   background-size: 320vw;
   /* background-position-x: -391px; */
   background-position-x: -97%;
@@ -706,7 +706,7 @@ body.noscroll {
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   #nav-container {
-    background: url("../images/new_landscape_resized_sharpened.jpg");
+    background: url("../images/new_landscape_860kb.jpg");
     background-size: cover;
     background-position-x: center;
     background-attachment: fixed;
