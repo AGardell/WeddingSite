@@ -35,6 +35,7 @@ if (faqForm != null) {
 
     swal.fire({
       title: "Sending email to Alex & Michelle...",
+      heightAuto: false,
       onBeforeOpen: () => {
         swal.showLoading();
       }
@@ -52,6 +53,7 @@ if (faqForm != null) {
           swal
             .fire({
               titleText: "We Received Your Message!",
+              heightAuto: false,
               text:
                 "Thanks for reaching out! Michelle or Alex will be in contact shortly!",
               type: "success",
@@ -175,6 +177,7 @@ function createButtonElement() {
 function sendData(roomConfirm, showerRSVP) {
   swal.fire({
     title: "Sending RSVP...",
+    heightAuto: false,
     onBeforeOpen: () => {
       swal.showLoading();
     }
@@ -215,7 +218,8 @@ function sendData(roomConfirm, showerRSVP) {
             text: "Look forward to seeing you Oct 27th!",
             type: "success",
             confirmButtonText: "See you there!",
-            allowOutsideClick: false
+            allowOutsideClick: false,
+            heightAuto: false,
           })
           .then(isConfirm => {
             if (isConfirm) {
@@ -227,13 +231,15 @@ function sendData(roomConfirm, showerRSVP) {
           titleText: "Error",
           text:
             "Uh oh! Looks like something went wrong! Please double check the names and emails and try submitting again!",
-          type: "error"
+          type: "error",
+          heightAuto: false,
         });
       }
     })
     .catch(err => {
       swal.fire({
         titleText: "Error",
+        heightAuto: false,
         text: "Hmmm something went wrong..." + err,
         type: "error"
       });
@@ -314,6 +320,7 @@ if (guestList != null) {
       swal
         .fire({
           title: "Will you be requiring a hotel room?",
+          heightAuto: false,
           type: "question",
           showCancelButton: true,
           confirmButtonText: "Yes, I will be reserving a room in your block",
@@ -325,6 +332,7 @@ if (guestList != null) {
             swal
               .fire({
                 title: "Reserve a room in our block!",
+                heightAuto: false,
                 type: "info",
                 text:
                   "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
@@ -366,6 +374,7 @@ function findMatchingSong() {
   // let songList = document.getElementById("song-list");
   swal.fire({
     title: "Locating matching song...",
+    heightAuto: false,
     onBeforeOpen: () => {
       swal.showLoading();
     }
@@ -388,6 +397,7 @@ function findMatchingSong() {
         const { value: selectedSong } = await swal.fire({
           title:
             "Looks like Spotify found multiple matching titles. Please select the one you want to hear!",
+          heightAuto: false,
           type: "question",
           input: "select",
           inputOptions: options,
@@ -407,6 +417,7 @@ function findMatchingSong() {
       ) {
         swal.fire({
           title: "Is this the song you meant?",
+          heightAuto: false,
           text: response.data[0].name + ' by ' + response.data[0].artist,
           type: "question",
           showCancelButton: true,
@@ -424,6 +435,7 @@ function findMatchingSong() {
       console.log(err);
       swal.fire({
         title: "ERROR!",
+        heightAuto: false,
         text: err.response.data,
         type: "error"
       });
@@ -438,6 +450,7 @@ function sendSongData(songTitle, artist) {
 
   swal.fire({
     title: "Adding song to list...",
+    heightAuto: false,
     onBeforeOpen: () => {
       swal.showLoading();
     }
@@ -465,6 +478,7 @@ function sendSongData(songTitle, artist) {
       console.log(err);
       swal.fire({
         title: "ERROR!",
+        heightAuto: false,
         text: err.response.data,
         type: "error"
       });

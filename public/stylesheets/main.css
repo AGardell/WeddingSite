@@ -5,6 +5,19 @@ html, body {
 
 body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
   overflow: auto;
+  /* content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0; */
+  padding-right: 0px !important;
+  width: 100%;
+  height: inherit;
+  background: url("../images/new_background_resized.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
 }
 
 body:after {
@@ -238,7 +251,7 @@ body.noscroll {
   font-family: "Amaranth", sans-serif;
   text-shadow: 3px 2px 2px black;
   font-size: 25px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   margin: 10vh 2vh 2vh 2vh;
 }
 
@@ -358,7 +371,7 @@ body.noscroll {
   display: flex;
   flex-direction: column;
   margin: 10vh auto 100px auto;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   font-family: "Amaranth", sans-serif;
   color: ghostwhite;
   text-shadow: 3px 2px 2px black;
@@ -539,7 +552,7 @@ body.noscroll {
 
 .favorite-spots {
   margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   color: ghostwhite;
   text-shadow: 3px 2px 2px black;
 }
@@ -620,7 +633,7 @@ body.noscroll {
   flex-direction: column;
   align-items: center;
   width: 90%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   margin: 10vh 2vh 2vh 2vh;
 }
 
@@ -638,7 +651,7 @@ body.noscroll {
   display: flex;
   flex-direction: column;
   margin: 10vh auto 100px auto;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   font-family: "Amaranth", sans-serif;
   color: ghostwhite;
 }
@@ -706,7 +719,7 @@ body.noscroll {
     flex-direction: row;
     align-items: center;
     padding: 0 100px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   .nav-links.open-links {
@@ -812,7 +825,7 @@ body.noscroll {
     font-family: "Amaranth", sans-serif;
     text-shadow: 3px 2px 2px black;
     font-size: 25px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     margin-bottom: 5vh;
   }
 
@@ -857,7 +870,7 @@ body.noscroll {
 
   .nav-dropdown > ul {
     transition: all 0.5s ease;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     margin-left: 0;
     list-style: none;
     position: absolute;
@@ -912,7 +925,7 @@ body.noscroll {
     width: 90%;
     justify-content: space-evenly;
     align-items: flex-start;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     margin: 120px auto 0 auto;
   }
 
@@ -962,7 +975,7 @@ body.noscroll {
     display: flex;
     flex-direction: column;
     margin: 125px auto 100px auto;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     font-family: "Amaranth", sans-serif;
     color: ghostwhite;
   }
@@ -990,7 +1003,7 @@ body.noscroll {
     display: flex;
     flex-direction: column;
     margin: 125px auto 100px auto;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     font-family: "Amaranth", sans-serif;
     color: ghostwhite;
     text-shadow: 3px 2px 2px black;
