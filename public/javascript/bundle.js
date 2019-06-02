@@ -4210,6 +4210,7 @@ let imageFrameContent = document.getElementById("frameContent");
 let navDropdown = document.getElementsByClassName("nav-dropdown");
 let faqForm = document.querySelector("#faq-submit-form");
 let viewportSize = document.querySelector('meta[name="viewport"]');
+let closeImageBtn = document.querySelector('#imageFrame > span > i');
 //let landingEnter = document.getElementById("enter-website");
 
 var guestCount = 1;
@@ -4293,8 +4294,8 @@ hamburger.addEventListener("click", () => {
   });
 });
 
-if (imageFrameContent != null) {
-  imageFrameContent.addEventListener("click", () => {
+if (closeImageBtn != null) {
+  closeImageBtn.addEventListener("click", () => {
     if (imageFrame.style.display != "none") {
       imageFrame.style.display = "none";
       document.body.classList.toggle("noscroll");
