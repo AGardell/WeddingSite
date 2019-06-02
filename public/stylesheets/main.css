@@ -5,11 +5,6 @@ html, body {
 
 body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
   overflow: auto;
-  /* content: "";
-  display: block;
-  position: fixed;
-  left: 0;
-  top: 0; */
   padding-right: 0px !important;
   width: 100%;
   height: inherit;
@@ -558,7 +553,8 @@ body.noscroll {
 #location-body {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: space-around;
   padding-bottom: 100px;
 }
 
@@ -681,7 +677,8 @@ body.noscroll {
 
 #registry-links {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: space-around;
   font-size: 8em;
   flex-direction: column;
   padding: 0;
@@ -802,7 +799,8 @@ body.noscroll {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    justify-content: space-around;
     width: 100%;
   }
 
@@ -942,7 +940,8 @@ body.noscroll {
     display: flex;
     flex-direction: row;
     width: 90%;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    justify-content: space-around;
     align-items: flex-start;
     background-color: rgba(0, 0, 0, 0.6);
     margin: 120px auto 0 auto;
@@ -976,7 +975,8 @@ body.noscroll {
   #registry-links {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+ /* justify-content: space-evenly; */
+    justify-content: space-around;
     font-size: 8em;
     margin: 15vh;
   }
@@ -1120,7 +1120,8 @@ body.noscroll {
   #location-body {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    justify-content: space-around;
     margin: 125px auto 100px auto;
   }
 
