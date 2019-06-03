@@ -1,3 +1,4 @@
+require("@babel/polyfill");
 const swal = require("sweetalert2");
 const axios = require("axios");
 

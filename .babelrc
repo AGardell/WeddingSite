@@ -1,0 +1,14 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": "cover 99.5%"
+            }
+        ]   
+    ],
+    "plugins": [
+        "@babel/plugin-transform-arrow-functions",
+        "@babel/plugin-proposal-object-rest-spread"
+    ]
+}
