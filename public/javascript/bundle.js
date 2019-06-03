@@ -4226,14 +4226,14 @@ window.onresize = resizeBackground;
 resizeBackground();
 
 if (faqForm != null) {
-  faqForm.addEventListener("submit", e => {
+  faqForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const formData = new FormData(e.target);
 
     swal.fire({
       title: "Sending email to Alex & Michelle...",
       heightAuto: false,
-      onBeforeOpen: () => {
+      onBeforeOpen: function () {
         swal.showLoading();
       }
     });
@@ -4245,7 +4245,7 @@ if (faqForm != null) {
         message: formData.get("message"),
         email: formData.get("email")
       })
-      .then(response => {
+      .then(function (response) {
         if (response.data === 1) {
           swal
             .fire({
@@ -4257,7 +4257,7 @@ if (faqForm != null) {
               confirmButtonText: "OK",
               allowOutsideClick: false
             })
-            .then(isConfirm => {
+            .then(function (isConfirm) {
               if (isConfirm) {
                 e.target.reset();
               }
@@ -4267,35 +4267,49 @@ if (faqForm != null) {
   });
 }
 
-[...navDropdown].forEach(el => {
-  el.addEventListener("click", function() {
-    this.classList.toggle("pseudo-hover");
-  });
-});
+for (var i = 0; i < navDropdown.length; i++) {
+    navDropdown[i].addEventListener("click", function () {
+        this.classList.toggle("pseudo-hover");
+    });
+};
 
 // add JS to click button in order to append additional text fields for additional guests.
 // -------------------------------------------------------
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", function () {
   links.classList.toggle("open-links");
   hamburger.classList.toggle("open-links");
 });
 
-[...images].forEach(img => {
-  img.addEventListener("click", function() {
-    if (imageFrame.style.display == "none" || imageFrame.style.display == "") {
-      imageFrame.style.display = "flex";
-      imageFrameContent.src = this.src;
-      document.body.classList.toggle("noscroll");
-      viewportSize.setAttribute(
-        "content",
-        "width=device-width, initial-scale=.999, maximum-scale=2.5"
-      );
-    }
-  });
+images.forEach(function (img) {
+    img.addEventListener("click", function() {
+        if (imageFrame.style.display == "none" || imageFrame.style.display == "") {
+          imageFrame.style.display = "flex";
+          imageFrameContent.src = this.src;
+          document.body.classList.toggle("noscroll");
+          viewportSize.setAttribute(
+            "content",
+            "width=device-width, initial-scale=.999, maximum-scale=2.5"
+          );
+        }
+      });   
 });
 
+// [...images].forEach(img => {
+//   img.addEventListener("click", function() {
+//     if (imageFrame.style.display == "none" || imageFrame.style.display == "") {
+//       imageFrame.style.display = "flex";
+//       imageFrameContent.src = this.src;
+//       document.body.classList.toggle("noscroll");
+//       viewportSize.setAttribute(
+//         "content",
+//         "width=device-width, initial-scale=.999, maximum-scale=2.5"
+//       );
+//     }
+//   });
+// });
+
 if (closeImageBtn != null) {
-  closeImageBtn.addEventListener("click", () => {
+  closeImageBtn.addEventListener("click", function () {
     if (imageFrame.style.display != "none") {
       imageFrame.style.display = "none";
       document.body.classList.toggle("noscroll");
@@ -4308,7 +4322,7 @@ if (closeImageBtn != null) {
 }
 
 if (addPerson != null) {
-  addPerson.addEventListener("click", () => {
+  addPerson.addEventListener("click", function () {
     // console.log("Add person clicked!");
     let divEl = document.createElement("div");
     divEl.classList.add("form-group");
@@ -4375,7 +4389,7 @@ function sendData(roomConfirm, showerRSVP) {
   swal.fire({
     title: "Sending RSVP...",
     heightAuto: false,
-    onBeforeOpen: () => {
+    onBeforeOpen: function () {
       swal.showLoading();
     }
   });
@@ -4407,7 +4421,7 @@ function sendData(roomConfirm, showerRSVP) {
     .post(postURL, {
       guestList: guestList
     })
-    .then(response => {
+    .then(function (response) {
       if (response.data === 1) {
         swal
           .fire({
@@ -4418,7 +4432,7 @@ function sendData(roomConfirm, showerRSVP) {
             allowOutsideClick: false,
             heightAuto: false,
           })
-          .then(isConfirm => {
+          .then(function (isConfirm) {
             if (isConfirm) {
               clearRsvpForm();
             }
@@ -4433,7 +4447,7 @@ function sendData(roomConfirm, showerRSVP) {
         });
       }
     })
-    .catch(err => {
+    .catch(function (err) {
       swal.fire({
         titleText: "Error",
         heightAuto: false,
@@ -4507,7 +4521,7 @@ function clearRsvpForm() {
 }
 
 if (guestList != null) {
-  guestList.addEventListener("submit", () => {
+  guestList.addEventListener("submit", function () {
     event.preventDefault();
     let senderPage = event.srcElement.ownerDocument.URL;
     let showerRSVP = senderPage.indexOf("rsvpShower") > -1;
@@ -4523,7 +4537,7 @@ if (guestList != null) {
           confirmButtonText: "Yes, I will be reserving a room in your block",
           cancelButtonText: "No, I will find my own accomodations. Thanks!"
         })
-        .then(result => {
+        .then(function (result) {
           if (result.value) {
             roomConfirm = true;
             swal
@@ -4536,7 +4550,7 @@ if (guestList != null) {
                 confirmButtonText: "OK!",
                 allowOutsideClick: false
               })
-              .then(() => {
+              .then(function () {
                 sendData(roomConfirm, showerRSVP);
               });
           } else if (result.dismiss === swal.DismissReason.cancel) {
@@ -4558,7 +4572,7 @@ if (deleteBtn != null) {
 // ------------------------------------------------
 let songReqFrm = document.getElementById("song-request-form");
 if (songReqFrm != null) {
-  songReqFrm.addEventListener("submit", () => {
+  songReqFrm.addEventListener("submit", function () {
     event.preventDefault();
     findMatchingSong();
     //sendSongData();
@@ -4572,7 +4586,7 @@ function findMatchingSong() {
   swal.fire({
     title: "Locating matching song...",
     heightAuto: false,
-    onBeforeOpen: () => {
+    onBeforeOpen: function () {
       swal.showLoading();
     }
   });
@@ -4581,12 +4595,12 @@ function findMatchingSong() {
     .get(
       "/music?song=" + requestedSong.value + "&artist=" + requestedArtist.value
     )
-    .then(async response => {
+    .then(async function (response) {
       if (response.data.length > 1) {
         let options = {};
         let index = 0;
 
-        response.data.forEach(song => {
+        response.data.forEach(function (song) {
           options[index] = song.name + " by " + song.artist;
           index++;
         });
@@ -4619,7 +4633,7 @@ function findMatchingSong() {
           type: "question",
           showCancelButton: true,
           confirmButtonText: "Add to playlist!"
-        }).then((res) => {
+        }).then(function (res) {
           if (res.value) {
             sendSongData(response.data[0].name, response.data[0].artist);
           }
@@ -4628,7 +4642,7 @@ function findMatchingSong() {
         sendSongData(response.data[0].name, response.data[0].artist);
       }
     })
-    .catch(err => {
+    .catch(function (err) {
       console.log(err);
       swal.fire({
         title: "ERROR!",
@@ -4648,7 +4662,7 @@ function sendSongData(songTitle, artist) {
   swal.fire({
     title: "Adding song to list...",
     heightAuto: false,
-    onBeforeOpen: () => {
+    onBeforeOpen: function () {
       swal.showLoading();
     }
   });
@@ -4658,11 +4672,11 @@ function sendSongData(songTitle, artist) {
       song: songTitle,
       artist: artist
     })
-    .then(response => {
+    .then(function (response) {
       let list = document.createElement("ul");
       songList.innerHTML = "";
       songList.appendChild(list);
-      response.data.forEach(request => {
+      response.data.forEach(function (request) {
         let listItem = document.createElement("li");
         listItem.innerHTML = request.song + " | " + request.artist;
         list.appendChild(listItem);
@@ -4671,7 +4685,7 @@ function sendSongData(songTitle, artist) {
       requestedArtist.value = "";
       swal.close();
     })
-    .catch(err => {
+    .catch(function (err) {
       console.log(err);
       swal.fire({
         title: "ERROR!",
@@ -4683,7 +4697,7 @@ function sendSongData(songTitle, artist) {
 }
 
 function addDeleteEvent(button) {
-  button.addEventListener("click", () => {
+  button.addEventListener("click", function () {
     if (guestCount > 1) {
       let removeEl = document.querySelector(".form-group:last-of-type");
       removeEl.parentElement.removeChild(removeEl);
