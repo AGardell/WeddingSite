@@ -1,4 +1,74 @@
-html, body {
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    list-style: none;
+    margin-bottom: 0px;
+    position: static;
+    background: none;
+    margin: 0 auto;
+    padding: 15px 0 0 0;
+  }
+
+  #vital-information {
+    display: flex;
+    flex-direction: column;
+    padding: 10vh;
+    align-items: stretch;
+    color: ghostwhite;
+    font-family: "Amaranth", sans-serif;
+    text-shadow: 3px 2px 2px black;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 5vh;
+  }
+
+  #our-story-main {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 120px auto 0 auto;
+  }
+
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    grid-template-columns: repeat(6, 13%);
+    margin-top: 40px;
+    grid-gap: 10px;
+    justify-content: center;
+  }
+
+  figure {
+    margin: 0 0;
+  }
+
+  .grid-thumbnail-image {
+    object-fit: cover;
+    height: 400px;
+    cursor: pointer;
+    box-shadow: 4px 4px 3px black;
+  }
+
+  .weddingTag {
+    font-family: "Great Vibes", cursive;
+    font-size: 3em;
+    text-shadow: 7.8px 3px 2px black, 4px 1px 2px black;
+  }
+
+  #song-request-button {
+    width: 100px;
+  }
+}
+
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -8,11 +78,12 @@ body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
   padding-right: 0px !important;
   width: 100%;
   height: inherit;
-  background: url("../images/new_background_resized.jpg") no-repeat center center;
+  background: url("../images/new_background_resized.jpg") no-repeat center
+    center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;  
+  background-size: cover;
 }
 
 body:after {
@@ -24,7 +95,8 @@ body:after {
   width: 100%;
   height: inherit;
   z-index: -10;
-  background: url("../images/new_background_resized.jpg") no-repeat center center;
+  background: url("../images/new_background_resized.jpg") no-repeat center
+    center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -298,7 +370,6 @@ body.noscroll {
   transition: 0.5s;
   opacity: 0.4;
 }
-
 
 #imageFrame > span > i {
   font-size: 50px;
@@ -703,7 +774,7 @@ body.noscroll {
   width: 100%;
   text-align: center;
   font-family: "Great Vibes", cursive;
-  padding: .5vh;
+  padding: 0.5vh;
 }
 
 #registry-main {
@@ -975,7 +1046,7 @@ body.noscroll {
   #registry-links {
     display: flex;
     flex-direction: row;
- /* justify-content: space-evenly; */
+    /* justify-content: space-evenly; */
     justify-content: space-around;
     font-size: 8em;
     margin: 15vh;
@@ -1014,7 +1085,7 @@ body.noscroll {
     align-items: center;
     padding: 15% 0 0 0;
     visibility: visible;
-  }  
+  }
 
   #rsvpPage,
   #faqPage {
