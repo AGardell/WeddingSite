@@ -45,10 +45,10 @@ if (faqForm != null) {
 
     axios
       .post("/faq", {
-        name: formData.get("name"),
-        subject: formData.get("subject"),
-        message: formData.get("message"),
-        email: formData.get("email")
+        name: document.getElementById('faq-name').value,
+        subject: document.getElementById('faq-subject').value,
+        message: document.getElementById('faq-message').value,
+        email: document.getElementById('faq-email').value
       })
       .then(response => {
         if (response.data === 1) {
