@@ -1,6 +1,7 @@
 require("@babel/polyfill");
 const swal = require("sweetalert2");
 const axios = require("axios");
+const emailer = require("../../modules/emailer");
 
 let hamburger = document.getElementById("hamburger");
 let links = document.getElementById("links");
@@ -17,6 +18,7 @@ let faqForm = document.querySelector("#faq-submit-form");
 let viewportSize = document.querySelector('meta[name="viewport"]');
 let closeImageBtn = document.querySelector('#imageFrame > span > i');
 //let landingEnter = document.getElementById("enter-website");
+let responseRSVP = "";
 
 var guestCount = 1;
 
@@ -125,7 +127,7 @@ if (addPerson != null) {
     // divEl.appendChild(createButtonElement());
     guestList.insertBefore(
       divEl,
-      document.querySelector("#guest-list > .submit-button")
+      document.querySelector("#guest-list > #button-group")
     );
     guestCount += 1;
   });
@@ -165,11 +167,21 @@ function createEmailElement(num) {
   return emailEl;
 }
 
-function createButtonElement() {
+function createButtonElement(text) {
   let buttonEl = document.createElement("button");
   buttonEl.classList.add("submit-button");
   buttonEl.type = "submit";
-  buttonEl.appendChild(document.createTextNode("SEND RSVP"));
+
+  if (text == "DECLINE RSVP")
+  {
+    buttonEl.id = "declineRSVP"
+  }
+  else
+  {
+    buttonEl.id = "sendRSVP"
+  }
+
+  buttonEl.appendChild(document.createTextNode(text));
   // buttonEl.appendChild(document.createTextNode('\u00A0\u00A0Click me to add additional guests!'));
   return buttonEl;
 }
@@ -177,14 +189,6 @@ function createButtonElement() {
 // JS to compile proper JSON object before sending.
 // -------------------------------------------------------
 function sendData(roomConfirm, showerRSVP) {
-  swal.fire({
-    title: "Sending RSVP...",
-    heightAuto: false,
-    onBeforeOpen: () => {
-      swal.showLoading();
-    }
-  });
-
   let guestList = {};
   for (var i = 0; i < guestCount; i++) {
     let firstname = document.getElementsByName("firstname" + i)[0].value;
@@ -210,7 +214,8 @@ function sendData(roomConfirm, showerRSVP) {
   // ------------------------------------------------
   axios
     .post(postURL, {
-      guestList: guestList
+      guestList: guestList,
+      response: responseRSVP
     })
     .then(response => {
       if (response.data === 1) {
@@ -228,7 +233,24 @@ function sendData(roomConfirm, showerRSVP) {
               clearRsvpForm();
             }
           });
-      } else {
+      } 
+      else if (response.data === 2)
+      {
+        swal
+          .fire({
+            titleText: "RSVP Declined",
+            text: "We wish you would be able to attend, but we understand. Thanks for letting us know!",
+            confirmButtonText: "OK",
+            allowOutsideClick: false,
+            heightAuto: false,
+          })
+          .then(isConfirm => {
+            if (isConfirm) {
+              clearRsvpForm();
+            }
+          });
+      }
+      else {
         swal.fire({
           titleText: "Error",
           text:
@@ -308,50 +330,97 @@ function clearRsvpForm() {
   addDeleteEvent(iconEl);
   guestList.appendChild(iconEl);
   guestList.appendChild(divEl);
-  guestList.appendChild(createButtonElement());
+
+  let btnEl = document.createElement("section");
+  btnEl.id = "button-group";
+
+  btnEl.appendChild(createButtonElement("SEND RSVP"));
+  btnEl.appendChild(createButtonElement("DECLINE RSVP"));
+  // guestList.appendChild(createButtonElement("SEND RSVP"));
+  // guestList.appendChild(createButtonElement("DECLINE RSVP"));
+
+  guestList.appendChild(btnEl);
+  addButtonEvent();
+}
+
+function addButtonEvent () {
+  document.getElementById('sendRSVP').addEventListener("click", () => {
+    responseRSVP = "confirm";
+  });
+  
+  document.getElementById('declineRSVP').addEventListener("click", () => {
+    responseRSVP = "decline";
+  });
 }
 
 if (guestList != null) {
-  guestList.addEventListener("submit", () => {
-    event.preventDefault();
+  addButtonEvent();
+  guestList.addEventListener("submit", async (e) => {
+    e.preventDefault();
     let senderPage = event.srcElement.ownerDocument.URL;
     let showerRSVP = senderPage.indexOf("rsvpShower") > -1;
     let roomConfirm = false;
 
-    if (!showerRSVP) {
-      swal
-        .fire({
-          title: "Will you be requiring a hotel room?",
-          heightAuto: false,
-          type: "question",
-          showCancelButton: true,
-          confirmButtonText: "Yes, I will be reserving a room in your block",
-          cancelButtonText: "No, I will find my own accomodations. Thanks!"
-        })
-        .then(result => {
-          if (result.value) {
-            roomConfirm = true;
-            swal
-              .fire({
-                title: "Reserve a room in our block!",
+    if (responseRSVP == "confirm") {
+      if (!showerRSVP) {
+        swal
+          .fire({
+            title: "Will you be requiring a hotel room?",
+            heightAuto: false,
+            type: "question",
+            showCancelButton: true,
+            confirmButtonText: "Yes, I will be reserving a room in your block",
+            cancelButtonText: "No, I will find my own accomodations. Thanks!"
+          })
+          .then(result => {
+            if (result.value) {
+              roomConfirm = true;
+              swal
+                .fire({
+                  title: "Reserve a room in our block!",
+                  heightAuto: false,
+                  type: "info",
+                  text:
+                    "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
+                  confirmButtonText: "OK!",
+                  allowOutsideClick: false
+                })
+                .then(() => {
+                  swal.fire({
+                    title: "Sending RSVP...",
+                    heightAuto: false,
+                    onBeforeOpen: () => {
+                      swal.showLoading();
+                    }
+                  });
+                  sendData(roomConfirm, showerRSVP);
+                });
+            } else if (result.dismiss === swal.DismissReason.cancel) {
+              swal.fire({
+                title: "Sending RSVP...",
                 heightAuto: false,
-                type: "info",
-                text:
-                  "You can reserve a room at our block by calling (865)-881-0048 and mention the Gardell-Wagner Wedding Group!",
-                confirmButtonText: "OK!",
-                allowOutsideClick: false
-              })
-              .then(() => {
-                sendData(roomConfirm, showerRSVP);
+                onBeforeOpen: () => {
+                  swal.showLoading();
+                }
               });
-          } else if (result.dismiss === swal.DismissReason.cancel) {
-            sendData(roomConfirm, showerRSVP);
-          }
-        });
-    } else {
+              sendData(roomConfirm, showerRSVP);
+            }
+          });
+      } else {
+        sendData(roomConfirm, showerRSVP);
+      }
+    }
+    else if (responseRSVP == "decline") {
+      swal.fire({
+        title: "Declining RSVP...",
+        heightAuto: false,
+        onBeforeOpen: () => {
+          swal.showLoading();
+        }
+      });  
       sendData(roomConfirm, showerRSVP);
     }
-  });
+   });
 }
 
 if (deleteBtn != null) {

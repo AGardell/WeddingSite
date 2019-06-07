@@ -124,3 +124,65 @@ module.exports.sendFaqAlert = function(name, subject, email, message) {
     );
   });
 };
+
+module.exports.declineRSVP = function(guestList) {
+  return new Promise((resolve, reject) => {
+    let guestListHtml = guestList.reduce((totalGuests, guest) => {
+      return (
+        totalGuests + "<p>" + guest.firstname + " " + guest.lastname + "</p>"
+      );
+    }, "");
+
+    transporter.sendMail(
+      {
+        from: "goinggardell@gmail.com",
+        to: "alexgardell@yahoo.com",
+        subject: "Someone will not be able to make the wedding :(",
+        html:
+          `<p>The following person(s) have declined their RSVP. Please see below:
+                    <br/>
+                    <br/>` +
+          guestListHtml +
+          `</p>`
+      },
+      (err, info) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(info);
+        }
+      }
+    );
+  });
+};
+
+module.exports.declineRSVPShower = function(guestList) {
+  return new Promise((resolve, reject) => {
+    let guestListHtml = guestList.reduce((totalGuests, guest) => {
+      return (
+        totalGuests + "<p>" + guest.firstname + " " + guest.lastname + "</p>"
+      );
+    }, "");
+
+    transporter.sendMail(
+      {
+        from: "goinggardell@gmail.com",
+        to: ["betts109@gmail.com", "alexgardell@yahoo.com"],
+        subject: "Someone will not be able to make the Bridal Shower :(",
+        html:
+          `<p>The following person(s) have declined their RSVP. Please see below:
+                    <br/>
+                    <br/>` +
+          guestListHtml +
+          `</p>`
+      },
+      (err, info) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(info);
+        }
+      }
+    );
+  });
+};

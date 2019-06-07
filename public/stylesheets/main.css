@@ -712,6 +712,18 @@ body.noscroll {
   margin: 10vh auto;
 }
 
+#button-group {
+  font-size: 20px;
+  /* margin: 0 32% 0 32%; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#button-group button {
+  margin: 10px;
+}
+
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   #nav-container {
@@ -1145,6 +1157,14 @@ body.noscroll {
     overflow: hidden;
     padding-right: 15px;
   }
+
+  /* #button-group {
+    font-size: 20px;
+    margin: 0 32% 0 32%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }   */
 }
 /* #endregion Start of media queries below: */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
