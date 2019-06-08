@@ -239,7 +239,7 @@ function sendData(roomConfirm, showerRSVP) {
         swal
           .fire({
             titleText: "RSVP Declined",
-            text: "We wish you would be able to attend, but we understand. Thanks for letting us know!",
+            text: "Thanks for letting us know!",
             confirmButtonText: "OK",
             allowOutsideClick: false,
             heightAuto: false,
@@ -254,7 +254,7 @@ function sendData(roomConfirm, showerRSVP) {
         swal.fire({
           titleText: "Error",
           text:
-            "Uh oh! Looks like something went wrong! Please double check the names and emails and try submitting again!",
+            "Uh oh! Looks like something went wrong! Please double check the names and emails and try submitting again! If problem persists, please reach out to Alex using the FAQ page!",
           type: "error",
           heightAuto: false,
         });
