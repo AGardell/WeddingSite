@@ -724,6 +724,14 @@ body.noscroll {
   margin: 10px;
 }
 
+#author-footer {
+  color: ghostwhite;
+  font-family: "Amaranth", sans-serif;
+  text-shadow: 3px 2px 2px black;  
+  text-align: right;
+  margin: 0 10px 10px 0;
+}
+
 /* #region Start of media queries below: */
 @media screen and (min-width: 707px) {
   #nav-container {
