@@ -1,7 +1,6 @@
 require("@babel/polyfill");
 const swal = require("sweetalert2");
 const axios = require("axios");
-const emailer = require("../../modules/emailer");
 
 let hamburger = document.getElementById("hamburger");
 let links = document.getElementById("links");
