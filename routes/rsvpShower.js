@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
       })
       .then(async () => {
         try {
-          await transporter.sendRsvpAlert(myGuests);
+          await transporter.sendBridalRSVPAlert(myGuests);
           res.send('1');
         } catch (emailerErr) {
           return next(emailerErr);
