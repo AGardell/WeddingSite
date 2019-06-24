@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
       })
       .catch(err => {
         // TODO: Look into if error proprerly being sent via email.
-        transporter.sendBridalRSVPAlert(err);
+        transporter.sendError(err, myGuests);
         res.send(err);
       });
   }

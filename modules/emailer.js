@@ -13,17 +13,28 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-module.exports.sendError = function(err) {
+module.exports.sendError = function(err, guestList) {
   return new Promise((resolve, reject) => {
+    let html = `<p>Error has occurred in the application. Please see below:
+                <br/>
+                <br/> 
+                ${err}</p>`;
+    if (guestList != undefined) {
+      guestListHtml = guestList.reduce((totalGuests, guest) => {
+        return (
+          totalGuests + "<p>" + guest.firstname + " " + guest.lastname + "</p>"
+        );
+      }, "");
+
+      html += '<br/>' + guestListHtml;
+    }
+
     transporter.sendMail(
       {
         from: "goinggardell@gmail.com",
         to: "alexgardell@yahoo.com",
         subject: "Error in application!",
-        html: `<p>Error has occurred in the application. Please see below:
-                <br/>
-                <br/> 
-                ${err}</p>`
+        html: html
       },
       (err, info) => {
         if (err) {
@@ -40,7 +51,7 @@ module.exports.sendRsvpAlert = function(guestList) {
   return new Promise((resolve, reject) => {
     let guestListHtml = guestList.reduce((totalGuests, guest) => {
       return (
-        totalGuests + "<p>" + guest.firstname + " " + guest.lastname + "</p>"
+        totalGuests + "<p>" + guest.firstname + " " + guest.lastname + "<br/>hotel: " + guest.hotelRequired + "</p>"
       );
     }, "");
 
