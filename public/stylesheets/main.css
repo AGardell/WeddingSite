@@ -397,13 +397,14 @@ body.noscroll {
 
 #add-person {
   cursor: pointer;
-  /* background-color: transparent;
-  border: none; */
+  /* background-color: transparent;*/
   color: black;
   font-size: 25px;
   /* margin-bottom: 7px; */
   margin: 0 30px 10px 30px;
   /* text-shadow: inherit; */
+  border-width: 7px;
+  border-color: gray;
 }
 
 #add-person:hover {
@@ -1078,13 +1079,14 @@ body.noscroll {
 
   #add-person {
     cursor: pointer;
-    /* background-color: transparent;
-    border: none; */
+    /* background-color: transparent;*/
     color: black;
     font-size: 25px;
     /* margin-bottom: 7px; */
     margin: 0 auto;
     /* text-shadow: inherit; */
+    border-width: 7px;
+    border-color: gray;
   }
 
   #add-person > i {
