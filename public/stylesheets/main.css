@@ -397,17 +397,29 @@ body.noscroll {
 
 #add-person {
   cursor: pointer;
-  background-color: transparent;
-  border: none;
-  color: ghostwhite;
+  /* background-color: transparent;
+  border: none; */
+  color: black;
   font-size: 25px;
-  margin-bottom: 7px;
-  text-shadow: inherit;
+  /* margin-bottom: 7px; */
+  margin: 0 30px 10px 30px;
+  /* text-shadow: inherit; */
+}
+
+#add-person:hover {
+  background: ghostwhite;
 }
 
 #add-person > i {
   font-size: 20px;
-  color: lightgrey;
+  color: black;
+}
+
+#rsvp-disclaimer {
+  width: 100%;
+  text-align: center;
+  margin: 10px auto;
+  padding: 0 10px;
 }
 
 #rsvpPage > div,
@@ -471,7 +483,6 @@ body.noscroll {
   justify-content: flex-end;
   margin: 0 auto;
   margin-bottom: 5px;
-  cursor: pointer;
 }
 
 #bio-header {
@@ -722,6 +733,11 @@ body.noscroll {
 
 #button-group button {
   margin: 10px;
+  cursor: pointer;
+}
+
+#button-group button:hover {
+  background: ghostwhite;
 }
 
 #author-footer {
@@ -1062,17 +1078,18 @@ body.noscroll {
 
   #add-person {
     cursor: pointer;
-    background-color: transparent;
-    border: none;
-    color: ghostwhite;
+    /* background-color: transparent;
+    border: none; */
+    color: black;
     font-size: 25px;
-    margin-bottom: 7px;
-    text-shadow: inherit;
+    /* margin-bottom: 7px; */
+    margin: 0 auto;
+    /* text-shadow: inherit; */
   }
 
   #add-person > i {
     font-size: 25px;
-    color: lightgrey;
+    color: black;
   }
 
   #rsvpPage > div,
@@ -1136,7 +1153,6 @@ body.noscroll {
     justify-content: flex-end;
     margin: 0 auto;
     margin-bottom: 5px;
-    cursor: pointer;
   }
 
   #location-body {
