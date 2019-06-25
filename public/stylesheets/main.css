@@ -405,7 +405,7 @@ body.noscroll {
   /* text-shadow: inherit; */
   border-width: 7px;
   border-color: gray;
-  -webkit-appearance: button;
+  -webkit-appearance: none;
 }
 
 #add-person:hover {
@@ -1088,7 +1088,7 @@ body.noscroll {
     /* text-shadow: inherit; */
     border-width: 7px;
     border-color: gray;
-    -webkit-appearance: button;
+    -webkit-appearance: none;
   }
 
   #add-person > i {
