@@ -397,7 +397,6 @@ body.noscroll {
 
 #add-person {
   cursor: pointer;
-  /* background-color: transparent;*/
   color: black;
   font-size: 25px;
   /* margin-bottom: 7px; */
@@ -1080,7 +1079,6 @@ body.noscroll {
 
   #add-person {
     cursor: pointer;
-    /* background-color: transparent;*/
     color: black;
     font-size: 25px;
     /* margin-bottom: 7px; */
