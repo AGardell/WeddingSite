@@ -399,6 +399,7 @@ body.noscroll {
   cursor: pointer;
   color: black;
   font-size: 25px;
+  background-color: lightgray;
   /* margin-bottom: 7px; */
   margin: 0 30px 10px 30px;
   /* text-shadow: inherit; */
@@ -1081,6 +1082,7 @@ body.noscroll {
     cursor: pointer;
     color: black;
     font-size: 25px;
+    background-color: lightgray;
     /* margin-bottom: 7px; */
     margin: 0 auto;
     /* text-shadow: inherit; */
