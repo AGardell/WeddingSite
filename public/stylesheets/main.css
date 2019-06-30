@@ -251,6 +251,8 @@ body.noscroll {
   font-size: 25px;
   background-color: rgba(0, 0, 0, 0.6);
   margin: 10vh 2vh 2vh 2vh;
+  width: 75%;
+  text-align: center;
 }
 
 #vital-information h2 {
@@ -261,6 +263,10 @@ body.noscroll {
 #vital-information ul {
   list-style: none;
   padding: 0;
+}
+
+#vital-information p {
+  white-space: pre-line;
 }
 
 #index-image {
@@ -877,6 +883,8 @@ body.noscroll {
     font-size: 25px;
     background-color: rgba(0, 0, 0, 0.6);
     margin-bottom: 5vh;
+    width: 75%;
+    text-align: center;
   }
 
   #vital-information h2 {
@@ -1221,6 +1229,8 @@ body.noscroll {
     font-size: 25px;
     background-color: rgba(0, 0, 0, 0.6);
     margin-bottom: 5vh;
+    width: 75%;
+    text-align: center;
   }
 
   #our-story-main {
